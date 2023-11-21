@@ -1,0 +1,112 @@
+---
+title: "Conference Program"
+output:
+  html_document:
+    theme: cosmo
+---
+
+<style type="text/css">
+h1.title {
+  font-size: 36px;
+  color: DarkRed;
+  text-align: center;
+}
+</style>
+  
+<!-- # Adaptive Designs and Multiple Testing Procedures Workshop -->  
+  
+## **Day 1: April 25, 2024**
+
+<hr>
+
+#### Registration (9:00 AM - 9:30 AM)
+
+#### Welcome (9:30 AM - 9:45 AM) 
+  
+#### Invited Session 1 (9:45 AM - 11:00 AM)
+
+- **Chair**: *TBA*
+
+  - *TBA*
+
+  
+#### Coffee Break (11:00 AM - 11:30 AM)
+  
+#### Morning Session 1 (11:30 AM - 1:00 PM)
+
+- **Chair:** *TBA*
+- **Speakers:**
+  - *TBA*
+  - *TBA*
+  - *TBA*
+  - *TBA*
+  
+#### Lunch Break (1:00 PM - 2:30 PM)
+  
+#### Afternoon Session 1 (2:30 PM - 4:00 PM)
+
+- **Chair:** *TBA*
+- **Speakers:**
+  - *TBA*
+  - *TBA*
+  - *TBA*
+  - *TBA*
+  
+#### Coffee Break (4:00 PM - 4:30 PM)
+  
+#### Afternoon Session 2 (4:30 PM - 5:30 PM)
+
+- **Chair:** *TBA*
+- **Speakers:**
+  - *TBA*
+  - *TBA*
+  
+#### Gala Dinner (7:00 PM onwards)
+
+- Join us for a gala dinner at a local venue to celebrate the first day of the workshop.
+
+</br>
+</br>
+
+## **Day 2: April 26, 2024**
+
+<hr>
+
+#### Invited session 2 (10:00 AM - 11:00 AM)
+
+- **Chair**: *TBA*
+
+  - *TBA*
+
+#### Coffee Break (11:00 AM - 11:30 AM)
+  
+#### Morning Session 2 (11:30 AM - 1:00 PM)
+
+- **Chair:** *TBA*
+- **Speakers:**
+  - *TBA*
+  - *TBA*
+  - *TBA*
+  - *TBA*
+  
+#### Lunch Break (1:00 PM - 2:30 PM)
+  
+#### Afternoon Session 3 (2:30 PM - 4:00 PM)
+
+- **Chair:** *TBA*
+- **Speakers:**
+  - *TBA*
+  - *TBA*
+  - *TBA*
+  - *TBA*
+  
+#### Coffee Break (4:00 PM - 4:30 PM)
+  
+#### Afternoon Session 2 (4:30 PM - 5:30 PM)
+
+- **Chair:** *TBA*
+- **Speakers:**
+  - *TBA*
+  - *TBA*
+
+  

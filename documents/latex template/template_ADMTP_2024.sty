@@ -1,0 +1,99 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\parskip    = 2mm
+\headsep = 4mm \textheight = 200mm \textwidth  = 160mm \oddsidemargin = 0mm \evensidemargin= 0mm \topmargin     = 8mm
+\parindent = 10mm
+\pagestyle{empty}
+\def\arraystrecht{1.2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{times}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\author#1{\def\theauthor{#1}}
+\def\title#1{\def\thetitle{#1}\markboth{#1}{}}
+\def\address#1{\def\theaddress{#1}}
+
+\def\Title{\begin{center}{\Large\bf \thetitle}\par{\large \it \theauthor}\par{\theaddress}\vspace{0.5cm}\end{center}
+
+\addcontentsline{toc}{chapter}{\thetitle\ {\em \theauthor}\hfill}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\keywords#1{\vspace{0.5cm}\par\noindent{\bf Keywords: }#1\par  \vspace{1.5cm}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength\abovecaptionskip{0pt} %10pt
+\setlength\belowcaptionskip{0pt}
+
+
+\def\section#1
+     {
+     \refstepcounter{section}
+     \def\thesection{\arabic{section}}
+     \par
+     \goodbreak
+        {
+        \raggedright
+     \bf \hspace{1mm}\makebox[10mm][l]{\large\bf \thesection.} \large\bf #1
+        \par\nopagebreak
+        }
+     }
+
+\def\marksection#1#2
+     {
+     \refstepcounter{section}
+     \def\thesection{\arabic{section}}
+     \par
+     \goodbreak
+        {
+        \raggedright
+     \bf \makebox[10mm][l]{\bf \thesection.} #1
+        \par\nopagebreak
+        }
+     \addcontentsline{toc}{section}{$\qquad$\thesection.\ \ #1}
+     \markright{\hfill\thechapter.\thesection\ #2\ \ \ }
+     }
+
+\def\subsection#1
+     {
+     \refstepcounter{subsection}
+     \def\thesubsection{\arabic{subsection}}
+     \par
+     \goodbreak
+        {
+        \raggedright
+     \bf \makebox[10mm][l]{\bf \thesection.\thesubsection.} #1
+        \par\nopagebreak
+        }
+     }
+
+\def\subsubsection#1
+     {
+     \refstepcounter{subsubsection}
+     \def\thesubsubsection{\arabic{subsubsection}}
+     \par
+     \goodbreak
+        {
+        \raggedright
+     \bf \makebox[10mm][l]{\bf \thesection.\thesubsection.\thesubsubsection.}
+#1
+        \par\nopagebreak
+        }
+     }
+
+\def\thebibliography#1{\section{\bibname}
+\list
+  {\@biblabel{\arabic{enumiv}}}{\settowidth\labelwidth{\@biblabel{#1}}%
+    \leftmargin\labelwidth
+    \advance\leftmargin\labelsep
+    \usecounter{enumiv}%
+    \let\p@enumiv\@empty
+    \def\theenumiv{\arabic{enumiv}}}%
+    \def\newblock{\hskip .11em plus.33em minus.07em}%
+    \sloppy\clubpenalty4000\widowpenalty4000
+    \sfcode`\.=\@m}
+
+\def\endthebibliography{%
+  \def\@noitemerr{\@warning{Empty `thebibliography' environment}}%
+  \endlist}

@@ -1,0 +1,41 @@
+name: "ADMTP 2024"
+output_dir: "."
+navbar:
+  title: "ADMTP 2024"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Welcome"
+      menu:
+      - text: "Committees"
+        href: comitte.html
+      - text: "Statement on Proper Conduct"
+        href: proper_conduct.html 
+    - text: "Program"
+      menu:
+      - text: "Schedule at glance"
+        href: program.html
+      #- text: "Book of Abstracts"
+      #  href: ADMTP_Basel2023_Booklet.pdf   
+    - text: "Invited sessions"
+      href: invited.html
+    #- text: "Workshop booklet"
+    #  href: ADMTP_Basel2023_Booklet.pdf
+    - text: "Conference info"
+      menu:
+      - text: "Venue"
+        href: venue.html 
+      - text: "Conference deadlines"
+        href: dates.html 
+      #- text: "Hotel information"
+      #  href: hotels.html
+      - text: "Registration"
+        href: registration.html 
+      - text: "Abstract submission"
+        href: abstract.html 
+    #- text: "Presentations"
+    #  href: presentations.html
+output:
+  html_document:
+    theme: cosmo
+    highlight: tango

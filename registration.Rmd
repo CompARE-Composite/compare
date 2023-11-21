@@ -1,0 +1,50 @@
+---
+title: "Registration"
+output:
+  html_document:
+    theme: cosmo
+---
+
+<style type="text/css">
+h1.title {
+  font-size: 36px;
+  color: DarkRed;
+  text-align: center;
+}
+</style>
+
+<!-- # Registration -->
+
+## Registration Dates
+
+- **Registration Opens:** October 1, 2023
+- **Registration Deadline:** March 1, 2024
+
+## Registration Process
+
+Registration for the conference is now open! To register, please fill out the [Registration Form](https://www.conftool.org/admtp-workshop-2024) before the deadline. 
+<!-- Registration is free of charge, but a deposit of 50 € will be required before the conference. -->
+
+**Registration fees:** 
+
+- Regular: 100 € 
+- Students: 50 €
+
+In the confirmation email after the registration you will receive a **10% discount code** for the reservation in the [hotel](https://admtp.github.io/ADMTP2024/venue.html) where the workshop will be held. This is a special offer for attendees of the workshop. 
+
+<!-- ## Deposit Information -->
+
+<!-- - A deposit of 50 € is required to secure your registration. -->
+<!-- - The deposit will be returned in full to attendees upon check-in at the conference. -->
+<!-- - Please note that the deposit will not be refunded for no-shows or cancellations. -->
+
+## Payment Instructions
+
+After completing the registration form, you will receive an email with payment instructions. Payment can be made via bank transfer or online payment methods. Please ensure that the payment is made by the specified deadline to secure your registration.
+
+## Contact Information
+
+If you have any questions or need further assistance regarding registration, please contact our registration team at marta.bofillroig@meduniwien.ac.at.
+
+We look forward to welcoming you to the conference!
+

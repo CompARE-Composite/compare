@@ -1,0 +1,35 @@
+---
+title: "Statement on proper conduct"
+output:
+  html_document:
+    theme: cosmo
+---
+
+<!-- # Conference Organizers -->
+
+<style type="text/css">
+h1.title {
+  font-size: 36px;
+  color: DarkRed;
+  text-align: center;
+}
+</style>
+
+The Austro-Swiss Region of the International Biometric Society is committed to fostering a professional and inclusive environment at all times. We endorse the values of the International Biometric Society (IBS) and expect all members, employees, and attendees of events organized by IBS to adhere to the principles outlined below:
+
+- **Scientific and Ethical Integrity**: We prioritize scientific rigor and ethical conduct in all aspects of our work. We encourage open and honest communication, adherence to best practices, and the highest standards of research integrity.
+
+- **Respectful Conduct**: We promote a culture of respect and inclusivity. We value and embrace the diversity of our community and are committed to treating all individuals with dignity and respect. We reject discrimination or harassment based on gender, gender identity and expression, age, sexual orientation, disability, physical appearances, race, religion (or lack thereof), or beliefs.
+
+- **Considerate Behavior**: We expect all individuals associated with IBS to engage in considerate and professional behavior in their speech and actions. This includes being mindful of the impact of our words and actions on others, actively listening, and fostering an environment that encourages collaboration and mutual respect.
+
+- **Zero Tolerance for Harassment**: We have a zero-tolerance policy for any form of demeaning, discriminatory, or harassing behavior or speech. Such behavior includes, but is not limited to, verbal or written abuse, intimidation, unwanted advances, offensive jokes, or derogatory comments. We encourage individuals who experience or witness such behavior to report it promptly.
+
+If you have any questions or concerns regarding the code of conduct or wish to report an incident, please contact the International Biometric Office at conference@biometricsociety.org. We are committed to addressing any issues and ensuring a safe and respectful environment for all participants.
+
+By attending this conference or engaging in any activities associated with the Austro-Swiss Region of the International Biometric Society, you signify your agreement to abide by these principles and contribute to a welcoming and inclusive community.
+
+Thank you for your cooperation in upholding these standards of conduct.
+
+The Austro-Swiss Region of the International Biometric Society
+
