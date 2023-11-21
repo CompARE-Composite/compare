@@ -1,6 +1,6 @@
 ---
 title: "CompARE"
-subtitle: "Adaptive Designs and Multiple Testing Procedures Workshop <br> 25th - 26th April, 2024"
+subtitle: "CompARE - Hello this is a test!"
 output:
   html_document:
     theme: cosmo
