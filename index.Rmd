@@ -57,7 +57,7 @@ h1.title {
 
 ```{=html}
 <head>
-<title>ADMTP2024</title>
+<title>CompARE</title>
 </head>
 ```
 
