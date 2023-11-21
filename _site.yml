@@ -1,27 +1,27 @@
-name: "ADMTP 2024"
+name: "CompARE"
 output_dir: "."
 navbar:
-  title: "ADMTP 2024"
+  title: "CompARE"
   left:
-    - text: "Home"
+    - text: "WHAT IS IT?"
       href: index.html
-    - text: "Welcome"
+    - text: "ABOUT US"
       menu:
       - text: "Committees"
         href: comitte.html
       - text: "Statement on Proper Conduct"
         href: proper_conduct.html 
-    - text: "Program"
+    - text: "EXPERTISE"
       menu:
       - text: "Schedule at glance"
         href: program.html
       #- text: "Book of Abstracts"
       #  href: ADMTP_Basel2023_Booklet.pdf   
-    - text: "Invited sessions"
+    - text: "PUBLICATIONS"
       href: invited.html
     #- text: "Workshop booklet"
     #  href: ADMTP_Basel2023_Booklet.pdf
-    - text: "Conference info"
+    - text: "TALKS"
       menu:
       - text: "Venue"
         href: venue.html 
