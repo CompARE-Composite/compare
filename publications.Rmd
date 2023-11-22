@@ -1,0 +1,31 @@
+---
+title: "Publications"
+output:
+  html_document:
+    theme: cosmo
+---
+
+```{=html}
+<style type="text/css">
+h1.title {
+  font-size: 36px;
+  color: DarkRed;
+  text-align: center;
+}
+</style>
+```
+1.  [M. Bofill, J. Cortés and G. Gómez (2020). Decision tool and Sample Size Calculator for Composite Endpoints. arXiv:2001.03396](https://arxiv.org/abs/2001.03396)
+
+2.  [M. Bofill and G. Gómez (2019). A new approach for sizing trials with composite binary endpoints using anticipated marginal values and accounting for the correlation between components. Statistics in Medicine. DOI 10.1002/sim.8092](https://arxiv.org/abs/1807.01305)
+
+3.  [M. Bofill and G. Gómez (2017). Selection of composite binary endpoints in clinical trials. Biom J. 2018 Mar;60(2):246-261. DOI 10.1002/bimj.201600229](https://pubmed.ncbi.nlm.nih.gov/29023990/)
+
+4.  [G. Gómez, O.Plana-Ripoll and U.Dafni. (2016). Selection of the primary endpoint in an observational cohort study. Journal of Epidemiology and Community Health. Volume 70, Issue 10, pp 950-953](https://pubmed.ncbi.nlm.nih.gov/27072869/)
+
+5.  [O. Plana and G. Gómez. (2016). Selecting the primary endpoint in randomized clinical trial. The ARE method. Journal of Biopharmaceutical Statistics. Volume 26, Issue 5, 880-898.](https://pubmed.ncbi.nlm.nih.gov/26400217/)
+
+6.  [Gómez, G. and Gómez-Mateu, M. (2014) The Asymptotic Relative Efficiency and the ratio of sample sizes when testing two different null hypotheses. SORT: Statistics and Operations Research Transactions. Vol. 38, num 1, pp. 73-88.](https://www.raco.cat/index.php/SORT/article/view/277219/365151)
+
+7.  [Gómez, G, Gómez-Mateu, M and Dafni, U. (2014) Informed Choice of Composite End Points in Cardiovascular Trials. Circulation: Cardiovascular Quality and Outcomes. Vol 7, pp 170-178.](https://pubmed.ncbi.nlm.nih.gov/24425702/)
+
+8.  [Gómez, G. and Lagakos, S.W. (2013) Statistical considerations when using a composite endpoint for comparing treatment groups. Statistics in Medicine. Vol 32(5), pp. 719-738.](https://pubmed.ncbi.nlm.nih.gov/22855368/)

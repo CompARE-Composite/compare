@@ -1,0 +1,42 @@
+---
+title: "About us"
+output:
+  html_document:
+    theme: cosmo
+---
+
+<style type="text/css">
+h1.title {
+  font-size: 36px;
+  color: DarkRed;
+  text-align: center;
+}
+</style>
+
+
+
+### GRBIO
+
+[Research group Web-page](https://grbio.upc.edu/en)
+
+<hr>
+
+### Lupe Gómez Melis
+
+[Personal Web-page](https://grbio.upc.edu/en/about-us/cv/lupe-gomez)
+
+<hr>
+
+### Marta Bofill Roig
+
+[Personal Web-page](https://martabofillroig.github.io/)
+
+<hr>
+
+
+### Jordi Cortés-Martínez
+
+[Personal Web-page](https://jordi-cortes.netlify.app/)
+
+<hr>
+

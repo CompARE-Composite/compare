@@ -6,13 +6,13 @@ navbar:
     - text: "WHAT IS IT?"
       href: index.html
     - text: "ABOUT US"
-      href: comitte.html
+      href: aboutus.html
     - text: "EXPERTISE"
       href: program.html
     - text: "PUBLICATIONS"
-      href: invited.html
+      href: publications.html
     - text: "TALKS"
-      href: venue.html
+      href: talks.html
     - text: "OUTREACH"
       href: registration.html 
     - text: "CONTACT"
