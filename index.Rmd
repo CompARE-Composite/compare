@@ -1,6 +1,6 @@
 ---
 title: "CompARE"
-subtitle: "Welcome to CompARE"
+subtitle: "Welcome to CompARE - Designing feasible clinical trials"
 output:
   html_document:
     theme: cosmo
@@ -78,6 +78,51 @@ slickR::slickR(
 
 
 <br>
+
+<br>
+
+### What is CompARE?
+
+<hr>
+
+**CompARE** is a web-platform inspired to provide help on issues
+relating to trials with composite endpoints. **CompARE** may be used as
+a tool for calculating the elements needed in the planning phase of
+clinical trials involving composite endpoints. With its user-friendly
+interface, CompARE allows to input the main parameters included in the
+trial -such as the treatment effect on the components of the composite
+endpoint, and its frequencies of occurrence- and helps provide power and
+sample size calculations among others.
+
+<br>
+
+### Apps
+
+<hr>
+
+**CompARE** is split into two apps for time-to-event and binary
+endpoints, respectively. They are implemented with the Shiny R package.
+<br> Time to event app (button) and binary app (button)
+
+<br>
+
+### Features
+
+<hr>
+
+-   Effect size: Studying the treatment effect for the composite
+    endpoint
+
+-   Sample Size: Computing the number of patients under different
+    scenarios
+
+-   Endpoint Selection: Identifying the best endpoint combination for
+    the design
+
+-   Association:Assessing the degree of association between components
+
+<br>
+<hr>
 
 We are delighted to announce the next annual workshop of the joint working group “Adaptive Designs and Multiple Testing Procedures” of the German (DR) and the Austrian-Swiss (ROeS) Regions of the International Biometric Society (IBS). The workshop will be organized jointly with the Universitat de les Illes Balears.
 
