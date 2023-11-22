@@ -6,9 +6,11 @@ navbar:
     - text: "WHAT IS IT?"
       href: index.html
     - text: "ABOUT US"
+      href: aboutus.html
+    - text: "ABOUT US 2"
       menu:
       - text: "Committees"
-        href: aboutus.html
+        href: comitte.html
       - text: "Statement on Proper Conduct"
         href: proper_conduct.html 
     - text: "EXPERTISE"
