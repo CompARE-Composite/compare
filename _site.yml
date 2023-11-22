@@ -4,7 +4,7 @@ navbar:
   title: "CompARE"
   left:
     - text: "WHAT IS IT?"
-      href: whatisit.html
+      href: index.html
     - text: "ABOUT US"
       href: comitte.html
     - text: "EXPERTISE"
