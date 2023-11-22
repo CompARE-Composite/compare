@@ -1,6 +1,6 @@
 ---
 title: "CompARE"
-subtitle: "CompARE - Hello this is a test!"
+subtitle: "Welcome to CompARE"
 output:
   html_document:
     theme: cosmo
