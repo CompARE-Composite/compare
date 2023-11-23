@@ -16,6 +16,7 @@ h1.title {
 }
 </style>
 ```
+
 ```{=html}
 <style type="text/css">
 .subtitle {
@@ -25,6 +26,7 @@ h1.title {
 }
 </style>
 ```
+
 ```{=html}
 <style type="text/css">
   body{
@@ -32,6 +34,7 @@ h1.title {
 }
 </style>
 ```
+
 ```{=html}
 <style>
 .sponsor {
@@ -125,7 +128,6 @@ endpoints, respectively. They are implemented with the Shiny R package.
 
 
 
-Time to event app (button) and binary app (button)
 
 <br>
 
