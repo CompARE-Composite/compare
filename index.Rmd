@@ -107,7 +107,25 @@ sample size calculations among others.
 
 **CompARE** is split into two apps for time-to-event and binary
 endpoints, respectively. They are implemented with the Shiny R package.
-<br> Time to event app (button) and binary app (button)
+<br> 
+
+
+<ul class="pager"> <!--this is the style of the button-->
+<li><a href="https://cinna.upc.edu/compare/CompARETimeToEvent/">TIME-TO-EVENT APP</a></li> 
+<li><a href="https://cinna.upc.edu/compare/CompAREBinary/">BINARY APP</a></li>
+</ul>
+
+
+<ul class="pager"> <!--this is the style of the button-->
+<li><a href="https://cinna.upc.edu/compare/CompARETimeToEvent/help_Tutorial.html">TIME-TO-EVENT TUTORIAL</a></li> 
+<li><a href="https://cinna.upc.edu/compare/CompAREBinary/Help-Tutorial.html">BINARY TUTORIAL</a></li>
+</ul>
+
+
+
+
+
+Time to event app (button) and binary app (button)
 
 <br>
 
