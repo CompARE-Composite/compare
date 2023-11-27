@@ -8,15 +8,15 @@ navbar:
     - text: "ABOUT US"
       href: aboutus.html
     - text: "EXPERTISE"
-      href: program.html
+      href: expertise.html
     - text: "PUBLICATIONS"
       href: publications.html
     - text: "TALKS"
       href: talks.html
     - text: "OUTREACH"
-      href: registration.html 
+      href: outreach.html 
     - text: "CONTACT"
-      href: abstract.html 
+      href: contact.html 
 
 output:
   html_document:

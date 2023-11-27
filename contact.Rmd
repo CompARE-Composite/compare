@@ -1,0 +1,32 @@
+---
+title: "Contact us"
+output:
+  html_document:
+    theme: cosmo
+---
+
+<style type="text/css">
+h1.title {
+  font-size: 36px;
+  color: DarkRed;
+  text-align: center;
+}
+</style>
+
+
+
+#### Contact info
+
+C/ Jordi Girona 1-3, Edifici C5 planta 2
+Barcelona, Barcelona 08034 · Spain
+
+<br>
+
+#### Leave as a message
+
+[L Gómez Melis](lupe.gomez@upc.edu)\
+[M Bofill Roig](marta.bofill.roig@upc.edu)\
+[J Cortés-Martínez](jordi.cortes-martinez@upc.edu)
+
+
+

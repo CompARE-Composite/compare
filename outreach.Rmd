@@ -1,0 +1,22 @@
+---
+title: "Outreach"
+output:
+  html_document:
+    theme: cosmo
+---
+
+<style type="text/css">
+h1.title {
+  font-size: 36px;
+  color: DarkRed;
+  text-align: center;
+}
+</style>
+
+
+
+
+[Introduction to CompARE for Binary Endpoints](https://www.grbio.eu/compare/compareCover/workshop/Workshop.html#1)
+
+
+

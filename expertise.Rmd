@@ -1,0 +1,36 @@
+---
+title: "Expertise"
+output:
+  html_document:
+    theme: cosmo
+---
+
+<style type="text/css">
+h1.title {
+  font-size: 36px;
+  color: DarkRed;
+  text-align: center;
+}
+</style>
+
+
+
+
+### Software
+
+Shiny Apps.
+
+### Publications
+
+Recent Publications.
+
+### Talks
+
+Recent & Upcoming Talks.
+
+### Outreach
+
+Videos and others.
+
+
+
