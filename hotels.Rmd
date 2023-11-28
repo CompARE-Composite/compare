@@ -1,0 +1,30 @@
+---
+title: "Conference Hotels"
+output:
+  html_document:
+    theme: cosmo
+---
+
+<style type="text/css">
+h1.title {
+  font-size: 36px;
+  color: DarkRed;
+  text-align: center;
+}
+</style>
+
+<!-- # Conference Hotels in Ibiza, Spain -->
+
+1. **Hotel Vibra Algarb**
+   - Website: [Hotel Vibra Algarb](https://www.vibrahotels.com/es/ibiza/playa-d-en-bossa/hotel-vibra-algarb)
+
+2. **Hotel Torre del Mar**
+   - Website: [Hotel Torre del Mar](https://www.hoteltorredelmar.com/)
+
+3. **Ibiza Gran Hotel**
+   - Website: [Ibiza Gran Hotel](https://www.ibizagranhotel.com/)
+
+4. **Ushuaïa Ibiza Beach Hotel**
+   - Website: [Ushuaïa Ibiza Beach Hotel](https://www.ushuaiabeachhotel.com/)
+
+Please visit the hotel websites for more information, including availability, rates, and reservations.

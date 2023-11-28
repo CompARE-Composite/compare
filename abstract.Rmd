@@ -1,0 +1,50 @@
+---
+title: "Abstract submission"
+output: html_document
+---
+
+<!-- <style type="text/css"> -->
+<!-- body { -->
+<!--  background-image: url("coming_soon.jpg"); -->
+<!--  background-position: center top; -->
+<!--  background-size: 100% auto; -->
+<!-- } -->
+<!-- </style>  -->
+
+<style type="text/css">
+h1.title {
+  font-size: 36px;
+  color: DarkRed;
+  text-align: center;
+}
+</style>
+
+<!-- ![](images/coming_soon3.gif){width=100%} -->
+
+## Deadline
+
+The organization invites abstracts for contributed oral presentations for
+the 2024 Adaptive Designs and Multiple Testing Procedures. 
+Abstracts may be submitted online until **2 February 2024** using this [**form**](https://www.conftool.org/admtp-workshop-2024)
+
+## Structure
+
+All abstracts must be submitted online. No other forms of abstracts are permissible.
+Each abstract submission must include the title, list of authors and author affiliations, and abstract, with each
+submission having a maximum length of 2,500 characters. 
+
+<!-- In the abstract submission process, authors are -->
+<!-- requested to select up to three methodological topics and one application area from the list above that are -->
+<!-- most relevant to the abstract. The number of oral abstract submissions with the same presenting author is -->
+<!-- limited to one. -->
+
+## Evaluation
+
+All submitted abstracts will be reviewed by the Scientific Committee and presenting
+authors will be informed of the status of their abstract by the **16 February 2024**.
+
+All accepted contributed oral presentations will be assigned to a 15-minute slot within a particular scientific
+session. All presenting authors must have registered for the conference before the registration deadline date for
+their presentation to be included in the conference program.
+
+

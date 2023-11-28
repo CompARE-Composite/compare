@@ -1,0 +1,82 @@
+---
+title: Venue
+output:
+  html_document:
+    theme: cosmo
+---
+
+<style type="text/css">
+h1.title {
+  font-size: 36px;
+  color: DarkRed;
+  text-align: center;
+}
+</style>
+
+<style type="text/css">
+  body{
+  font-size: 12pt;
+}
+</style> 
+
+<style>
+.sponsor {
+  display: inline-block;
+  margin: 10px;
+}
+
+.sponsor img {
+  max-width: 100%;
+  height: auto;
+}
+
+.sponsor-level-gold {
+  text-align: center;
+  margin-bottom: 30px;
+  background-color: #D4AF37
+}
+.sponsor-level-silver {
+  text-align: center;
+  margin-bottom: 30px;
+  background-color: #A6A6A6
+}
+.organizers {
+  text-align: center;
+  margin-bottom: 30px;
+  background-color: #000000
+}
+
+</style>
+
+<br>
+
+## Hotel Vibra Algarb
+
+Design, style and charisma on the beachfront of Playa d'en Bossa, one of the most exclusive destinations on the island of Ibiza. The jewel in the crown. Sounds great, doesn't it? That's exactly what the 4-star Vibra Hotel Algarb, is like; this is the unique hotel you’ve been pursuing for your next Mediterranean holiday. An extraordinary hotel for extraordinary people. Just like you. For those who want to enjoy the magic of Ibiza, in a peaceful setting, but yet just a stone's throw from the best festive and fun atmosphere.
+
+
+```{r echo=FALSE}
+# https://stackoverflow.com/questions/61313078/create-a-carousel-in-rmarkdown
+objpath <- file.path(getwd(),"images/venue")
+slickR::slickR(
+    list.files(objpath,full.names = TRUE,pattern = 'png'),
+    height = 350,
+    width = '95%')
+```
+
+
+<br>
+<br>
+
+## Location
+
+Hotel Vibra Algarb 4* is located on the beach of Playa d’en Bossa right against the beach. Its prime location allows you to easily move to any point of the island and enjoy an infinite amount of activities in entertainment and leisure. 
+
+```{=html}
+<p align="center">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1305.6464357904122!2d1.408729018197904!3d38.89269776494836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x129946827f1db6eb%3A0xede55af3f2529459!2sHotel%20Vibra%20Algarb!5e0!3m2!1sen!2ses!4v1690466979258!5m2!1sen!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</p>
+```
+
+
+
