@@ -5,6 +5,7 @@ output:
     theme: cosmo
 ---
 
+```{=html}
 <style type="text/css">
 h1.title {
   font-size: 36px;
@@ -12,6 +13,9 @@ h1.title {
   text-align: center;
 }
 </style>
+```
+
+<br>
 
 
 

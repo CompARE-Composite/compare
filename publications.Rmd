@@ -14,6 +14,9 @@ h1.title {
 }
 </style>
 ```
+
+<br>
+
 1.  [M. Bofill, J. Cortés and G. Gómez (2020). Decision tool and Sample Size Calculator for Composite Endpoints. arXiv:2001.03396](https://arxiv.org/abs/2001.03396)
 
 2.  [M. Bofill and G. Gómez (2019). A new approach for sizing trials with composite binary endpoints using anticipated marginal values and accounting for the correlation between components. Statistics in Medicine. DOI 10.1002/sim.8092](https://arxiv.org/abs/1807.01305)

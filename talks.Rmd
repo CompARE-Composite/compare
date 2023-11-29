@@ -14,6 +14,9 @@ h1.title {
 }
 </style>
 ```
+
+<br>
+
 1.  [G. Gómez, J. Cortés and M. Bofill (2019-07-15). CompARE: a web app to study Composite Endpoints. 40th Annual Conference of the International Society of Clinical Biostatistics (ISCB 2019, Leuven)](https://www.grbio.eu/compare/compareCover/files/2019ISCB_definitive.pdf)
 
 2.  [J. Cortés and G. Gómez (2018-07-09). CompARE: Sample Size Calculation for Time-To-Event Composite Endpoints. XXIXth International Biometric Conference (IBC 2018)](https://2018.biometricconference.org/wp-content/uploads/2018/07/PROGRAMA-IBC-V11.pdf)

@@ -35,36 +35,6 @@ h1.title {
 </style>
 ```
 
-```{=html}
-<style>
-.sponsor {
-  display: inline-block;
-  margin: 10px;
-}
-
-.sponsor img {
-  max-width: 100%;
-  height: auto;
-}
-
-.sponsor-level-gold {
-  text-align: center;
-  margin-bottom: 30px;
-  background-color: #D4AF37
-}
-.sponsor-level-silver {
-  text-align: center;
-  margin-bottom: 30px;
-  background-color: #A6A6A6
-}
-.organizers {
-  text-align: center;
-  margin-bottom: 30px;
-  background-color: #ADD8E6 
-}
-
-</style>
-```
 
 ```{=html}
 <head>
@@ -72,9 +42,7 @@ h1.title {
 </head>
 ```
 
-```{r figurename, echo=FALSE, fig.cap="Eivissa Port", out.width = '60%', fig.align='center'}
-# knitr::include_graphics("Eivissa_1.jpg")
-```
+<br>
 
 ```{r echo=FALSE}
 # https://stackoverflow.com/questions/61313078/create-a-carousel-in-rmarkdown
