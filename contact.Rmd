@@ -24,9 +24,9 @@ Barcelona, Barcelona 08034 · Spain
 
 #### Leave as a message
 
-[L Gómez Melis](lupe.gomez@upc.edu)\
-[M Bofill Roig](marta.bofill.roig@upc.edu)\
-[J Cortés-Martínez](jordi.cortes-martinez@upc.edu)
+[L Gómez Melis](mailto:lupe.gomez@upc.edu)\
+[M Bofill Roig](mailto:marta.bofill.roig@upc.edu)\
+[J Cortés-Martínez](mailto:jordi.cortes-martinez@upc.edu)
 
 
 
