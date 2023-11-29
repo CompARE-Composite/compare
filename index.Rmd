@@ -16,17 +16,16 @@ h1.title {
 }
 </style>
 ```
-
 ```{=html}
 <style type="text/css">
 .subtitle {
   font-size: 36px;
+  font-weight: 500;
   color: DarkRed;
   text-align: center;
 }
 </style>
 ```
-
 ```{=html}
 <style type="text/css">
   body{
@@ -34,14 +33,11 @@ h1.title {
 }
 </style>
 ```
-
-
 ```{=html}
 <head>
 <title>CompARE</title>
 </head>
 ```
-
 <br>
 
 ```{r echo=FALSE}
@@ -78,24 +74,31 @@ sample size calculations among others.
 
 **CompARE** is split into two apps for time-to-event and binary
 endpoints, respectively. They are implemented with the Shiny R package.
-<br> 
+<br>
 
+<ul class="pager">
 
-<ul class="pager"> <!--this is the style of the button-->
-<li><a href="https://cinna.upc.edu/compare/CompARETimeToEvent/">TIME-TO-EVENT APP</a></li> 
-<li><a href="https://cinna.upc.edu/compare/CompAREBinary/">BINARY APP</a></li>
+<!--this is the style of the button-->
+
+<li><a href="https://cinna.upc.edu/compare/CompARETimeToEvent/">TIME-TO-EVENT
+APP</a></li>
+
+<li><a href="https://cinna.upc.edu/compare/CompAREBinary/">BINARY
+APP</a></li>
+
 </ul>
 
+<ul class="pager">
 
-<ul class="pager"> <!--this is the style of the button-->
-<li><a href="https://cinna.upc.edu/compare/CompARETimeToEvent/help_Tutorial.html">TIME-TO-EVENT TUTORIAL</a></li> 
-<li><a href="https://cinna.upc.edu/compare/CompAREBinary/Help-Tutorial.html">BINARY TUTORIAL</a></li>
+<!--this is the style of the button-->
+
+<li><a href="https://cinna.upc.edu/compare/CompARETimeToEvent/help_Tutorial.html">TIME-TO-EVENT
+TUTORIAL</a></li>
+
+<li><a href="https://cinna.upc.edu/compare/CompAREBinary/Help-Tutorial.html">BINARY
+TUTORIAL</a></li>
+
 </ul>
-
-
-
-
-
 
 <br>
 
@@ -103,18 +106,18 @@ endpoints, respectively. They are implemented with the Shiny R package.
 
 <hr>
 
--   Effect size: Studying the treatment effect for the composite
+-   **Effect size**: Studying the treatment effect for the composite
     endpoint
 
--   Sample Size: Computing the number of patients under different
+-   **Sample Size**: Computing the number of patients under different
     scenarios
 
--   Endpoint Selection: Identifying the best endpoint combination for
-    the design
+-   **Endpoint Selection**: Identifying the best endpoint combination
+    for the design
 
--   Association:Assessing the degree of association between components
+-   **Association**: Assessing the degree of association between
+    components
 
 <br>
 
 <hr>
-
