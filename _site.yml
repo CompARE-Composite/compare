@@ -7,8 +7,6 @@ navbar:
       href: index.html
     - text: "ABOUT US"
       href: aboutus.html
-    - text: "EXPERTISE"
-      href: expertise.html
     - text: "PUBLICATIONS"
       href: publications.html
     - text: "TALKS"

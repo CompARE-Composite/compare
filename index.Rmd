@@ -81,7 +81,7 @@ h1.title {
 objpath <- file.path(getwd(),"images/carousel_home")
 slickR::slickR(
     list.files(objpath,full.names = TRUE,pattern = 'png'),
-    height = 350,
+    height = 300,
     width = '95%')
 ```
 

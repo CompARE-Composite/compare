@@ -16,28 +16,28 @@ h1.title {
 
 
 ### GRBIO
-![](~/CompARE/images/grbio.png)
+![](~/CompARE/images/about_us/grbio.png)
 
 [Research group Web-page](https://grbio.upc.edu/en)
 
 <hr>
 
 ### Lupe Gómez Melis
-![](~/CompARE/images/lupe.jpeg)
+![](~/CompARE/images/about_us/lupe.jpeg)
 
 [Personal Web-page](https://grbio.upc.edu/en/about-us/cv/lupe-gomez)
 
 <hr>
 
 ### Marta Bofill Roig
-![](~/CompARE/images/marta.png)
+![](~/CompARE/images/about_us/marta_bofill.jpeg)
 
 [Personal Web-page](https://martabofillroig.github.io/)
 
 <hr>
 
 ### Jordi Cortés-Martínez
-![](~/CompARE/images/jordi.png)
+![](~/CompARE/images/about_us/jordi.jpeg)
 
 [Personal Web-page](https://jordi-cortes.netlify.app/)
 
