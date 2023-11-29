@@ -5,6 +5,7 @@ output:
     theme: cosmo
 ---
 
+```{=html}
 <style type="text/css">
 h1.title {
   font-size: 36px;
@@ -12,34 +13,21 @@ h1.title {
   text-align: center;
 }
 </style>
+```
++:---------------------------------------------------------------------:+
+| ### GRBIO                                                             |
++-----------------------------------------------------------------------+
+| ![](~/CompARE/images/about_us/grbio.png)                              |
++-----------------------------------------------------------------------+
+| [Research group Web-page](https://grbio.upc.edu/en)                   |
++-----------------------------------------------------------------------+
 
+<br>
 
-
-### GRBIO
-![](~/CompARE/images/about_us/grbio.png)
-
-[Research group Web-page](https://grbio.upc.edu/en)
-
-<hr>
-
-### Lupe Gómez Melis
-![](~/CompARE/images/about_us/lupe.jpeg)
-
-[Personal Web-page](https://grbio.upc.edu/en/about-us/cv/lupe-gomez)
-
-<hr>
-
-### Marta Bofill Roig
-![](~/CompARE/images/about_us/marta_bofill.jpeg)
-
-[Personal Web-page](https://martabofillroig.github.io/)
-
-<hr>
-
-### Jordi Cortés-Martínez
-![](~/CompARE/images/about_us/jordi.jpeg)
-
-[Personal Web-page](https://jordi-cortes.netlify.app/)
-
-<hr>
-
++:--------------------------------------------------------------------:+:-------------------------------------------------------:+:------------------------------------------------------:+
+| ### Lupe Gómez Melis                                                 | ### Marta Bofill Roig                                   | ### Jordi Cortés-Martínez                              |
++----------------------------------------------------------------------+---------------------------------------------------------+--------------------------------------------------------+
+| ![](~/CompARE/images/about_us/lupe.jpeg)                             | ![](~/CompARE/images/about_us/marta_bofill.jpeg)        | ![](~/CompARE/images/about_us/jordi.jpeg)              |
++----------------------------------------------------------------------+---------------------------------------------------------+--------------------------------------------------------+
+| [Personal Web-page](https://grbio.upc.edu/en/about-us/cv/lupe-gomez) | [Personal Web-page](https://martabofillroig.github.io/) | [Personal Web-page](https://jordi-cortes.netlify.app/) |
++----------------------------------------------------------------------+---------------------------------------------------------+--------------------------------------------------------+
