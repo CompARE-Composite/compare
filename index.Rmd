@@ -80,10 +80,10 @@ endpoints, respectively. They are implemented with the Shiny R package.
 
 <!--this is the style of the button-->
 
-<li><a href="https://cinna.upc.edu/compare/CompARETimeToEvent/">TIME-TO-EVENT
+<li><a href="https://www.grbio.eu/compare/CompARETimeToEvent/">TIME-TO-EVENT
 APP</a></li>
 
-<li><a href="https://cinna.upc.edu/compare/CompAREBinary/">BINARY
+<li><a href="https://www.grbio.eu/compare/CompAREBinary/">BINARY
 APP</a></li>
 
 </ul>
@@ -92,10 +92,10 @@ APP</a></li>
 
 <!--this is the style of the button-->
 
-<li><a href="https://cinna.upc.edu/compare/CompARETimeToEvent/help_Tutorial.html">TIME-TO-EVENT
+<li><a href="https://www.grbio.eu/compare/CompARETimeToEvent/help_Tutorial.html">TIME-TO-EVENT
 TUTORIAL</a></li>
 
-<li><a href="https://cinna.upc.edu/compare/CompAREBinary/Help-Tutorial.html">BINARY
+<li><a href="https://www.grbio.eu/compare/CompAREBinary/Help-Tutorial.html">BINARY
 TUTORIAL</a></li>
 
 </ul>
