@@ -15,24 +15,25 @@ h1.title {
 }
 </style>
 ```
-
 <br>
-
-
 
 #### Contact info
 
-C/ Jordi Girona 1-3, Edifici C5 planta 2
-Barcelona, Barcelona 08034 · Spain
-
+```{=html}
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.360987712498!2d2.1099491764398186!3d41.387966195958796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4985123294287%3A0x1942890f5ec19442!2sCarrer%20de%20Jordi%20Girona%2C%201%2C%203%2C%20Distrito%20de%20Les%20Corts%2C%2008034%20Barcelona!5e0!3m2!1sca!2ses!4v1702382411239!5m2!1sca!2ses" width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+```
 
 <br>
 
 #### Leave as a message
 
-[L Gómez Melis](mailto:lupe.gomez@upc.edu)\
-[M Bofill Roig](mailto:marta.bofill.roig@upc.edu)\
-[J Cortés-Martínez](mailto:jordi.cortes-martinez@upc.edu)
+L Gómez Melis\
+[lupe.gomez\@upc.edu](mailto:lupe.gomez@upc.edu){.email}\
+<br>
 
+M Bofill Roig\
+[marta.bofill.roig\@upc.edu](mailto:marta.bofill.roig@upc.edu){.email}\
+<br>
 
-
+J Cortés-Martínez\
+[jordi.cortes-martinez\@upc.edu](mailto:jordi.cortes-martinez@upc.edu){.email}

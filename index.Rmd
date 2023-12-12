@@ -113,45 +113,45 @@ TUTORIAL</a></li>
 <center>
 
 ```{r echo = FALSE}
-fa("notes-medical", , width = "3em", fill = "indianred", fill_opacity = 0.8)
+fa("notes-medical",  width = "3em", fill = "indianred", fill_opacity = 0.8)
 ```
 
 **Effect size**\
-Studying the treatment effect for the composite endpoint
+Studying the treatment effect for the composite endpoint\
+[Time to
+event](https://www.grbio.eu/compare/CompARETimeToEvent/?tab=%22tab_effect%22)         [Binary](https://www.grbio.eu/compare/CompAREBinary/?tab=%22tab_effect%22)<br>
 
-<br>
 
 <center>
-
+<br>
 ```{r echo = FALSE}
-fa("users-line", , width = "3em", fill = "indianred", fill_opacity = 0.8)
+fa("users-line", width = "3em", fill = "indianred", fill_opacity = 0.8)
 ```
 
 **Sample Size**\
-Computing the number of patients under different scenarios
-
-<br>
+Computing the number of patients under different scenarios\
+[Time to
+event](https://www.grbio.eu/compare/CompARETimeToEvent/?tab=%22tab_sample%22)         [Binary](https://www.grbio.eu/compare/CompAREBinary/?tab=%22tab_sample%22)<br>
 
 <center>
-
+<br>
 ```{r echo = FALSE}
 fa("arrow-right-arrow-left", width = "3em", fill = "indianred", fill_opacity = 0.8)
 ```
 
 **Endpoint Selection**\
-Identifying the best endpoint combination for the design
-
-<br>
+Identifying the best endpoint combination for the design\
+[Time to
+event](https://www.grbio.eu/compare/CompARETimeToEvent/?tab=%22tab_endpoint%22)         [Binary](https://www.grbio.eu/compare/CompAREBinary/?tab=%22tab_endpoint%22)<br>
 
 <center>
-
+<br>
 ```{r echo = FALSE}
 fa("arrows-rotate", width = "3em", fill = "indianred", fill_opacity = 0.8)
 ```
 
 **Association**\
-Assessing the degree of association between components
-
-<br>
+Assessing the degree of association between components\
+[Binary](https://www.grbio.eu/compare/CompAREBinary/?tab=%22tab_correlation%22)<br>
 
 <hr>
