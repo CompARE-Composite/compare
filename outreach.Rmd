@@ -4,6 +4,7 @@ output:
   html_document:
     theme: cosmo
 ---
+
 ```{=html}
 <style type="text/css">
 h1.title {
@@ -14,10 +15,18 @@ h1.title {
 }
 </style>
 ```
+<br>
+
+-   [Introduction to CompARE for Binary Endpoints](https://www.grbio.eu/compare/compareCover/workshop/Workshop.html#1)
 
 <br>
 
-[Introduction to CompARE for Binary Endpoints](https://www.grbio.eu/compare/compareCover/workshop/Workshop.html#1)
+**GRBIO SEMINARS** ([Link](https://grbio.upc.edu/en/activities/past-1)):
 
+-   [Marta Bofill. Adaptive clinical trials with selection of composite endpoints and sample size reassessment](https://grbio.upc.edu/en/shared/material-seminaris/2021/20210714_GRBIOTalkMBofill.pdf)
 
+-   [Jordi Cortés. Compare: Sample Size Calculation In Time-To-Event Clinical Trials With A Composite Endpoint.](https://grbio.upc.edu/en/shared/material-seminaris/2018/20180628_talkjcortes.pdf)
 
+-   [Marta Bofill. Sample Size Derivation for Composite Binary Endpoints Accounting for Departures of the Anticipated Values](https://grbio.upc.edu/en/shared/material-seminaris/2018/20180628_talkmbofill.pdf)
+
+-   [Marta Bofill. Sample size derivation for binary composite endpoints.](https://grbio.upc.edu/en/shared/material-seminaris/2017/20170704_talkmbofill.pdf)
