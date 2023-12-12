@@ -49,6 +49,10 @@ slickR::slickR(
     width = '95%')
 ```
 
+```{r echo=FALSE}
+library(fontawesome)
+```
+
 <br>
 
 <br>
@@ -80,11 +84,11 @@ endpoints, respectively. They are implemented with the Shiny R package.
 
 <!--this is the style of the button-->
 
-<li><a href="https://www.grbio.eu/compare/CompARETimeToEvent/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TIME-TO-EVENT
-APP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+<li><a href="https://www.grbio.eu/compare/CompARETimeToEvent/">      TIME-TO-EVENT
+APP      </a></li>
 
-<li><a href="https://www.grbio.eu/compare/CompAREBinary/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BINARY
-APP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+<li><a href="https://www.grbio.eu/compare/CompAREBinary/">      BINARY
+APP      </a></li>
 
 </ul>
 
@@ -106,17 +110,47 @@ TUTORIAL</a></li>
 
 <hr>
 
--   **Effect size**: Studying the treatment effect for the composite
-    endpoint
+<center>
 
--   **Sample Size**: Computing the number of patients under different
-    scenarios
+```{r echo = FALSE}
+fa("notes-medical", , width = "3em", fill = "indianred", fill_opacity = 0.8)
+```
 
--   **Endpoint Selection**: Identifying the best endpoint combination
-    for the design
+**Effect size**\
+Studying the treatment effect for the composite endpoint
 
--   **Association**: Assessing the degree of association between
-    components
+<br>
+
+<center>
+
+```{r echo = FALSE}
+fa("users-line", , width = "3em", fill = "indianred", fill_opacity = 0.8)
+```
+
+**Sample Size**\
+Computing the number of patients under different scenarios
+
+<br>
+
+<center>
+
+```{r echo = FALSE}
+fa("arrow-right-arrow-left", width = "3em", fill = "indianred", fill_opacity = 0.8)
+```
+
+**Endpoint Selection**\
+Identifying the best endpoint combination for the design
+
+<br>
+
+<center>
+
+```{r echo = FALSE}
+fa("arrows-rotate", width = "3em", fill = "indianred", fill_opacity = 0.8)
+```
+
+**Association**\
+Assessing the degree of association between components
 
 <br>
 
