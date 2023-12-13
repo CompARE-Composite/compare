@@ -1,0 +1,73 @@
+---
+title: "R Package"
+output:
+  html_document:
+    theme: cosmo
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{=html}
+<style type="text/css">
+h1.title {
+  font-size: 36px;
+  font-weight: 500;
+  color: DarkRed;
+  text-align: center;
+}
+</style>
+```
+<br>
+
+### CompAREdesign R package
+
+<hr>
+
+The `CompAREdesign` package contains the following functions:
+
+-   *prob_cbe* to compute the probability of a composite binary
+    endpoint;
+
+-   *lower_corr* to compute the lower bound of Pearson's correlation;
+
+-   *upper_corr* to compute the upper bound for Pearson's correlation;
+
+-   *effectsize_cbe* to compute the treatment effect on the composite
+    binary endpoint;
+
+-   *samplesize_cbe* to compute the sample size for composite binary
+    endpoint;
+
+-   *ARE_cbe* to compute the ARE method for composite binary endpoint;
+
+-   *surv_tte* to compute the survival function for the composite
+    endpoint and both components;
+
+-   *effectsize_tte* to compute the treatment effect for the composite
+    endpoint;
+
+-   *samplesize_tte* to compute the sample size for the composite
+    endpoint;
+
+-   *ARE_tte* to compute the ARE method for time-to-event endpoints;
+
+-   *plot_tte* Returns four plots related to previous features;
+
+-   *simula_tte* to simulate time-to-event data for the composite and
+    its components.
+
+<br>
+
+### Installation
+
+<hr>
+
+```{r eval=FALSE}
+require(devtools)
+install_github("CompARE-Composite/CompARE-package") #developers version
+
+install.packages("CompAREdesign") #stable version from CRAN
+library(CompAREdesign)
+```
+

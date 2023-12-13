@@ -3,8 +3,12 @@ output_dir: "."
 navbar:
   title: "CompARE"
   left:
-    - text: "WHAT IS IT?"
+    - text: "HOME"
       href: index.html
+    - text: "App Features"
+      href: appfeatures.html
+    - text: "R Package"
+      href: rpackage.html
     - text: "ABOUT US"
       href: aboutus.html
     - text: "PUBLICATIONS"
