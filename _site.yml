@@ -8,6 +8,12 @@ navbar:
     - text: "APP FEATURES"
       href: appfeatures.html
     - text: "R PACKAGE"
+      menu:
+      - text: "INTRODUCTION"
+        href: rpackage.html
+      - text: "VIGNETTE"
+        href: vignette.html 
+    - text: "R PACKAGE"
       href: rpackage.html
     - text: "ABOUT US"
       href: aboutus.html
