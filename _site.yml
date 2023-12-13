@@ -12,7 +12,7 @@ navbar:
       - text: "INTRODUCTION"
         href: rpackage.html
       - text: "VIGNETTE"
-        href: vignette.html 
+        href: 2021_Workshop_Software_BIOSTANET.html 
     - text: "R PACKAGE"
       href: rpackage.html
     - text: "ABOUT US"
@@ -30,3 +30,5 @@ output:
   html_document:
     theme: cosmo
     highlight: tango
+    
+    
