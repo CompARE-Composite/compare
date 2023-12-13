@@ -13,8 +13,6 @@ navbar:
         href: rpackage.html
       - text: "VIGNETTE"
         href: 2021_Workshop_Software_BIOSTANET.html 
-    - text: "R PACKAGE"
-      href: rpackage.html
     - text: "ABOUT US"
       href: aboutus.html
     - text: "PUBLICATIONS"
