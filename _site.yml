@@ -10,7 +10,7 @@ navbar:
     - text: "R PACKAGE"
       menu:
       - text: "INTRODUCTION"
-        href: rpackage.html
+        href: package.html
       - text: "VIGNETTE"
         href: 2021_Workshop_Software_BIOSTANET.html 
     - text: "ABOUT US"
