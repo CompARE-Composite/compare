@@ -5,9 +5,9 @@ navbar:
   left:
     - text: "HOME"
       href: index.html
-    - text: "App Features"
+    - text: "APP FEATURES"
       href: appfeatures.html
-    - text: "R Package"
+    - text: "R PACKAGE"
       href: rpackage.html
     - text: "ABOUT US"
       href: aboutus.html
