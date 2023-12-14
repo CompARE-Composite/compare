@@ -3,6 +3,9 @@ title: "App features"
 output:
   html_document:
     theme: cosmo
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{=html}
@@ -15,13 +18,12 @@ h1.title {
 }
 </style>
 ```
-
-
 ```{r echo=FALSE}
 library(fontawesome)
 ```
 
 <hr>
+
 <center>
 
 ```{r echo = FALSE}
@@ -33,9 +35,10 @@ Studying the treatment effect for the composite endpoint\
 [Time to
 event](https://www.grbio.eu/compare/CompARETimeToEvent/?tab=%22tab_effect%22)         [Binary](https://www.grbio.eu/compare/CompAREBinary/?tab=%22tab_effect%22)<br>
 
-
 <center>
+
 <br>
+
 ```{r echo = FALSE}
 fa("users-line", width = "3em", fill = "indianred", fill_opacity = 0.8)
 ```
@@ -46,7 +49,9 @@ Computing the number of patients under different scenarios\
 event](https://www.grbio.eu/compare/CompARETimeToEvent/?tab=%22tab_sample%22)         [Binary](https://www.grbio.eu/compare/CompAREBinary/?tab=%22tab_sample%22)<br>
 
 <center>
+
 <br>
+
 ```{r echo = FALSE}
 fa("arrow-right-arrow-left", width = "3em", fill = "indianred", fill_opacity = 0.8)
 ```
@@ -57,7 +62,9 @@ Identifying the best endpoint combination for the design\
 event](https://www.grbio.eu/compare/CompARETimeToEvent/?tab=%22tab_endpoint%22)         [Binary](https://www.grbio.eu/compare/CompAREBinary/?tab=%22tab_endpoint%22)<br>
 
 <center>
+
 <br>
+
 ```{r echo = FALSE}
 fa("arrows-rotate", width = "3em", fill = "indianred", fill_opacity = 0.8)
 ```
