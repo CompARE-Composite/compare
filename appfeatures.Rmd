@@ -53,6 +53,8 @@ endpoints.
 You can also find the R-package version of CompARE in CRAN
 [CompAREdesign](https://cran.r-project.org/web/packages/CompAREdesign/index.html).
 
+<br>
+
 ## Getting Started
 
 If you are a newcomer, we recommend starting with the tutorial
