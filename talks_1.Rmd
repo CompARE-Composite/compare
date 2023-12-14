@@ -1,0 +1,40 @@
+---
+title: "Talks"
+output:
+  html_document:
+    theme: cosmo
+---
+
+```{=html}
+<style type="text/css">
+h1.title {
+  font-size: 36px;
+  font-weight: 500;
+  color: DarkRed;
+  text-align: center;
+}
+</style>
+```
+<br>
+
+### TALKS
+
+<hr>
+
+[M. Bofill, G. Gómez, M. Posch and F. Koening (2023-09-06). Adaptive selection of binary composite endpoints and sample size reassessment based on blinded data. Presentation for the 5th Conference of the Central European Network.](~/R_projects/CompARE/talks/06SEP23_Marta_BofillRoig.pdf)
+
+J. Cortés, M. Bofill and G. Gómez, (2021-06-16). Two tools to study Composite Endpoints: CompARE and CompAREdesign. Workshop Biostatnet Software: celebrating 10 years of Biostatnet (online)
+
+M. Bofill and G. Gómez (2018-07-09). Sample Size Derivation for Composite Binary Endpoints Accounting for Departures of the Anticipated Values. XXIXth International Biometric Conference (IBC 2018)
+
+J. Cortés, M. Bofill and G. Gómez (2018-07). CompARE: Sample Size Calculation for Time-To-Event Composite Endpoints.
+
+M. Bofill and G. Gómez (2017-05). The anticipated odds ratios to decide the choice of a primary binary endpoint. Conference of the Eastern Mediterranean Region of the International Biometric Society.
+
+**Falten els de la Lupe!**
+
+### OTHERS
+
+<hr>
+
+-   [Introduction to CompARE for Binary Endpoints](https://www.grbio.eu/compare/compareCover/workshop/Workshop.html#1)
