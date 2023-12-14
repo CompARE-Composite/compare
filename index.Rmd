@@ -68,7 +68,7 @@ trials involving composite endpoints.
 
 <br>
 
-### Apps
+### Shiny Apps
 
 <hr>
 
