@@ -17,23 +17,23 @@ h1.title {
 ```
 <br>
 
-### TALKS
+### Conferences
 
 <hr>
 
-[M. Bofill, G. Gómez, M. Posch and F. Koening (2023-09-06). Adaptive selection of binary composite endpoints and sample size reassessment based on blinded data. Presentation for the 5th Conference of the Central European Network.](~/R_projects/CompARE/talks/06SEP23_Marta_BofillRoig.pdf)
+-   [M. Bofill, G. Gómez, M. Posch and F. Koening (2023-09-06). Adaptive selection of binary composite endpoints and sample size reassessment based on blinded data. Presentation for the 5th Conference of the Central European Network.](talks/06SEP23_Marta_BofillRoig.pdf){target="_blank"}
 
-J. Cortés, M. Bofill and G. Gómez, (2021-06-16). Two tools to study Composite Endpoints: CompARE and CompAREdesign. Workshop Biostatnet Software: celebrating 10 years of Biostatnet (online)
+-   [J. Cortés, M. Bofill and G. Gómez, (2021-06-16). Two tools to study Composite Endpoints: CompARE and CompAREdesign. Workshop Biostatnet Software: celebrating 10 years of Biostatnet (online)](talks/2021BIOSTATNET_Workshop.pdf){target="_blank"}
 
-M. Bofill and G. Gómez (2018-07-09). Sample Size Derivation for Composite Binary Endpoints Accounting for Departures of the Anticipated Values. XXIXth International Biometric Conference (IBC 2018)
+-   [M. Bofill and G. Gómez (2018-07-09). Sample Size Derivation for Composite Binary Endpoints Accounting for Departures of the Anticipated Values. XXIXth International Biometric Conference (IBC 2018)](talks/2018IBC.pdf){target="_blank"}
 
-J. Cortés, M. Bofill and G. Gómez (2018-07). CompARE: Sample Size Calculation for Time-To-Event Composite Endpoints.
+-   [M. Bofill and G. Gómez (2017-05). The anticipated odds ratios to decide the choice of a primary binary endpoint. Conference of the Eastern Mediterranean Region of the International Biometric Society.](talks/2017EMRIBS.pdf){target="_blank"}
 
-M. Bofill and G. Gómez (2017-05). The anticipated odds ratios to decide the choice of a primary binary endpoint. Conference of the Eastern Mediterranean Region of the International Biometric Society.
+<br>
 
 **Falten els de la Lupe!**
 
-### OTHERS
+### Others
 
 <hr>
 
