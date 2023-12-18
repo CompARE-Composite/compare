@@ -17,39 +17,24 @@ h1.title {
 ```
 <br>
 
-### Conferences
+1.  [Introduction to CompARE for Binary Endpoints](https://www.grbio.eu/compare/compareCover/workshop/Workshop.html#1){target="_blank"}
 
-<hr>
+2.  [M. Bofill, G. Gómez, M. Posch and F. Koening (2023-09-06). Adaptive selection of binary composite endpoints and sample size reassessment based on blinded data. Presentation for the 5th Conference of the Central European Network.](talks/06SEP23_Marta_BofillRoig.pdf){target="_blank"}
 
--   [M. Bofill, G. Gómez, M. Posch and F. Koening (2023-09-06). Adaptive selection of binary composite endpoints and sample size reassessment based on blinded data. Presentation for the 5th Conference of the Central European Network.](talks/06SEP23_Marta_BofillRoig.pdf){target="_blank"}
+3.  [J. Cortés, M. Bofill and G. Gómez, (2021-06-16). Two tools to study Composite Endpoints: CompARE and CompAREdesign. Workshop Biostatnet Software: celebrating 10 years of Biostatnet (online)](talks/2021BIOSTATNET_Workshop.pdf){target="_blank"}
 
--   [J. Cortés, M. Bofill and G. Gómez, (2021-06-16). Two tools to study Composite Endpoints: CompARE and CompAREdesign. Workshop Biostatnet Software: celebrating 10 years of Biostatnet (online)](talks/2021BIOSTATNET_Workshop.pdf){target="_blank"}
+4.  [G. Gómez (2020-01-14). Exploring the use of composite endpoints in clinical trials. Oxford University Clinical Research Unit.](talks/OUCRUSem_Jan2020.pdf){target="_blank"}
 
--   [M. Bofill and G. Gómez (2018-07-09). Sample Size Derivation for Composite Binary Endpoints Accounting for Departures of the Anticipated Values. XXIXth International Biometric Conference (IBC 2018)](talks/2018IBC.pdf){target="_blank"}
+5.  [G. Gómez, J. Cortés and M. Bofill (2019). CompARE: a web app to study Composite Endpoints. International Society for Computational Biology (ISCB).](talks/2019ISCB_definitive.pdf){target="_blank"}
 
--   [M. Bofill and G. Gómez (2017-05). The anticipated odds ratios to decide the choice of a primary binary endpoint. Conference of the Eastern Mediterranean Region of the International Biometric Society.](talks/2017EMRIBS.pdf){target="_blank"}
+6.  [M. Bofill and G. Gómez (2018-07-09). Sample Size Derivation for Composite Binary Endpoints Accounting for Departures of the Anticipated Values. XXIXth International Biometric Conference (IBC 2018)](talks/2018IBC.pdf){target="_blank"}
 
-<br>
+7.  [G. Gómez (2017-09-15). Non-proportional hazards. Consequences on required sample sizes. Conferencia Española de Biometría (Sevilla).](talks/GomezSlides_CEB2017.pdf){target="_blank"}
 
-<hr>
+8.  [M. Bofill and G. Gómez (2017-05). The anticipated odds ratios to decide the choice of a primary binary endpoint. Conference of the Eastern Mediterranean Region of the International Biometric Society.](talks/2017EMRIBS.pdf){target="_blank"}
 
--   [G. Gómez (2020-01-14). Exploring the use of composite endpoints in clinical trials. Oxford University Clinical Research Unit.](talks/OUCRUSem_Jan2020.pdf){target="_blank"})
+9.  [G. Gómez (2017-05-27). Using composite endpoints in clinical trials. Dept. Biostatistics. Neurostatistics Working Group. Harvard T.H. Chan School of Public Health.](talks/GomezSlides_HarvardSem_May2017.pdf){target="_blank"}
 
--   [G. Gómez (2014-11-21). Selecting the primary endpoint in a randomized clinical trial. How efficient is to add a new component to the primary endpoint?. Dept. Biostatistics. Harvard T.H. Chan School of Public Health.](talks/Talk_21Nov14.pdf){target="_blank"})
+10. [G. Gómez (2016-02-04). Planning clinical trials with composite endpoints. Statistical Inference, Decision and Operations Research (SiDOR). Universidad de Vigo (Vigo).](talks/VIGO-Feb2016.pdf){target="_blank"}
 
--   [G. Gómez (2017-05-27). Using composite endpoints in clinical trials. Dept. Biostatistics. Neurostatistics Working Group. Harvard T.H. Chan School of Public Health.](talks/GomezSlides_HarvardSem_May2017.pdf){target="_blank"})
-
--   [G. Gómez (2017-09-15). Non-proportional hazards. Consequences on required sample sizes. Conferencia Española de Biometría (Sevilla).](talks/GomezSlides_CEB2017.pdf){target="_blank"})
-
--   [G. Gómez, J. Cortés and M. Bofill (2019). CompARE: a web app to study Composite Endpoints. International Society for Computational Biology (ISCB).](talks/2019ISCB_definitive.pdf){target="_blank"})
-
--   [G. Gómez (2016-02-04). Planning clinical trials with composite endpoints. Vigo ](talks/VIGO-Feb2016.pdf){target="_blank"})
-
-
-<br>
-
-### Others
-
-<hr>
-
--   [Introduction to CompARE for Binary Endpoints](https://www.grbio.eu/compare/compareCover/workshop/Workshop.html#1)
+11. [G. Gómez (2014-11-21). Selecting the primary endpoint in a randomized clinical trial. How efficient is to add a new component to the primary endpoint?. Dept. Biostatistics. Harvard T.H. Chan School of Public Health.](talks/Talk_21Nov14.pdf){target="_blank"}
