@@ -31,7 +31,22 @@ h1.title {
 
 <br>
 
-**Falten els de la Lupe!**
+<hr>
+
+-   [G. Gómez (2020-01-14). Exploring the use of composite endpoints in clinical trials. Oxford University Clinical Research Unit.](talks/OUCRUSem_Jan2020.pdf){target="_blank"})
+
+-   [G. Gómez (2014-11-21). Selecting the primary endpoint in a randomized clinical trial. How efficient is to add a new component to the primary endpoint?. Dept. Biostatistics. Harvard T.H. Chan School of Public Health.](talks/Talk_21Nov14.pdf){target="_blank"})
+
+-   [G. Gómez (2017-05-27). Using composite endpoints in clinical trials. Dept. Biostatistics. Neurostatistics Working Group. Harvard T.H. Chan School of Public Health.](talks/GomezSlides_HarvardSem_May2017.pdf){target="_blank"})
+
+-   [G. Gómez (2017-09-15). Non-proportional hazards. Consequences on required sample sizes. Conferencia Española de Biometría (Sevilla).](talks/GomezSlides_CEB2017.pdf){target="_blank"})
+
+-   [G. Gómez, J. Cortés and M. Bofill (2019). CompARE: a web app to study Composite Endpoints. International Society for Computational Biology (ISCB).](talks/2019ISCB_definitive.pdf){target="_blank"})
+
+-   [G. Gómez (2016-02-04). Planning clinical trials with composite endpoints. Vigo ](talks/VIGO-Feb2016.pdf){target="_blank"})
+
+
+<br>
 
 ### Others
 

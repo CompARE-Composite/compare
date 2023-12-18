@@ -17,12 +17,8 @@ navbar:
       href: aboutus.html
     - text: "PUBLICATIONS"
       href: publications.html
-    - text: "TALKS 1"
+    - text: "TALKS"
       href: talks_1.html      
-    - text: "TALKS 2"
-      href: talks.html
-    - text: "OUTREACH"
-      href: outreach.html 
     - text: "CONTACT"
       href: contact.html 
 
