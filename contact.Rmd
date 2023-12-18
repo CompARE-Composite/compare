@@ -26,13 +26,13 @@ h1.title {
 
 #### Leave as a message
 
-L Gómez Melis\
+Guadalupe Gómez Melis\
 [lupe.gomez\@upc.edu](mailto:lupe.gomez@upc.edu){.email}\
 <br>
 
-M Bofill Roig\
+Marta Bofill Roig\
 [marta.bofillroig\@meduniwien.ac.at](mailto:marta.bofillroig@meduniwien.ac.at){.email}\
 <br>
 
-J Cortés-Martínez\
+Jordi Cortés-Martínez\
 [jordi.cortes-martinez\@upc.edu](mailto:jordi.cortes-martinez@upc.edu){.email}

@@ -12,7 +12,7 @@ navbar:
       - text: "INTRODUCTION"
         href: package.html
       - text: "VIGNETTE"
-        href: 2021_Workshop_Software_BIOSTANET.html 
+        href: vignette.html 
     - text: "ABOUT US"
       href: aboutus.html
     - text: "PUBLICATIONS"

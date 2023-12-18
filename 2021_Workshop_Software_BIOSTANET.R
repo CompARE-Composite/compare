@@ -1,0 +1,172 @@
+rm(list=ls())
+
+############################################################
+# Load library
+############################################################
+library(CompAREdesign)
+
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#                                                                                           %
+# ZODIAC TRIAL --> Time to event endpoint                                                   %
+#                                                                                           %
+# Lancet Oncol. 2010;11(7):619–26. DOI: https://doi.org/10.1016/S1470-2045(10)70132-7.      %
+#                                                                                           %
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+############################################################
+# Parameters
+############################################################
+
+## Probabilities of observing the event in control arm during follow-up
+p0_e1 <- 0.59   # Death
+p0_e2 <- 0.74   # Disease Progression  
+
+## Effect size (CS- Hazard Ratios) for each endpoint
+HR_e1 <- 0.91   # Death
+HR_e2 <- 0.77   # Disease Progression
+
+## Hazard rates over time
+beta_e1 <- 2    # Death --> increase over time
+beta_e2 <- 1    # Disease Progression --> constant over time
+
+## Correlation
+rho <- 0.1
+rho_type= 'Spearman'
+copula  = 'Frank'
+
+## Additional parameter
+case    = 3       # 1: No deaths;                  2: Death is the secondary event; 
+                  # 3: Death is the primary event; 4: Both events are death
+
+############################################################
+# ARE: Asymptotic Relatively Efficiency
+############################################################
+ARE_tte(p0_e1=p0_e1    , p0_e2=p0_e2, 
+        HR_e1=HR_e1    , HR_e2=HR_e2, 
+        beta_e1=beta_e1, beta_e2=beta_e2,  
+        rho=rho        , rho_type=rho_type, 
+        copula = copula, case = case) 
+
+############################################################
+# Effect size of the Composite Endpoint
+############################################################
+effectsize_tte(p0_e1=p0_e1, p0_e2=p0_e2, 
+               HR_e1=HR_e1, HR_e2=HR_e2, 
+               beta_e1=beta_e1, beta_e2=beta_e2, 
+               rho=rho, rho_type=rho_type, 
+               copula = copula, case = case) 
+
+############################################################
+# Sample size
+############################################################
+samplesize_tte(p0_e1=p0_e1, p0_e2=p0_e2, 
+               HR_e1=HR_e1, HR_e2=HR_e2, 
+               beta_e1=beta_e1, beta_e2=beta_e2, 
+               rho=rho, rho_type=rho_type, 
+               copula = copula, case = case, 
+               alpha=0.025, power=0.90,
+               ss_formula='schoenfeld') 
+
+
+############################################################
+# Influence of Hazards and correlation
+############################################################
+
+############################################################
+# Effect size of the Composite Endpoint
+############################################################
+## Hazard rates over time
+beta_e1 <- 1    # Death --> constant over time
+beta_e2 <- 2    # Disease Progression --> increase over time
+effectsize_tte(p0_e1=p0_e1, p0_e2=p0_e2, 
+               HR_e1=HR_e1, HR_e2=HR_e2, 
+               beta_e1=beta_e1, beta_e2=beta_e2, 
+               rho=rho, rho_type=rho_type, 
+               copula = copula, case = case) 
+
+## Hazard rates over time
+beta_e1 <- 1    # Death --> constant over time
+beta_e2 <- 1    # Disease Progression --> constant over time
+effectsize_tte(p0_e1=p0_e1, p0_e2=p0_e2, 
+               HR_e1=HR_e1, HR_e2=HR_e2, 
+               beta_e1=beta_e1, beta_e2=beta_e2, 
+               rho=rho, rho_type=rho_type, 
+               copula = copula, case = case) 
+
+############################################################
+# The role of both endpoints
+############################################################
+## Probabilities of observing the event in control arm during follow-up
+p0_e1 <- 0.74   # Disease Progression
+p0_e2 <- 0.59   # Death  
+
+## Effect size (CS- Hazard Ratios) for each endpoint
+HR_e1 <- 0.77   # Disease Progression
+HR_e2 <- 0.91   # Death
+
+## Hazard rates over time
+beta_e1 <- 1    # Death --> constant over time
+beta_e2 <- 1    # Disease Progression --> constant over time 
+
+############################################################
+# ARE: Asymptotic Relatively Efficiency
+############################################################
+ARE_tte(p0_e1=p0_e1    , p0_e2=p0_e2, 
+        HR_e1=HR_e1    , HR_e2=HR_e2, 
+        beta_e1=beta_e1, beta_e2=beta_e2,  
+        rho=rho        , rho_type=rho_type, 
+        copula = copula, case = case) 
+
+
+
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#                                                                                           %
+# TUXEDO TRIAL --> Binary endpoints                                                         %
+#                                                                                           %
+# Kaul U, Bangalore S, Seth A, Priyadarshini A, Rajpal KA, Tejas MP et al. Paclitaxel-      %
+# Eluting versus EverolimusEluting Coronary Stents in Diabetes. N Engl J Med.               %
+# 2015;373(18):1709-19.                                                                     %
+#                                                                                           %
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+############################################################
+# Parameters
+############################################################
+
+## Probabilities of observing the event in control arm at the end of follow-up
+p0_e1 <- 0.059    # Ischemia-driven target-lesion revascularization 
+p0_e2 <- 0.032    # Cardiac death or target-vessel MI 
+
+## Effect size (absolute reduction) for each endpoint
+AR_e1 <- -0.0196  # Ischemia-driven target-lesion revascularization 
+AR_e2 <- -0.0098  # Cardiac death or target-vessel MI
+
+## Correlation
+rho <- 0.4
+
+############################################################
+# ARE: Asymptotic Relatively Efficiency
+############################################################
+ARE_cbe(p0_e1=p0_e1    , p0_e2=p0_e2, 
+        eff_e1=AR_e1    ,eff_e2=AR_e2, 
+        effm_e1 = "diff",effm_e2 = "diff", effm_ce = "or",
+        rho=rho) 
+
+############################################################
+# Effect size of the Composite Endpoint
+############################################################
+effectsize_cbe(p0_e1=p0_e1    , p0_e2=p0_e2, 
+               eff_e1=AR_e1    ,eff_e2=AR_e2, 
+               effm_e1 = "diff",effm_e2 = "diff", effm_ce = "or",
+               rho=rho) 
+
+############################################################
+# Sample size
+############################################################
+samplesize_cbe(p0_e1=p0_e1     , p0_e2=p0_e2, 
+               eff_e1=AR_e1    , eff_e2=AR_e2, 
+               effm_e1 = "diff", effm_e2 = "diff", effm_ce = "or",
+               rho=rho,
+               alpha = 0.05,beta = 0.2) 
