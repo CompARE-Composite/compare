@@ -24,8 +24,11 @@ h1.title {
 
 <img src="~/R_projects/CompARE/images/logo.png" align="right" width="250"/>
 
-[![License: GPL
-v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![](https://cranlogs.r-pkg.org/badges/grand-total/CompAREdesign)](https://cran.rstudio.com/web/packages/CompAREdesign/index.html)
+[![](https://cranlogs.r-pkg.org/badges/CompAREdesign)](https://cran.rstudio.com/web/packages/CompAREdesign/index.html)
+[![](https://img.shields.io/cran/v/CompAREdesign)](https://cran.rstudio.com/web/packages/CompAREdesign/index.html)
+[![](https://badges.cranchecks.info/flavor/windows/CompAREdesign.svg)](https://cran.rstudio.com/web/checks/check_results_CompAREdesign.html)
+[![](https://img.shields.io/cran/l/NCC)](https://opensource.org/license/mit/)
 
 <!-- badges: end -->
 
