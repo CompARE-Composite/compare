@@ -1,0 +1,119 @@
+---
+title: "CompARE"
+subtitle: "Welcome to CompARE - Designing feasible clinical trials"
+output:
+  html_document:
+    theme: cosmo
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{=html}
+<style type="text/css">
+h1.title {
+  display: none;
+}
+</style>
+```
+```{=html}
+<style type="text/css">
+.subtitle {
+  font-size: 36px;
+  font-weight: 500;
+  color: DarkRed;
+  text-align: center;
+}
+</style>
+```
+```{=html}
+<style type="text/css">
+  body{
+  font-size: 12pt;
+}
+</style>
+```
+```{=html}
+<head>
+<title>CompARE</title>
+</head>
+```
+<br>
+
+```{r echo=FALSE}
+# https://stackoverflow.com/questions/61313078/create-a-carousel-in-rmarkdown
+objpath <- file.path(getwd(),"images/carousel_home")
+slickR::slickR(
+    list.files(objpath,full.names = TRUE,pattern = 'png'),
+    height = 300,
+    width = '95%')
+```
+
+```{r echo=FALSE}
+library(fontawesome)
+```
+
+<br>
+
+<br>
+
+### What is CompARE?
+
+<hr>
+
+**CompARE** is an initiative inspired to provide help on issues relating
+to trials with composite endpoints. **CompARE** may be used as a tool
+for calculating the elements needed in the planning phase of clinical
+trials involving composite endpoints.
+
+<br>
+
+### Shiny Apps
+
+<hr>
+
+**CompARE** is split into two apps for time-to-event and binary
+endpoints, respectively. They are implemented with the Shiny R package.
+With its user-friendly interface, CompARE allows to input the main
+parameters included in the trial -such as the treatment effect on the
+components of the composite endpoint, and its frequencies of occurrence-
+and helps provide power and sample size calculations among others. <br>
+
+<ul class="pager">
+
+<!--this is the style of the button-->
+
+<li><a href="https://www.grbio.eu/compare/CompARETimeToEvent/">      TIME-TO-EVENT
+APP      </a></li>
+
+<li><a href="https://www.grbio.eu/compare/CompAREBinary/">      BINARY
+APP      </a></li>
+
+</ul>
+
+<ul class="pager">
+
+<!--this is the style of the button-->
+
+<li><a href="https://www.grbio.eu/compare/CompARETimeToEvent/help_Tutorial.html">TIME-TO-EVENT
+TUTORIAL</a></li>
+
+<li><a href="https://www.grbio.eu/compare/CompAREBinary/Help-Tutorial.html">BINARY
+TUTORIAL</a></li>
+
+</ul>
+
+<br>
+
+### R Package - CompAREdesign
+
+<hr>
+
+You can also find the R-package version of CompARE in CRAN
+[CompAREdesign](https://cran.r-project.org/web/packages/CompAREdesign/index.html).
+
+It has been designed to calculate the required sample size in randomized
+clinical trials with composite endpoints. This package also includes
+functions to calculate the probability of observing the composite
+endpoint and the expected effect on the composite endpoint, among
+others.
