@@ -16,6 +16,7 @@ h1.title {
 }
 </style>
 ```
+
 ```{=html}
 <style type="text/css">
 .subtitle {
@@ -26,6 +27,7 @@ h1.title {
 }
 </style>
 ```
+
 ```{=html}
 <style type="text/css">
   body{
