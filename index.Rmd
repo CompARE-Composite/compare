@@ -58,13 +58,13 @@ h1.title {
     <h1>Number of Views: <span id="viewCount">Loading...</span></h1>
 
     <script>
-        // Replace 'YOUR_VIEW_ID' with your Google Analytics view ID
-        gtag('config', 'YOUR_VIEW_ID');
+        // Replace 'G-EGNE926NLF' with your Google Analytics view ID
+        gtag('config', 'G-EGNE926NLF');
 
         // Function to fetch view count
         function fetchViewCount() {
             gtag('event', 'page_view', {
-                'send_to': 'YOUR_VIEW_ID',
+                'send_to': 'G-EGNE926NLF',
                 'event_callback': function() {
                     var viewCount = gtag.getAll()[0].get('page_view_count');
                     document.getElementById('viewCount').textContent = viewCount;
