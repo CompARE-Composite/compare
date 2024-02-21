@@ -17,11 +17,32 @@ h1.title {
 ```
 <br>
 
-<center>
+### **Authors**
 
+<br>
+
++:--------------------------------------------------------------------:+:----------------------------------------------------------------------:+:-------------------------------------------------------------:+
+| ### Lupe Gómez Melis                                                 | ### Marta Bofill Roig                                                  | ### Jordi Cortés-Martíz                                       |
++----------------------------------------------------------------------+------------------------------------------------------------------------+---------------------------------------------------------------+
+| ![](~/R_projects/new_comp/compare/images/about_us/lupe.jpeg)         | ![](~/R_projects/new_comp/compare/images/about_us/marta_bofill.jpeg)\| | ![](~/R_projects/new_comp/compare/images/about_us/jordi.jpeg) |
++----------------------------------------------------------------------+------------------------------------------------------------------------+---------------------------------------------------------------+
+| [Personal Web-page](https://grbio.upc.edu/en/about-us/cv/lupe-gomez) | [Personal Web-page](https://martabofillroig.github.io/)                | [Personal Web-page](https://jordi-cortes.netlify.app/)        |
++----------------------------------------------------------------------+------------------------------------------------------------------------+---------------------------------------------------------------+
+
+<br>
+
+### **Contributors**
+
+<br>
+
+Raquel Rovira and Ignacio Pérez
+
+<br>
+
+------------------------------------------------------------------------
+
+::: {align="center"}
 ### **GRBIO**
-
-<center>
 
 The main goal of GRBIO is to promote joint research in Biostatistics and Bioinformatics, either in advanced applications and in the theoretical and computational development of new methodologies.
 
@@ -29,20 +50,7 @@ We aim to address complex interdisciplinary issues and to make relevant scientif
 
 The members of the team have diverse research backgrounds, which can be broadly grouped into three areas: Clinical Trials and Survival Analysis, Biostatistical Methods for integrative analysis of omics data and Development of statistical tools. We aim to respond to issues raised in Biosciences and Health in an integrative and comprehensive manner, trying to exploit the synergies between members coming from these diverse research and expertise areas.
 
-![](~/R_projects/CompARE/images/about_us/grbio.png)
-
-<center>
+![](~/R_projects/new_comp/compare/images/about_us/grbio.png)
 
 [Research group Web-page](https://grbio.upc.edu/en)
-
-<br>
-
-<br>
-
-+:--------------------------------------------------------------------:+:-----------------------------------------------------------:+:------------------------------------------------------:+
-| ### Lupe Gómez Melis                                                 | ### Marta Bofill Roig                                       | ### Jordi Cortés-Martínez                              |
-+----------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------+
-| ![](~/R_projects/CompARE/images/about_us/lupe.jpeg)                  | ![](~/R_projects/CompARE/images/about_us/marta_bofill.jpeg) | ![](~/R_projects/CompARE/images/about_us/jordi.jpeg)   |
-+----------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------+
-| [Personal Web-page](https://grbio.upc.edu/en/about-us/cv/lupe-gomez) | [Personal Web-page](https://martabofillroig.github.io/)     | [Personal Web-page](https://jordi-cortes.netlify.app/) |
-+----------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------+
+:::
