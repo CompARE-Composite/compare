@@ -283,7 +283,33 @@ $(document).ready(function () {
 
 <div id="header">
 
+<html>
+<head>
+    <title>View Counter</title>
+</head>
+<body>
+    <h1>Number of Views: <span id="viewCount">Loading...</span></h1>
 
+    <script>
+        // Replace 'YOUR_VIEW_ID' with your Google Analytics view ID
+        gtag('config', 'G-EGNE926NLF');
+
+        // Function to fetch view count
+        function fetchViewCount() {
+            gtag('event', 'page_view', {
+                'send_to': 'G-EGNE926NLF',
+                'event_callback': function() {
+                    var viewCount = gtag.getAll()[0].get('page_view_count');
+                    document.getElementById('viewCount').textContent = viewCount;
+                }
+            });
+        }
+
+        // Fetch view count when the page loads
+        fetchViewCount();
+    </script>
+</body>
+</html>
 
 <h1 class="title toc-ignore">CompARE</h1>
 <h3 class="subtitle">Welcome to CompARE - Designing feasible clinical
