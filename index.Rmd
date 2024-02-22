@@ -16,7 +16,6 @@ h1.title {
 }
 </style>
 ```
-
 ```{=html}
 <style type="text/css">
 .subtitle {
@@ -27,7 +26,6 @@ h1.title {
 }
 </style>
 ```
-
 ```{=html}
 <style type="text/css">
   body{
@@ -35,7 +33,6 @@ h1.title {
 }
 </style>
 ```
-
 ```{=html}
 <head>
 <!-- Google tag (gtag.js) -->
@@ -51,36 +48,6 @@ h1.title {
 <title>CompARE</title>
 </head>
 ```
-
-```{=html}
-<head>
-    <title>View Counter</title>
-</head>
-<body>
-    <h1>Number of Views: <span id="viewCount">Loading...</span></h1>
-
-    <script>
-        // Replace 'G-EGNE926NLF' with your Google Analytics view ID
-        gtag('config', 'G-EGNE926NLF');
-
-        // Function to fetch view count
-        function fetchViewCount() {
-            gtag('event', 'page_view', {
-                'send_to': 'G-EGNE926NLF',
-                'event_callback': function() {
-                    var viewCount = gtag.getAll()[0].get('page_view_count');
-                    document.getElementById('viewCount').textContent = viewCount;
-                }
-            });
-        }
-
-        // Fetch view count when the page loads
-        fetchViewCount();
-    </script>
-</body>
-```
-
-
 <br>
 
 ```{r echo=FALSE}
