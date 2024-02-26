@@ -35,6 +35,11 @@ h1.title {
 ```
 ```{=html}
 <head>
+<title>CompARE</title>
+</head>
+```
+
+```{=html}
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EGNE926NLF"></script>
 <script>
@@ -44,26 +49,9 @@ h1.title {
 
   gtag('config', 'G-EGNE926NLF');
 </script>
-
-<script>
-  // Function to fetch visit count from Google Analytics
-  function fetchVisitCount() {
-    gtag('event', 'page_view', {
-      'send_to': 'G-EGNE926NLF', // Replace with your tracking ID
-      'event_callback': function() {
-        var visitCount = gtag.getAll()[0].get('config', 'G-EGNE926NLF', 'metric1'); // Adjust the metric number as per your configuration
-        document.getElementById('visit-counter').innerText = 'Total Visits: ' + visitCount;
-      }
-    });
-  }
-
-  // Call the function to fetch visit count when the page loads
-  window.onload = fetchVisitCount;
-</script>
-
-<title>CompARE</title>
-</head>
 ```
+
+
 <br>
 
 ```{r echo=FALSE}
