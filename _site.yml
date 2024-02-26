@@ -25,7 +25,9 @@ navbar:
 output:
   html_document:
     theme: cosmo
-    highlight: tango
+    highlight: tango  
+    includes:
+      in_header: GA_script.html
 
     
     
