@@ -26,7 +26,6 @@ output:
   html_document:
     theme: cosmo
     highlight: tango
-    includes:
-      in_header: GA_script.html
+
     
     
