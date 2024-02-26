@@ -118,24 +118,9 @@ functions to calculate the probability of observing the composite
 endpoint and the expected effect on the composite endpoint, among
 others.
 
-```{=html}
-<div id="visit-counter"></div>
-```
 
 ```{=html}
-<script>
-  // Function to fetch visit count from Google Analytics
-  function fetchVisitCount() {
-    gtag('event', 'page_view', {
-      'send_to': 'G-EGNE926NLF', // Replace with your tracking ID
-      'event_callback': function() {
-        var visitCount = gtag.getAll()[0].get('metric1'); // Adjust the metric number as per your configuration
-        document.getElementById('visit-counter').innerText = 'Total Visits: ' + visitCount;
-      }
-    });
-  }
-
-  // Call the function to fetch visit count when the page loads
-  window.onload = fetchVisitCount;
-</script>
+<body>
+  <div id="hit-counter">Loading...</div>
+</body>
 ```

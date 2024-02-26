@@ -1,9 +1,41 @@
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TBTK47CM9R"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hit Counter</title>
+  
+  <!-- Google Analytics Tracking Code -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TBTK47CM9R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TBTK47CM9R');
+  </script>
 
-  gtag('config', 'G-TBTK47CM9R');
-</script>
+  <!-- JavaScript to fetch and display hit count -->
+  <script>
+    function fetchHitCount() {
+      gtag('event', 'page_view', {
+        'send_to': 'G-TBTK47CM9R', // Replace with your tracking ID
+        'event_callback': function() {
+          var hitCount = gtag.getAll()[0].get('config', 'G-TBTK47CM9R', 'metric1'); // Adjust the metric number as per your configuration
+          document.getElementById('hit-counter').innerText = 'Total Hits: ' + hitCount;
+        }
+      });
+    }
+    window.onload = fetchHitCount;
+  </script>
+</head>
+
+</html>
+
+
+
+
+
+
+
+
+
