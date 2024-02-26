@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,19 +17,27 @@
   <!-- JavaScript to fetch and display hit count -->
   <script>
     function fetchHitCount() {
-      gtag('event', 'page_view', {
-        'send_to': 'G-TBTK47CM9R', // Replace with your tracking ID
-        'event_callback': function() {
-          var hitCount = gtag.getAll()[0].get('config', 'G-TBTK47CM9R', 'metric1'); // Adjust the metric number as per your configuration
-          document.getElementById('hit-counter').innerText = 'Total Hits: ' + hitCount;
-        }
-      });
-    }
+  // Replace with your view ID
+  var viewId = 'G-TBTK47CM9R'; 
+  var startDate = '30daysAgo'; // Adjust the start date as needed
+  var endDate = 'today'; // Adjust the end date as needed
+  
+  gapi.analytics.ready(function() {
+    var data = new gapi.analytics.report.Data({query: {ids: 'ga:' + viewId, 'start-date': startDate, 'end-date': endDate, metrics: 'ga:sessions'}});
+    
+    data.on('success', function(response) {
+      var hitCount = response.totalsForAllResults['ga:sessions'];
+      document.getElementById('hit-counter').innerText = 'Total Sessions: ' + hitCount;
+    });
+    
+    data.execute();
+  });
+}
     window.onload = fetchHitCount;
   </script>
 </head>
 
-</html>
+
 
 
 
