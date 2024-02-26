@@ -118,9 +118,3 @@ functions to calculate the probability of observing the composite
 endpoint and the expected effect on the composite endpoint, among
 others.
 
-
-```{=html}
-<body>
-  <div id="hit-counter">Loading...</div>
-</body>
-```
