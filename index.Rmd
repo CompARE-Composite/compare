@@ -38,8 +38,6 @@ h1.title {
 <title>CompARE</title>
 </head>
 ```
-
-
 <br>
 
 ```{r echo=FALSE}
