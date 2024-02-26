@@ -16,17 +16,6 @@ h1.title {
 </style>
 ```
 
-```{=html}
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EGNE926NLF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-EGNE926NLF');
-</script>
-```
 <br>
 
 1.  [J. Cortés, M. Bofill and G. Gómez (2022). Design of Trials with Composite Endpoints with the R Package CompAREdesign. arXiv:2211.02535](https://arxiv.org/abs/2211.02535)

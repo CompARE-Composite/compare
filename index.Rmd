@@ -40,30 +40,6 @@ h1.title {
 ```
 
 
-
-```{=html}
-
-<script>
-  // Function to fetch view count
-  function fetchViewCount() {
-    // Make an API call to retrieve the view count
-    // Replace 'G-EGNE926NLF' with the actual endpoint to fetch the view count
-    fetch('G-EGNE926NLF')
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById('viewCount').textContent = data.viewCount;
-      })
-      .catch(error => {
-        console.error('Error fetching view count:', error);
-      });
-  }
-
-  // Fetch view count when the page loads
-  window.addEventListener('load', fetchViewCount);
-</script>
-```
-
-
 <br>
 
 ```{r echo=FALSE}
@@ -143,12 +119,4 @@ clinical trials with composite endpoints. This package also includes
 functions to calculate the probability of observing the composite
 endpoint and the expected effect on the composite endpoint, among
 others.
-
-```{r echo=FALSE}
-library(googleAnalyticsR)
-```
-
-<br>
-
-Number of Views: <span id="viewCount">Loading...</span>
 
