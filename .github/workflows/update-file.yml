@@ -1,0 +1,41 @@
+name: Daily File Update and Deploy
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs every day at midnight UTC
+
+jobs:
+  update-file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Update File 1
+        run: |
+          echo "Update 1: $(date)" > googleanalytics.R
+
+      - name: Update File 2
+        run: |
+          echo "Update 2: $(date)" > index.Rmd
+
+      - name: Commit Changes
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@users.noreply.github.com'
+          git add daily_update.md
+          git commit -m "Update daily_update.md ($(date +'%Y-%m-%d'))"
+          git push
+
+  deploy-page:
+    needs: update-file
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Build and Deploy Page
+        run: |
+          echo "Build and deploy GitHub Pages site"
