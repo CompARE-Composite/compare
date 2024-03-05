@@ -1,0 +1,33 @@
+name: "CompARE"
+output_dir: "."
+navbar:
+  title: "CompARE"
+  left:
+    - text: "HOME"
+      href: index.html
+    - text: "APP FEATURES"
+      href: appfeatures.html
+    - text: "R PACKAGE"
+      menu:
+      - text: "INTRODUCTION"
+        href: package.html
+      - text: "VIGNETTE"
+        href: vignette.html 
+    - text: "ABOUT US"
+      href: aboutus.html
+    - text: "PUBLICATIONS"
+      href: publications.html
+    - text: "TALKS"
+      href: talks_1.html      
+    - text: "CONTACT"
+      href: contact.html 
+
+output:
+  html_document:
+    theme: cosmo
+    highlight: tango  
+    includes:
+      in_header: GA_script.html
+
+    
+    

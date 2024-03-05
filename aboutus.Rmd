@@ -1,0 +1,56 @@
+---
+title: "About us"
+output:
+  html_document:
+    theme: cosmo
+---
+
+```{=html}
+<style type="text/css">
+h1.title {
+  font-size: 36px;
+  font-weight: 500;
+  color: DarkRed;
+  text-align: center;
+}
+</style>
+```
+<br>
+
+### **Authors**
+
+<br>
+
++:--------------------------------------------------------------------:+:--------------------------------------------------------------------:+:-------------------------------------------------------------:+
+| ### Lupe Gómez Melis                                                 | ### Marta Bofill Roig                                                | ### Jordi Cortés-Martíz                                       |
++----------------------------------------------------------------------+----------------------------------------------------------------------+---------------------------------------------------------------+
+| ![](~/R_projects/new_comp/compare/images/about_us/lupe.jpeg)         | ![](~/R_projects/new_comp/compare/images/about_us/marta_bofill.jpeg) | ![](~/R_projects/new_comp/compare/images/about_us/jordi.jpeg) |
++----------------------------------------------------------------------+----------------------------------------------------------------------+---------------------------------------------------------------+
+| [Personal Web-page](https://grbio.upc.edu/en/about-us/cv/lupe-gomez) | [Personal Web-page](https://martabofillroig.github.io/)              | [Personal Web-page](https://jordi-cortes.netlify.app/)        |
++----------------------------------------------------------------------+----------------------------------------------------------------------+---------------------------------------------------------------+
+
+<br>
+
+### **Contributors**
+
+<br>
+
+Raquel Rovira and Ignacio Pérez
+
+<br>
+
+------------------------------------------------------------------------
+
+::: {align="center"}
+### **GRBIO**
+
+The main goal of GRBIO is to promote joint research in Biostatistics and Bioinformatics, either in advanced applications and in the theoretical and computational development of new methodologies.
+
+We aim to address complex interdisciplinary issues and to make relevant scientific contributions on health and biology areas where closer collaboration is needed to promote future development and welfare of the society. It is an attainable goal provided that most of our investigators work side by side with researchers in the "Bio" field, including medical doctors, biologists and virologists and are exposed to scientific problems which need new thoughts, new models and the integration of researchers from several fields.
+
+The members of the team have diverse research backgrounds, which can be broadly grouped into three areas: Clinical Trials and Survival Analysis, Biostatistical Methods for integrative analysis of omics data and Development of statistical tools. We aim to respond to issues raised in Biosciences and Health in an integrative and comprehensive manner, trying to exploit the synergies between members coming from these diverse research and expertise areas.
+
+![](~/R_projects/new_comp/compare/images/about_us/grbio.png)
+
+[Research group Web-page](https://grbio.upc.edu/en)
+:::
