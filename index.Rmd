@@ -125,10 +125,9 @@ source("googleanalytics.R")
 <br> 
  
           
-![](https://img.shields.io/badge/Total Users-`r data_totalusers$totalUsers`-blue) 
+![](https://img.shields.io/badge/Total Users-`r read.table("info.txt")`-blue) 
 <!-- ![](https://img.shields.io/badge/Last Month Users- `r data_lastmonth_users$active28DayUsers`-blue) -->
 
 
-`r test`
  
  

@@ -17,9 +17,7 @@ data_lastmonth_users <- ga_data(propertyId = my_accounts$propertyId,
 
 
 
-
-
-test <- Sys.time()
+write.table(data_totalusers$totalUsers, "info.txt")
 
 
 
