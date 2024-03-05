@@ -18,3 +18,9 @@ data_lastmonth_users <- ga_data(propertyId = my_accounts$propertyId,
 
 
 
+
+test <- Sys.time()
+
+
+
+
