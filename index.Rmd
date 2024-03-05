@@ -126,5 +126,6 @@ source("googleanalytics.R")
  
           
 ![](https://img.shields.io/badge/Total Users-`r data_totalusers$totalUsers`-blue) 
-![](https://img.shields.io/badge/Last Month Users- `r data_lastmonth_users$active28DayUsers`-blue) 
+<!-- ![](https://img.shields.io/badge/Last Month Users- `r data_lastmonth_users$active28DayUsers`-blue) -->
+ 
  
