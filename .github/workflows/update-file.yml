@@ -2,7 +2,7 @@ name: Update Files and Deploy
 
 on:
   schedule:
-    - cron: '*/5 * * * *' # Runs every 5 minutes
+    - cron: '0 0 * * *' # Runs every 5 minutes
 
 jobs:
   update-and-deploy:
@@ -19,11 +19,11 @@ jobs:
 
       - name: Commit Changes
         run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@users.noreply.github.com'
+          git config --local user.name 'GitHub Actions'
+          git config --local user.email 'actions@github.com'
           git add googleanalytics.R index.Rmd
           git commit -m "Update files ($(date +'%Y-%m-%d %H:%M:%S'))"
-          git push
+          git push origin HEAD:main
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
