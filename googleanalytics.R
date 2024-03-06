@@ -22,3 +22,4 @@ write.table(data_totalusers$totalUsers, "info.txt")
 
 
 
+test <- Sys.time()
