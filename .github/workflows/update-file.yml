@@ -18,6 +18,7 @@ jobs:
             any::tidyverse 
             any::rmarkdown
             any::remotes
+            any::slickR
             any::googleAnalyticsR
 
       - name: Check out repository
