@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron: '30 09 * * *' # Runs every 5 minutes
+    - cron: '45 09 * * *' # Runs every 5 minutes
   push:
     branches: main
 permissions:
