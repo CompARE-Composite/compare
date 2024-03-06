@@ -119,15 +119,30 @@ endpoint and the expected effect on the composite endpoint, among
 others. 
  
 ```{r include = FALSE} 
-source("googleanalytics.R") 
+# Execute the script everyday to update the counters 
+
+library(googleAnalyticsR) 
+
+Sys.setenv(GARGLE_EMAIL = "ignacio.perez.blasco@upc.edu") 
+ga_auth() 
+my_accounts <- ga_account_list(type = "ga4") 
+
+
+data_totalusers <- ga_data(propertyId = my_accounts$propertyId,  
+                           metrics = c("totalUsers", "activeUsers"), 
+                           date_range = c("2024-02-21", "today")) 
+
+data_lastmonth_users <- ga_data(propertyId = my_accounts$propertyId,  
+                                metrics = c("active28DayUsers"), 
+                                date_range = c("2024-02-21", "today")) 
 ``` 
  
 <br> 
  
           
-![](https://img.shields.io/badge/Total Users-`r read.table("info.txt")`-blue) 
+![](https://img.shields.io/badge/Total Users-`r data_totalusers$totalUsers`-blue) 
 <!-- ![](https://img.shields.io/badge/Last Month Users- `r data_lastmonth_users$active28DayUsers`-blue) -->
 
-`r test`
+
  
  
