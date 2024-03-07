@@ -120,8 +120,26 @@ others.
  
 <br> 
  
+
+```{r Calling URL include=FALSE}
+
+library(gsheet)
+
+# Change url when ACTIC activate my permissions
+url <- "https://docs.google.com/spreadsheets/d/1xnISTgHjC1t40K5otPUCrDyxwWVetLKUOrbzAUPuczY/edit"
+
+
+
+DF <- gsheet2tbl(url)
+totalusers <- DF$Google.Analytics.CompARE[11]
+
+
+```
+
+
+
           
-![](https://img.shields.io/badge/Total Users-`r data_totalusers$totalUsers`-blue) 
+![](https://img.shields.io/badge/Total Users-`r totalusers`-blue)
 
 
 

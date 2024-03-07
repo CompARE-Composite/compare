@@ -1,6 +1,6 @@
-#on:
-  #push:
-    #branches: main
+on:
+  push:
+    branches: main
 permissions:
   contents: write
 
@@ -19,7 +19,7 @@ jobs:
             any::rmarkdown
             any::remotes
             any::slickR
-            any::googleAnalyticsR
+            any::gsheet
 
       - name: Check out repository
         uses: actions/checkout@v3

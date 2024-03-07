@@ -1,7 +1,9 @@
 
 
+install.packages("gsheet")
+library(gsheet)
+url <- "https://docs.google.com/spreadsheets/d/1xnISTgHjC1t40K5otPUCrDyxwWVetLKUOrbzAUPuczY/edit"
 
-install.packages("googlesheets4")
-library(googlesheets4)
 
-value <- read_sheet(ss = "https://docs.google.com/spreadsheets/d/1-Vklh823msjU9esHyUXF9v6uB8YXULZ_CAvB1bspjhA/edit?usp=sharing", range = "Google Analytics CompARE!A12")
+
+DF <- gsheet2tbl(url)
