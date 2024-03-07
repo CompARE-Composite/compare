@@ -121,7 +121,7 @@ others.
 <br> 
  
 
-```{r Calling URL include=FALSE}
+```{r Calling-URL, include=FALSE}
 
 library(gsheet)
 
