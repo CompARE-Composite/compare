@@ -125,7 +125,7 @@ others.
 
 library(gsheet)
 
-# Change url when ACTIC activate my permissions
+# URL
 url <- "https://docs.google.com/spreadsheets/d/1-Vklh823msjU9esHyUXF9v6uB8YXULZ_CAvB1bspjhA/edit?usp=sharing"
 
 
@@ -136,7 +136,7 @@ totalusers <- DF$Google.Analytics.CompARE[11]
 
 ```
 
-
+hola
 
           
 ![](https://img.shields.io/badge/Total Users-`r totalusers`-blue)
