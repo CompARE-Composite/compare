@@ -132,13 +132,11 @@ url <- "https://docs.google.com/spreadsheets/d/1-Vklh823msjU9esHyUXF9v6uB8YXULZ_
 
 DF <- gsheet2tbl(url)
 totalusers <- DF$Google.Analytics.CompARE[11]
-library(knitr)
-kable(DF, format = "html")
 
 
 ```
 
-
+hola
 
           
 ![](https://img.shields.io/badge/Total Users-`r totalusers`-blue)
