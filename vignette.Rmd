@@ -1,153 +1,126 @@
 ---
 title: "Case studies with CompAREdesign"
-author: Guadalupe Gómez, Marta Bofill and Jordi Cortés
+author: "Marta Bofill Roig, Jordi Cortés Martínez and Guadalupe Gómez Melis"
 output: html_document
-date: "2023-12-18"
+date: "`r Sys.Date()`"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, include=FALSE, echo=FALSE}
+library('CompAREdesign')            # Load library
+knitr::opts_chunk$set(echo = TRUE)  # Show code
 ```
 
+## Introduction
+
+This vignette presents two examples of application of the R package [CompAREdesign](https://CRAN.R-project.org/package=CompAREdesign) for the design of clinical trials with composite endpoints:
+
+- First example: **time-to-event** endpoints
+- Second example: **binary** endpoints 
+
+## Time-to-event endpoint: ZODIAC TRIAL
+
+This example is based on the data from the [ZODIAC trial](https://doi.org/10.1016/S1470-2045(10)70132-7) [1].
+
+### Input Parameters
+
+First of all, the information for the components of the composite endpoint should be defined.
 
 ```{r}
-rm(list=ls())
-
-############################################################
-# Load library
-############################################################
-library(CompAREdesign)
-
-
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-#                                                                                           %
-# ZODIAC TRIAL --> Time to event endpoint                                                   %
-#                                                                                           %
-# Lancet Oncol. 2010;11(7):619–26. DOI: https://doi.org/10.1016/S1470-2045(10)70132-7.      %
-#                                                                                           %
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-############################################################
-# Parameters
-############################################################
-
 ## Probabilities of observing the event in control arm during follow-up
 p0_e1 <- 0.59   # Death
 p0_e2 <- 0.74   # Disease Progression  
 
-## Effect size (CS- Hazard Ratios) for each endpoint
+## Effect size (Cause specific hazard ratios) for each endpoint
 HR_e1 <- 0.91   # Death
 HR_e2 <- 0.77   # Disease Progression
 
 ## Hazard rates over time
-beta_e1 <- 2    # Death --> increase over time
-beta_e2 <- 1    # Disease Progression --> constant over time
+beta_e1 <- 2    # Death --> Increasing risk over time
+beta_e2 <- 1    # Disease Progression --> Constant risk over time
 
 ## Correlation
-rho <- 0.1
-rho_type= 'Spearman'
-copula  = 'Frank'
+rho      <- 0.1        # Correlation between components
+rho_type <- 'Spearman' # Type of correlation measure
+copula   <- 'Frank'    # Copula used to get the joint distribution
 
 ## Additional parameter
-case    = 3       # 1: No deaths;                  2: Death is the secondary event; 
-                  # 3: Death is the primary event; 4: Both events are death
+case  <- 3  # 1: No deaths;                  2: Death is the secondary event; 
+            # 3: Death is the primary event; 4: Both events are death by different causes
+```
 
-############################################################
-# ARE: Asymptotic Relatively Efficiency
-############################################################
-ARE_tte(p0_e1=p0_e1    , p0_e2=p0_e2, 
-        HR_e1=HR_e1    , HR_e2=HR_e2, 
-        beta_e1=beta_e1, beta_e2=beta_e2,  
-        rho=rho        , rho_type=rho_type, 
-        copula = copula, case = case) 
+### ARE: Asymptotic Relatively Efficiency
 
-############################################################
-# Effect size of the Composite Endpoint
-############################################################
-effectsize_tte(p0_e1=p0_e1, p0_e2=p0_e2, 
-               HR_e1=HR_e1, HR_e2=HR_e2, 
-               beta_e1=beta_e1, beta_e2=beta_e2, 
-               rho=rho, rho_type=rho_type, 
-               copula = copula, case = case) 
+As the ARE is greater than 1, the design using the composite endpoint as the primary endpoint is more efficient from the statistical point of view.
 
-############################################################
-# Sample size
-############################################################
-samplesize_tte(p0_e1=p0_e1, p0_e2=p0_e2, 
-               HR_e1=HR_e1, HR_e2=HR_e2, 
-               beta_e1=beta_e1, beta_e2=beta_e2, 
-               rho=rho, rho_type=rho_type, 
-               copula = copula, case = case, 
-               alpha=0.025, power=0.90,
-               ss_formula='schoenfeld') 
+```{r}
+ARE_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2, 
+        HR_e1   = HR_e1    , HR_e2    = HR_e2, 
+        beta_e1 = beta_e1  , beta_e2  = beta_e2,  
+        rho     = rho      , rho_type = rho_type, 
+        copula  = copula   , case     = case) 
+```
 
+### Effect size of the Composite Endpoint
 
-############################################################
-# Influence of Hazards and correlation
-############################################################
+Several summary measures of the treatment effect are provided.
 
-############################################################
-# Effect size of the Composite Endpoint
-############################################################
-## Hazard rates over time
+```{r}
+effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2, 
+               HR_e1   = HR_e1    , HR_e2    = HR_e2, 
+               beta_e1 = beta_e1  , beta_e2  = beta_e2,  
+               rho     = rho      , rho_type = rho_type, 
+               copula  = copula   , case     = case) 
+```
+
+### Sample size
+
+The required number of patients for the design of the trial using the composite endpoint as the primary endpoint is **1118**.
+
+```{r}
+samplesize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2, 
+               HR_e1   = HR_e1    , HR_e2    = HR_e2, 
+               beta_e1 = beta_e1  , beta_e2  = beta_e2,  
+               rho     = rho      , rho_type = rho_type, 
+               copula  = copula   , case     = case, 
+               alpha   = 0.025    , power    = 0.90,
+               ss_formula = 'schoenfeld') 
+
+```
+
+### Influence of hazards rates over time on the effect size
+
+The influence of the behaviour of the hazard rates over time on the treatment effect
+can be studied by the function `effectsize_tte`.
+
+```{r}
+## Hazard rates over time Case 1
 beta_e1 <- 1    # Death --> constant over time
 beta_e2 <- 2    # Disease Progression --> increase over time
-effectsize_tte(p0_e1=p0_e1, p0_e2=p0_e2, 
-               HR_e1=HR_e1, HR_e2=HR_e2, 
-               beta_e1=beta_e1, beta_e2=beta_e2, 
-               rho=rho, rho_type=rho_type, 
-               copula = copula, case = case) 
+effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2, 
+               HR_e1   = HR_e1    , HR_e2    = HR_e2, 
+               beta_e1 = beta_e1  , beta_e2  = beta_e2,  
+               rho     = rho      , rho_type = rho_type, 
+               copula  = copula   , case     = case) 
 
-## Hazard rates over time
+## Hazard rates over time Case 2
 beta_e1 <- 1    # Death --> constant over time
 beta_e2 <- 1    # Disease Progression --> constant over time
-effectsize_tte(p0_e1=p0_e1, p0_e2=p0_e2, 
-               HR_e1=HR_e1, HR_e2=HR_e2, 
-               beta_e1=beta_e1, beta_e2=beta_e2, 
-               rho=rho, rho_type=rho_type, 
-               copula = copula, case = case) 
+effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2, 
+               HR_e1   = HR_e1    , HR_e2    = HR_e2, 
+               beta_e1 = beta_e1  , beta_e2  = beta_e2,  
+               rho     = rho      , rho_type = rho_type, 
+               copula  = copula   , case     = case) 
+```
 
-############################################################
-# The role of both endpoints
-############################################################
-## Probabilities of observing the event in control arm during follow-up
-p0_e1 <- 0.74   # Disease Progression
-p0_e2 <- 0.59   # Death  
+## Binary endpoint: TUXEDO TRIAL
 
-## Effect size (CS- Hazard Ratios) for each endpoint
-HR_e1 <- 0.77   # Disease Progression
-HR_e2 <- 0.91   # Death
+This example is based on the data from the [TUXEDO trial](https://doi.org/10.1056/nejmoa1510188) [2].
 
-## Hazard rates over time
-beta_e1 <- 1    # Death --> constant over time
-beta_e2 <- 1    # Disease Progression --> constant over time 
+### Input Parameters
 
-############################################################
-# ARE: Asymptotic Relatively Efficiency
-############################################################
-ARE_tte(p0_e1=p0_e1    , p0_e2=p0_e2, 
-        HR_e1=HR_e1    , HR_e2=HR_e2, 
-        beta_e1=beta_e1, beta_e2=beta_e2,  
-        rho=rho        , rho_type=rho_type, 
-        copula = copula, case = case) 
+First of all, the information for the components of the composite endpoint should be defined.
 
-
-
-
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-#                                                                                           %
-# TUXEDO TRIAL --> Binary endpoints                                                         %
-#                                                                                           %
-# Kaul U, Bangalore S, Seth A, Priyadarshini A, Rajpal KA, Tejas MP et al. Paclitaxel-      %
-# Eluting versus EverolimusEluting Coronary Stents in Diabetes. N Engl J Med.               %
-# 2015;373(18):1709-19.                                                                     %
-#                                                                                           %
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-############################################################
-# Parameters
-############################################################
-
+```{r}
 ## Probabilities of observing the event in control arm at the end of follow-up
 p0_e1 <- 0.059    # Ischemia-driven target-lesion revascularization 
 p0_e2 <- 0.032    # Cardiac death or target-vessel MI 
@@ -157,32 +130,51 @@ AR_e1 <- -0.0196  # Ischemia-driven target-lesion revascularization
 AR_e2 <- -0.0098  # Cardiac death or target-vessel MI
 
 ## Correlation
-rho <- 0.4
-
-############################################################
-# ARE: Asymptotic Relatively Efficiency
-############################################################
-ARE_cbe(p0_e1=p0_e1    , p0_e2=p0_e2, 
-        eff_e1=AR_e1    ,eff_e2=AR_e2, 
-        effm_e1 = "diff",effm_e2 = "diff", effm_ce = "or",
-        rho=rho) 
-
-############################################################
-# Effect size of the Composite Endpoint
-############################################################
-effectsize_cbe(p0_e1=p0_e1    , p0_e2=p0_e2, 
-               eff_e1=AR_e1    ,eff_e2=AR_e2, 
-               effm_e1 = "diff",effm_e2 = "diff", effm_ce = "or",
-               rho=rho) 
-
-############################################################
-# Sample size
-############################################################
-samplesize_cbe(p0_e1=p0_e1     , p0_e2=p0_e2, 
-               eff_e1=AR_e1    , eff_e2=AR_e2, 
-               effm_e1 = "diff", effm_e2 = "diff", effm_ce = "or",
-               rho=rho,
-               alpha = 0.05,beta = 0.2) 
-
+rho   <- 0.4
 ```
 
+### ARE: Asymptotic Relatively Efficiency
+
+As the ARE is greater than 1, we can state that the design using the composite endpoint is more efficient.
+
+```{r}
+ARE_cbe(p0_e1   = p0_e1  , p0_e2   = p0_e2, 
+        eff_e1  = AR_e1  , eff_e2  = AR_e2, 
+        effm_e1 = "diff" , effm_e2 = "diff", effm_ce = "or",
+        rho     = rho) 
+```
+
+### Effect size of the Composite Endpoint
+
+We can obtain the expected treatment effect based on the odds ratio (*OR*).
+
+```{r}
+effectsize_cbe(p0_e1   = p0_e1  , p0_e2   = p0_e2, 
+               eff_e1  = AR_e1  , eff_e2  = AR_e2, 
+               effm_e1 = "diff" , effm_e2 = "diff", effm_ce = "or",
+               rho     = rho) 
+```
+
+### Sample size
+
+The required sample size for the design usign the composite endpoint is **2644**.
+
+```{r}
+samplesize_cbe(p0_e1   = p0_e1  , p0_e2   = p0_e2, 
+               eff_e1  = AR_e1  , eff_e2  = AR_e2, 
+               effm_e1 = "diff" , effm_e2 = "diff", effm_ce = "or",
+               rho     = rho,
+               alpha   = 0.05, beta = 0.2) 
+```
+
+## References
+
+1. Herbst RS, Sun Y, Eberhardt WEE, Germonpré P, Saijo N, Zhou C et al. Vandetanib plus docetaxel versus docetaxel as second-line treatment for patients with advanced non-small-cell lung cancer (ZODIAC): a double-blind, randomised, phase 3 trial. Lancet Oncol. 2010;11(7):619–26.
+
+2. Kaul U, Bangalore S, Seth A, Priyadarshini A, Rajpal KA, Tejas MP et al. Paclitaxel-Eluting versus EverolimusEluting Coronary Stents in Diabetes. N Engl J Med. 2015;373(18):1709-19.
+
+
+
+```{r, echo = FALSE}
+rm(list = ls())
+```

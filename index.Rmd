@@ -126,7 +126,7 @@ others.
 library(gsheet)
 
 # Change url when ACTIC activate my permissions
-url <- "https://docs.google.com/spreadsheets/d/1xnISTgHjC1t40K5otPUCrDyxwWVetLKUOrbzAUPuczY/edit"
+url <- "https://docs.google.com/spreadsheets/d/1-Vklh823msjU9esHyUXF9v6uB8YXULZ_CAvB1bspjhA/edit?usp=sharing"
 
 
 
