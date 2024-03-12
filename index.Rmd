@@ -136,10 +136,6 @@ totalusers <- DF$Variables[11]
 
 ```
 
-```{r echo=FALSE}
-library(knitr)
-kable(DF, format = "html")
-```
 
           
 ![](https://img.shields.io/badge/Total Users-`r totalusers`-blue)
