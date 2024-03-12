@@ -136,7 +136,8 @@ totalusers <- DF$Variables[11]
 
 ```
 
-h
+hola
+
           
 ![](https://img.shields.io/badge/Total Users-`r totalusers`-blue)
 
