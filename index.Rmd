@@ -60,7 +60,7 @@ library(fontawesome)
 
 library(gsheet)
 
-# URL
+# Fet amb el meu compte personal
 url <- "https://docs.google.com/spreadsheets/d/1-Vklh823msjU9esHyUXF9v6uB8YXULZ_CAvB1bspjhA/edit?usp=sharing"
 
 
@@ -71,7 +71,8 @@ totalusers <- as.numeric(DF[11,1])
 
 ################################
 
-# Fet amb lel compte de GRBIO
+# Fet amb lel compte de GRBIO:
+
 # Shiny Apps
 
 url2 <- "https://docs.google.com/spreadsheets/d/1NPnym2QZvmyivwP8R8u2y00KYHQJhIi0u-m9eOIRkxw/edit?usp=sharing"
@@ -82,6 +83,10 @@ totalusers_bin <- as.numeric(DF2[16, 2])
 
 # Web
 
+url3 <- "https://docs.google.com/spreadsheets/d/1KX8-kjtd2rODTo4_IPa5ybvgCBGa4iJRkjtbGQSSuWM/edit?usp=sharing"
+
+DF3 <- gsheet2tbl(url3)
+totalusers_web <- as.numeric(DF3[11,1])
 
 ```
 
@@ -159,7 +164,7 @@ others.
 
 
           
-![](https://img.shields.io/badge/Total Users Website-`r totalusers`-blue)
+![](https://img.shields.io/badge/Total Users Website-`r totalusers_web`-blue)
 
 
 
