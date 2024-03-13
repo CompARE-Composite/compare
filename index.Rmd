@@ -55,6 +55,37 @@ library(fontawesome)
  
 <br> 
  
+
+```{r Calling-URL, include=FALSE}
+
+library(gsheet)
+
+# URL
+url <- "https://docs.google.com/spreadsheets/d/1-Vklh823msjU9esHyUXF9v6uB8YXULZ_CAvB1bspjhA/edit?usp=sharing"
+
+
+
+DF <- gsheet2tbl(url)
+totalusers <- as.numeric(DF[11,1])
+
+
+################################
+
+# Fet amb lel compte de GRBIO
+# Shiny Apps
+
+url2 <- "https://docs.google.com/spreadsheets/d/1NPnym2QZvmyivwP8R8u2y00KYHQJhIi0u-m9eOIRkxw/edit?usp=sharing"
+
+DF2 <- gsheet2tbl(url2)
+totalusers_tte <- as.numeric(DF2[17, 2])+ as.numeric(DF2[18, 2])
+totalusers_bin <- as.numeric(DF2[16, 2])
+
+# Web
+
+
+```
+
+
 <br> 
  
 ### What is CompARE? 
@@ -104,6 +135,11 @@ TUTORIAL</a></li>
 </ul> 
  
 <br> 
+
+![](https://img.shields.io/badge/Total Users Binary App-`r totalusers_tte`-blue)
+![](https://img.shields.io/badge/Total Users Time to Event App-`r totalusers_bin`-blue)
+
+<br>
  
 ### R Package - CompAREdesign 
  
@@ -121,25 +157,9 @@ others.
 <br> 
  
 
-```{r Calling-URL, include=FALSE}
-
-library(gsheet)
-
-# URL
-url <- "https://docs.google.com/spreadsheets/d/1-Vklh823msjU9esHyUXF9v6uB8YXULZ_CAvB1bspjhA/edit?usp=sharing"
-
-
-
-DF <- gsheet2tbl(url)
-totalusers <- as.numeric(DF[11,1])
-
-
-```
-
-
 
           
-![](https://img.shields.io/badge/Total Users-`r totalusers`-blue)
+![](https://img.shields.io/badge/Total Users Website-`r totalusers`-blue)
 
 
 
