@@ -60,15 +60,6 @@ library(fontawesome)
 
 library(gsheet)
 
-# Fet amb el meu compte personal
-url <- "https://docs.google.com/spreadsheets/d/1-Vklh823msjU9esHyUXF9v6uB8YXULZ_CAvB1bspjhA/edit?usp=sharing"
-
-
-
-DF <- gsheet2tbl(url)
-totalusers <- as.numeric(DF[11,1])
-
-
 ################################
 
 # Fet amb lel compte de GRBIO:
