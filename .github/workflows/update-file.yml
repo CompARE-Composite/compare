@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron: '25 13 28 11 *'
+    - cron: '*/2 * * * *'
 
 permissions:
   contents: write
