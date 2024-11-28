@@ -6,7 +6,7 @@ output:
   pdf_document: default
   html_document: default
 ---
-
+ 
 ```{r setup, include=FALSE, echo=FALSE}
 library('CompAREdesign')            # Load library
 knitr::opts_chunk$set(echo = TRUE)  # Show code
