@@ -1,0 +1,78 @@
+---
+title: "Case studies with CompAREdesign: Binary endpoint"
+author: "Marta Bofill Roig, Jordi Cortés Martínez and Guadalupe Gómez Melis"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+library('CompAREdesign')            # Load library
+knitr::opts_chunk$set(echo = TRUE)  # Show code
+```
+
+## Binary endpoint: TUXEDO TRIAL
+
+This example is based on the data from the [TUXEDO trial](https://doi.org/10.1056/nejmoa1510188) [2].
+
+### Input Parameters
+
+First of all, the information for the components of the composite endpoint should be defined.
+
+```{r}
+## Probabilities of observing the event in control arm at the end of follow-up
+p0_e1 <- 0.059    # Ischemia-driven target-lesion revascularization 
+p0_e2 <- 0.032    # Cardiac death or target-vessel MI 
+
+## Effect size (absolute reduction) for each endpoint
+AR_e1 <- -0.0196  # Ischemia-driven target-lesion revascularization 
+AR_e2 <- -0.0098  # Cardiac death or target-vessel MI
+
+## Correlation
+rho   <- 0.4
+```
+
+### ARE: Asymptotic Relatively Efficiency
+
+As the ARE is greater than 1, we can state that the design using the composite endpoint is more efficient.
+
+```{r}
+ARE_cbe(p0_e1   = p0_e1  , p0_e2   = p0_e2, 
+        eff_e1  = AR_e1  , eff_e2  = AR_e2, 
+        effm_e1 = "diff" , effm_e2 = "diff", effm_ce = "or",
+        rho     = rho) 
+```
+
+### Effect size of the Composite Endpoint
+
+We can obtain the expected treatment effect based on the odds ratio (*OR*).
+
+```{r}
+effectsize_cbe(p0_e1   = p0_e1  , p0_e2   = p0_e2, 
+               eff_e1  = AR_e1  , eff_e2  = AR_e2, 
+               effm_e1 = "diff" , effm_e2 = "diff", effm_ce = "or",
+               rho     = rho) 
+```
+
+### Sample size
+
+The required sample size for the design usign the composite endpoint is **2644**.
+
+```{r}
+samplesize_cbe(p0_e1   = p0_e1  , p0_e2   = p0_e2, 
+               eff_e1  = AR_e1  , eff_e2  = AR_e2, 
+               effm_e1 = "diff" , effm_e2 = "diff", effm_ce = "or",
+               rho     = rho,
+               alpha   = 0.05, beta = 0.2) 
+```
+
+## References
+
+1. Herbst RS, Sun Y, Eberhardt WEE, Germonpré P, Saijo N, Zhou C et al. Vandetanib plus docetaxel versus docetaxel as second-line treatment for patients with advanced non-small-cell lung cancer (ZODIAC): a double-blind, randomised, phase 3 trial. Lancet Oncol. 2010;11(7):619–26.
+
+2. Kaul U, Bangalore S, Seth A, Priyadarshini A, Rajpal KA, Tejas MP et al. Paclitaxel-Eluting versus EverolimusEluting Coronary Stents in Diabetes. N Engl J Med. 2015;373(18):1709-19.
+
+
+
+```{r, echo = FALSE}
+rm(list = ls())
+```

@@ -12,7 +12,13 @@ navbar:
       - text: "INTRODUCTION"
         href: package.html
       - text: "VIGNETTE"
-        href: vignette.html 
+        href: vignette.html
+    - text: "VIGNETTES"
+      menu:
+      - text: "TIME-TO-EVENT"
+        href: timetoevent_vignette.html
+      - text: "BINARY"
+        href: binary_vignette.html
     - text: "ABOUT US"
       href: aboutus.html
     - text: "PUBLICATIONS"
