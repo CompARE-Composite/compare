@@ -1,5 +1,5 @@
 ---
-title: "Case studies with CompAREdesign: Binary endpoint"
+title: "CompAREdesign: Binary endpoint"
 author: "Marta Bofill Roig, Jordi Cortés Martínez and Guadalupe Gómez Melis"
 output: html_document
 date: "`r Sys.Date()`"

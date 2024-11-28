@@ -1,8 +1,10 @@
 ---
 title: "Case studies with CompAREdesign"
 author: "Marta Bofill Roig, Jordi Cortés Martínez and Guadalupe Gómez Melis"
-output: html_document
 date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE, echo=FALSE}

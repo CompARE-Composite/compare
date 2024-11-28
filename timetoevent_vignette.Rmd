@@ -1,6 +1,6 @@
 ---
-title: "Case studies with CompAREdesign: Time-to-event endpoint"
-author: "Marta Bofill Roig, Jordi Cortés Martínez and Guadalupe Gómez Melis"
+title: "CompAREdesign: Time-to-event endpoint"
+author: "Jordi Cortés Martínez, Marta Bofill Roig and Guadalupe Gómez Melis"
 output: html_document
 date: "`r Sys.Date()`"
 ---
