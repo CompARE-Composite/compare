@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)  # Show code
 ```
 
 
-## Time-to-event endpoint: ZODIAC 
+## Time-to-event endpoint: ZODIAC Trial
 
 This example is based on the data from the [ZODIAC trial](https://doi.org/10.1016/S1470-2045(10)70132-7) [1].
 
