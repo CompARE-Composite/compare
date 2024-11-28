@@ -14,6 +14,8 @@ knitr::opts_chunk$set(echo = TRUE)  # Show code
 
 This example is based on the data from the [TUXEDO trial](https://doi.org/10.1056/nejmoa1510188) [2].
 
+The Taxus Element versus Xience Prime in a Diabetic Population (TUXEDO)–India study is an investigator-initiated, multicenter, randomized clinical trial. The trial protocol, which is available with the full text of this article at NEJM.org, was designed by the principal investigator (the first author). The trial was funded by Boston Scientific, the manufacturer of the paclitaxeleluting stent (Taxus Element).
+
 ### Input Parameters
 
 First of all, the information for the components of the composite endpoint should be defined.
