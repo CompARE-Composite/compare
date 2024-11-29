@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Jordi Cortés Martínez, Marta Bofill Roig and Guadalupe Gómez Melis" />
+
+<meta name="date" content="2024-11-28" />
+
+<title>CompAREdesign: Time-to-event endpoint</title>
+
+<script src="site_libs/header-attrs-2.27/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XQ36C46RDM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XQ36C46RDM');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #204a87; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">CompARE</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">HOME</a>
+</li>
+<li>
+  <a href="appfeatures.html">APP FEATURES</a>
+</li>
+<li>
+  <a href="package.html">R PACKAGE</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    VIGNETTES
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="timetoevent_vignette.html">TIME-TO-EVENT</a>
+    </li>
+    <li>
+      <a href="binary_vignette.html">BINARY</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="aboutus.html">ABOUT US</a>
+</li>
+<li>
+  <a href="publications.html">PUBLICATIONS</a>
+</li>
+<li>
+  <a href="talks_1.html">TALKS</a>
+</li>
+<li>
+  <a href="contact.html">CONTACT</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">CompAREdesign: Time-to-event endpoint</h1>
+<h4 class="author">Jordi Cortés Martínez, Marta Bofill Roig and
+Guadalupe Gómez Melis</h4>
+<h4 class="date">2024-11-28</h4>
+
+</div>
+
+
+<div id="time-to-event-endpoint-zodiac-trial" class="section level2">
+<h2>Time-to-event endpoint: ZODIAC Trial</h2>
+<p>This example is based on the data from the <a
+href="https://doi.org/10.1016/S1470-2045(10)70132-7">ZODIAC trial</a>
+[1].</p>
+<p>ZODIAC was a multinational, randomised, double-blind, phase 3 study
+of vandetanib plus docetaxel (Sanofi - Aventis, Paris, France) versus
+placebo plus docetaxel in patients with locally advanced or metastatic
+NCSLC after progression following platinum-based first-line
+chemotherapy. The recent approval and increasing use of pemetrexed as
+first-line therapy in NSCLC suggest a continuing role for docetaxel as
+second-line therapy.</p>
+<div id="input-parameters" class="section level3">
+<h3>Input Parameters</h3>
+<p>First of all, the information for the components of the composite
+endpoint should be defined.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="do">## Probabilities of observing the event in control arm during follow-up</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>p0_e1 <span class="ot">&lt;-</span> <span class="fl">0.59</span>   <span class="co"># Death</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>p0_e2 <span class="ot">&lt;-</span> <span class="fl">0.74</span>   <span class="co"># Disease Progression  </span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="do">## Effect size (Cause specific hazard ratios) for each endpoint</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>HR_e1 <span class="ot">&lt;-</span> <span class="fl">0.91</span>   <span class="co"># Death</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>HR_e2 <span class="ot">&lt;-</span> <span class="fl">0.77</span>   <span class="co"># Disease Progression</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="do">## Hazard rates over time</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>beta_e1 <span class="ot">&lt;-</span> <span class="dv">2</span>    <span class="co"># Death --&gt; Increasing risk over time</span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>beta_e2 <span class="ot">&lt;-</span> <span class="dv">1</span>    <span class="co"># Disease Progression --&gt; Constant risk over time</span></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="do">## Correlation</span></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a>rho      <span class="ot">&lt;-</span> <span class="fl">0.1</span>        <span class="co"># Correlation between components</span></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>rho_type <span class="ot">&lt;-</span> <span class="st">&#39;Spearman&#39;</span> <span class="co"># Type of correlation measure</span></span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a>copula   <span class="ot">&lt;-</span> <span class="st">&#39;Frank&#39;</span>    <span class="co"># Copula used to get the joint distribution</span></span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="do">## Additional parameter</span></span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a>case  <span class="ot">&lt;-</span> <span class="dv">3</span>  <span class="co"># 1: No deaths;                  2: Death is the secondary event; </span></span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a>            <span class="co"># 3: Death is the primary event; 4: Both events are death by different causes</span></span></code></pre></div>
+</div>
+<div id="are-asymptotic-relatively-efficiency" class="section level3">
+<h3>ARE: Asymptotic Relatively Efficiency</h3>
+<p>As the ARE is greater than 1, the design using the composite endpoint
+as the primary endpoint is more efficient from the statistical point of
+view.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">ARE_tte</span>(<span class="at">p0_e1   =</span> p0_e1    , <span class="at">p0_e2    =</span> p0_e2, </span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>        <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>        <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>        <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>        <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case) </span></code></pre></div>
+<pre><code>## [1] 8.791</code></pre>
+</div>
+<div id="effect-size-of-the-composite-endpoint" class="section level3">
+<h3>Effect size of the Composite Endpoint</h3>
+<p>Several summary measures of the treatment effect are provided.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">effectsize_tte</span>(<span class="at">p0_e1   =</span> p0_e1    , <span class="at">p0_e2    =</span> p0_e2, </span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>               <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>               <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>               <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>               <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case) </span></code></pre></div>
+<pre><code>##  Effect measure Effect value | Group measure Reference Treated
+##  -------------- ------------ | ------------- --------- -------
+##  gAHR           0.8015       |                                
+##  AHR            0.8016       |                                
+##  RMST ratio     1.1633       | RMST          0.3918    0.4558 
+##  Median ratio   1.2321       | Median        0.3212    0.3958 
+##                              | Prob. E1      0.5900    0.5557 
+##                              | Prob. E2      0.7400    0.7125 
+##                              | Prob. CE      0.9300    0.8847</code></pre>
+</div>
+<div id="sample-size" class="section level3">
+<h3>Sample size</h3>
+<p>The required number of patients for the design of the trial using the
+composite endpoint as the primary endpoint is <strong>1118</strong>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">samplesize_tte</span>(<span class="at">p0_e1   =</span> p0_e1    , <span class="at">p0_e2    =</span> p0_e2, </span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>               <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>               <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>               <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>               <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case, </span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>               <span class="at">alpha   =</span> <span class="fl">0.025</span>    , <span class="at">power    =</span> <span class="fl">0.90</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>               <span class="at">ss_formula =</span> <span class="st">&#39;schoenfeld&#39;</span>) </span></code></pre></div>
+<pre><code>##  Endpoint           Total sample size
+##  --------           -----------------
+##  Endpoint 1         9744             
+##  Endpoint 2         1002             
+##  Composite endpoint 1118</code></pre>
+</div>
+<div id="influence-of-hazards-rates-over-time-on-the-effect-size"
+class="section level3">
+<h3>Influence of hazards rates over time on the effect size</h3>
+<p>The influence of the behaviour of the hazard rates over time on the
+treatment effect can be studied by the function
+<code>effectsize_tte</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="do">## Hazard rates over time Case 1</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>beta_e1 <span class="ot">&lt;-</span> <span class="dv">1</span>    <span class="co"># Death --&gt; constant over time</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>beta_e2 <span class="ot">&lt;-</span> <span class="dv">2</span>    <span class="co"># Disease Progression --&gt; increase over time</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="fu">effectsize_tte</span>(<span class="at">p0_e1   =</span> p0_e1    , <span class="at">p0_e2    =</span> p0_e2, </span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>               <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>               <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>               <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>               <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case) </span></code></pre></div>
+<pre><code>##  Effect measure Effect value | Group measure Reference Treated
+##  -------------- ------------ | ------------- --------- -------
+##  gAHR           0.8046       |                                
+##  AHR            0.8046       |                                
+##  RMST ratio     1.1310       | RMST          0.3070    0.3472 
+##  Median ratio   1.1310       | Median        0.2820    0.3190 
+##                              | Prob. E1      0.5900    0.5557 
+##                              | Prob. E2      0.7400    0.7381 
+##                              | Prob. CE      0.9986    0.9943</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="do">## Hazard rates over time Case 2</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>beta_e1 <span class="ot">&lt;-</span> <span class="dv">1</span>    <span class="co"># Death --&gt; constant over time</span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>beta_e2 <span class="ot">&lt;-</span> <span class="dv">1</span>    <span class="co"># Disease Progression --&gt; constant over time</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="fu">effectsize_tte</span>(<span class="at">p0_e1   =</span> p0_e1    , <span class="at">p0_e2    =</span> p0_e2, </span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>               <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>               <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>               <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>               <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case) </span></code></pre></div>
+<pre><code>##  Effect measure Effect value | Group measure Reference Treated
+##  -------------- ------------ | ------------- --------- -------
+##  gAHR           0.8039       |                                
+##  AHR            0.8039       |                                
+##  RMST ratio     1.2055       | RMST          0.2804    0.3380 
+##  Median ratio   1.2454       | Median        0.1990    0.2478 
+##                              | Prob. E1      0.5900    0.5557 
+##                              | Prob. E2      0.7400    0.7332 
+##                              | Prob. CE      0.9676    0.9360</code></pre>
+</div>
+</div>
+<div id="references" class="section level2">
+<h2>References</h2>
+<ol style="list-style-type: decimal">
+<li><p>Herbst RS, Sun Y, Eberhardt WEE, Germonpré P, Saijo N, Zhou C et
+al. Vandetanib plus docetaxel versus docetaxel as second-line treatment
+for patients with advanced non-small-cell lung cancer (ZODIAC): a
+double-blind, randomised, phase 3 trial. Lancet Oncol.
+2010;11(7):619–26.</p></li>
+<li><p>Kaul U, Bangalore S, Seth A, Priyadarshini A, Rajpal KA, Tejas MP
+et al. Paclitaxel-Eluting versus EverolimusEluting Coronary Stents in
+Diabetes. N Engl J Med. 2015;373(18):1709-19.</p></li>
+</ol>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

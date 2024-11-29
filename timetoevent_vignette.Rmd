@@ -1,0 +1,122 @@
+---
+title: "CompAREdesign: Time-to-event endpoint"
+author: "Jordi Cortés Martínez, Marta Bofill Roig and Guadalupe Gómez Melis"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+library('CompAREdesign')            # Load library
+knitr::opts_chunk$set(echo = TRUE)  # Show code
+```
+
+
+## Time-to-event endpoint: ZODIAC Trial
+
+This example is based on the data from the [ZODIAC trial](https://doi.org/10.1016/S1470-2045(10)70132-7) [1].
+
+ZODIAC was a multinational, randomised, double-blind, phase 3 study of vandetanib plus docetaxel (Sanofi - Aventis, Paris, France) versus placebo plus docetaxel in patients with locally advanced or metastatic NCSLC after progression following platinum-based first-line chemotherapy. The recent approval and increasing use of pemetrexed as first-line therapy in NSCLC suggest a continuing role for docetaxel as second-line therapy. 
+
+### Input Parameters
+
+First of all, the information for the components of the composite endpoint should be defined.
+
+```{r}
+## Probabilities of observing the event in control arm during follow-up
+p0_e1 <- 0.59   # Death
+p0_e2 <- 0.74   # Disease Progression  
+
+## Effect size (Cause specific hazard ratios) for each endpoint
+HR_e1 <- 0.91   # Death
+HR_e2 <- 0.77   # Disease Progression
+
+## Hazard rates over time
+beta_e1 <- 2    # Death --> Increasing risk over time
+beta_e2 <- 1    # Disease Progression --> Constant risk over time
+
+## Correlation
+rho      <- 0.1        # Correlation between components
+rho_type <- 'Spearman' # Type of correlation measure
+copula   <- 'Frank'    # Copula used to get the joint distribution
+
+## Additional parameter
+case  <- 3  # 1: No deaths;                  2: Death is the secondary event; 
+            # 3: Death is the primary event; 4: Both events are death by different causes
+```
+
+### ARE: Asymptotic Relatively Efficiency
+
+As the ARE is greater than 1, the design using the composite endpoint as the primary endpoint is more efficient from the statistical point of view.
+
+```{r}
+ARE_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2, 
+        HR_e1   = HR_e1    , HR_e2    = HR_e2, 
+        beta_e1 = beta_e1  , beta_e2  = beta_e2,  
+        rho     = rho      , rho_type = rho_type, 
+        copula  = copula   , case     = case) 
+```
+
+### Effect size of the Composite Endpoint
+
+Several summary measures of the treatment effect are provided.
+
+```{r}
+effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2, 
+               HR_e1   = HR_e1    , HR_e2    = HR_e2, 
+               beta_e1 = beta_e1  , beta_e2  = beta_e2,  
+               rho     = rho      , rho_type = rho_type, 
+               copula  = copula   , case     = case) 
+```
+
+### Sample size
+
+The required number of patients for the design of the trial using the composite endpoint as the primary endpoint is **1118**.
+
+```{r}
+samplesize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2, 
+               HR_e1   = HR_e1    , HR_e2    = HR_e2, 
+               beta_e1 = beta_e1  , beta_e2  = beta_e2,  
+               rho     = rho      , rho_type = rho_type, 
+               copula  = copula   , case     = case, 
+               alpha   = 0.025    , power    = 0.90,
+               ss_formula = 'schoenfeld') 
+
+```
+
+### Influence of hazards rates over time on the effect size
+
+The influence of the behaviour of the hazard rates over time on the treatment effect
+can be studied by the function `effectsize_tte`.
+
+```{r}
+## Hazard rates over time Case 1
+beta_e1 <- 1    # Death --> constant over time
+beta_e2 <- 2    # Disease Progression --> increase over time
+effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2, 
+               HR_e1   = HR_e1    , HR_e2    = HR_e2, 
+               beta_e1 = beta_e1  , beta_e2  = beta_e2,  
+               rho     = rho      , rho_type = rho_type, 
+               copula  = copula   , case     = case) 
+
+## Hazard rates over time Case 2
+beta_e1 <- 1    # Death --> constant over time
+beta_e2 <- 1    # Disease Progression --> constant over time
+effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2, 
+               HR_e1   = HR_e1    , HR_e2    = HR_e2, 
+               beta_e1 = beta_e1  , beta_e2  = beta_e2,  
+               rho     = rho      , rho_type = rho_type, 
+               copula  = copula   , case     = case) 
+```
+
+
+## References
+
+1. Herbst RS, Sun Y, Eberhardt WEE, Germonpré P, Saijo N, Zhou C et al. Vandetanib plus docetaxel versus docetaxel as second-line treatment for patients with advanced non-small-cell lung cancer (ZODIAC): a double-blind, randomised, phase 3 trial. Lancet Oncol. 2010;11(7):619–26.
+
+2. Kaul U, Bangalore S, Seth A, Priyadarshini A, Rajpal KA, Tejas MP et al. Paclitaxel-Eluting versus EverolimusEluting Coronary Stents in Diabetes. N Engl J Med. 2015;373(18):1709-19.
+
+
+
+```{r, echo = FALSE}
+rm(list = ls())
+```

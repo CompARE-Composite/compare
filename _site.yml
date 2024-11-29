@@ -8,11 +8,13 @@ navbar:
     - text: "APP FEATURES"
       href: appfeatures.html
     - text: "R PACKAGE"
+      href: package.html
+    - text: "VIGNETTES"
       menu:
-      - text: "INTRODUCTION"
-        href: package.html
-      - text: "VIGNETTE"
-        href: vignette.html 
+      - text: "TIME-TO-EVENT"
+        href: timetoevent_vignette.html
+      - text: "BINARY"
+        href: binary_vignette.html
     - text: "ABOUT US"
       href: aboutus.html
     - text: "PUBLICATIONS"
