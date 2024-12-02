@@ -33,7 +33,7 @@ Guadalupe Gómez Melis\
 <br>
 
 Marta Bofill Roig\
-[marta.bofillroig\@meduniwien.ac.at](mailto:marta.bofillroig@meduniwien.ac.at){.email}\
+[marta.bofill.roig\@upc.edu](mailto:marta.bofill.roig@upc.edu){.email}\
 <br>
 
 Jordi Cortés-Martínez\
