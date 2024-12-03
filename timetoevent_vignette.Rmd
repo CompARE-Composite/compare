@@ -95,6 +95,7 @@ ARE_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2,
         copula  = copula   , case     = case,
         plot_res = TRUE) 
 ```
+ARE CE remains constant and above 1 as a function of rho. 
 
 ### Effect size of the Composite Endpoint
 
@@ -108,6 +109,8 @@ effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2,
                copula  = copula   , case     = case,
                plot_res = TRUE) 
 ```
+
+A slightly increase of HR CE can be seen as the time increases. 
 
 ### Sample size
 
@@ -124,6 +127,8 @@ samplesize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2,
                plot_res = TRUE) 
 
 ```
+
+A different Sample size CE can be seen according to the correlation values. For a correlation of **0.1**, the sample size is **1118**. 
 
 ### Influence of hazards rates over time on the effect size
 
@@ -150,6 +155,11 @@ effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2,
                copula  = copula   , case     = case, 
                plot_res = TRUE) 
 ```
+
+
+When the hazard rate of Event1 (Death) is constant over time and the hazard rate of Event 2 (Disease progresion) increases over time, the HR CE slightly decrease over time until it remains constant.
+When hazard rates of both events are constant over time, the HR CE remains constant.
+
 
 ## References
 

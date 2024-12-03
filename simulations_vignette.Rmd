@@ -1,0 +1,22 @@
+---
+title: "CompAREdesign: Simulations"
+author: "Marta Bofill Roig, Jordi Cortés Martínez and Guadalupe Gómez Melis"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+library('CompAREdesign')            # Load library
+knitr::opts_chunk$set(echo = TRUE)  # Show code
+```
+
+## Simulations
+
+Work in progress.
+
+
+
+
+```{r, echo = FALSE}
+rm(list = ls())
+```
