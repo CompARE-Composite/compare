@@ -11,7 +11,7 @@
 
 <meta name="author" content="Jordi Cortés Martínez, Marta Bofill Roig and Guadalupe Gómez Melis" />
 
-<meta name="date" content="2024-12-02" />
+<meta name="date" content="2024-12-03" />
 
 <title>CompAREdesign: Time-to-event endpoint</title>
 
@@ -374,6 +374,9 @@ $(document).ready(function () {
     <li>
       <a href="binary_vignette.html">BINARY</a>
     </li>
+    <li>
+      <a href="simulations_vignette.html">SIMULATIONS</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -403,7 +406,7 @@ $(document).ready(function () {
 <h1 class="title toc-ignore">CompAREdesign: Time-to-event endpoint</h1>
 <h4 class="author">Jordi Cortés Martínez, Marta Bofill Roig and
 Guadalupe Gómez Melis</h4>
-<h4 class="date">2024-12-02</h4>
+<h4 class="date">2024-12-03</h4>
 
 </div>
 
@@ -538,6 +541,7 @@ view.</p>
 <span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>        <span class="at">plot_res =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
 <p><img src="timetoevent_vignette_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <pre><code>## [1] 8.791</code></pre>
+<p>ARE CE remains constant and above 1 as a function of rho.</p>
 </div>
 <div id="effect-size-of-the-composite-endpoint" class="section level3">
 <h3>Effect size of the Composite Endpoint</h3>
@@ -558,6 +562,7 @@ view.</p>
 ##                              | Prob. E2      0.7400    0.7125 
 ##                              | Prob. CE      0.9300    0.8847</code></pre>
 <p><img src="timetoevent_vignette_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>A slightly increase of HR CE can be seen as the time increases.</p>
 </div>
 <div id="sample-size" class="section level3">
 <h3>Sample size</h3>
@@ -577,6 +582,9 @@ composite endpoint as the primary endpoint is <strong>1118</strong>.</p>
 ##  Endpoint 2         1002             
 ##  Composite endpoint 1118</code></pre>
 <p><img src="timetoevent_vignette_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>A different Sample size CE can be seen according to the correlation
+values. For a correlation of <strong>0.1</strong>, the sample size is
+<strong>1118</strong>.</p>
 </div>
 <div id="influence-of-hazards-rates-over-time-on-the-effect-size"
 class="section level3">
@@ -622,6 +630,11 @@ treatment effect can be studied by the function
 ##                              | Prob. E2      0.7400    0.7332 
 ##                              | Prob. CE      0.9676    0.9360</code></pre>
 <p><img src="timetoevent_vignette_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
+<p>When the hazard rate of Event1 (Death) is constant over time and the
+hazard rate of Event 2 (Disease progresion) increases over time, the HR
+CE slightly decrease over time until it remains constant. When hazard
+rates of both events are constant over time, the HR CE remains
+constant.</p>
 </div>
 </div>
 <div id="references" class="section level2">
