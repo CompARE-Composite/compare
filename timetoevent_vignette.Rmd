@@ -10,12 +10,11 @@ library('CompAREdesign')            # Load library
 knitr::opts_chunk$set(echo = TRUE)  # Show code
 ```
 
-
 ## Time-to-event endpoint: ZODIAC Trial
 
 This example is based on the data from the [ZODIAC trial](https://doi.org/10.1016/S1470-2045(10)70132-7) [1].
 
-ZODIAC was a multinational, randomised, double-blind, phase 3 study of vandetanib plus docetaxel (Sanofi - Aventis, Paris, France) versus placebo plus docetaxel in patients with locally advanced or metastatic NCSLC after progression following platinum-based first-line chemotherapy. The recent approval and increasing use of pemetrexed as first-line therapy in NSCLC suggest a continuing role for docetaxel as second-line therapy. 
+ZODIAC was a multinational, randomised, double-blind, phase 3 study of vandetanib plus docetaxel (Sanofi - Aventis, Paris, France) versus placebo plus docetaxel in patients with locally advanced or metastatic NCSLC after progression following platinum-based first-line chemotherapy. The recent approval and increasing use of pemetrexed as first-line therapy in NSCLC suggest a continuing role for docetaxel as second-line therapy.
 
 ### Input Parameters
 
@@ -44,7 +43,47 @@ case  <- 3  # 1: No deaths;                  2: Death is the secondary event;
             # 3: Death is the primary event; 4: Both events are death by different causes
 ```
 
+-   **Endpoint 1:** Death
+
+-   **Endpoint 2:** Disease progression
+
++-------------+-----------------------------------------------------------------------+
+| Parameter   | Description                                                           |
++:============+:======================================================================+
+| p0_e1       | Probability of observing event 1 in control arm during follow-up      |
++-------------+-----------------------------------------------------------------------+
+| p0_e2       | Probability of observing event 2 in control arm during follow-up      |
++-------------+-----------------------------------------------------------------------+
+| HR_e1       | Effect size (Cause specific hazard ratios) for endpoint 1             |
++-------------+-----------------------------------------------------------------------+
+| HR_e2       | Effect size (Cause specific hazard ratios) for endpoint 2             |
++-------------+-----------------------------------------------------------------------+
+| beta_e1     | Hazard rate over time for endpoint 1 (\>1: Increasing risk over time) |
++-------------+-----------------------------------------------------------------------+
+| beta_e2     | Hazard rate over time for endpoint 2 (=1: Constant risk over time)    |
++-------------+-----------------------------------------------------------------------+
+| rho         | Correlation between components                                        |
++-------------+-----------------------------------------------------------------------+
+| rho_type    | Type of the correlation measure                                       |
++-------------+-----------------------------------------------------------------------+
+| copula      | Copula used to get the joint distribution                             |
++-------------+-----------------------------------------------------------------------+
+| case        | Additional parameter:                                                 |
+|             |                                                                       |
+|             | 1.  No deaths                                                         |
+|             |                                                                       |
+|             | 2.  Death is the secondary event                                      |
+|             |                                                                       |
+|             | 3.  Death is the primary event;                                       |
+|             |                                                                       |
+|             | 4.  Both events are death by different                                |
++-------------+-----------------------------------------------------------------------+
+
 ### ARE: Asymptotic Relatively Efficiency
+
+Considering probabilities in control group of 0.59 and 0.74, and a treatment effect given by a Hazard Ratio of 0.91 and 0.77 for Endpoints 1 and 2, respectively, with a correlation of 0.1 between endpoint times, the Asymptotic Relative Efficiency (ARE) is 8.79.
+
+Since the ARE is higher than 1, the use of the composite endpoint (CE) consisting of the union of both endpoints is recommended as the primary endpoint of the trial. That is, for a significance level of 0.025 and power of 0.9 the number of required patients you would need to attain the same power is 8.79 times if you use Endpoint 1 instead of CE.
 
 As the ARE is greater than 1, the design using the composite endpoint as the primary endpoint is more efficient from the statistical point of view.
 
@@ -53,19 +92,21 @@ ARE_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2,
         HR_e1   = HR_e1    , HR_e2    = HR_e2, 
         beta_e1 = beta_e1  , beta_e2  = beta_e2,  
         rho     = rho      , rho_type = rho_type, 
-        copula  = copula   , case     = case) 
+        copula  = copula   , case     = case,
+        plot_res = TRUE) 
 ```
 
 ### Effect size of the Composite Endpoint
 
 Several summary measures of the treatment effect are provided.
 
-```{r}
+```{r warning=FALSE}
 effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2, 
                HR_e1   = HR_e1    , HR_e2    = HR_e2, 
                beta_e1 = beta_e1  , beta_e2  = beta_e2,  
                rho     = rho      , rho_type = rho_type, 
-               copula  = copula   , case     = case) 
+               copula  = copula   , case     = case,
+               plot_res = TRUE) 
 ```
 
 ### Sample size
@@ -79,16 +120,16 @@ samplesize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2,
                rho     = rho      , rho_type = rho_type, 
                copula  = copula   , case     = case, 
                alpha   = 0.025    , power    = 0.90,
-               ss_formula = 'schoenfeld') 
+               ss_formula = 'schoenfeld', 
+               plot_res = TRUE) 
 
 ```
 
 ### Influence of hazards rates over time on the effect size
 
-The influence of the behaviour of the hazard rates over time on the treatment effect
-can be studied by the function `effectsize_tte`.
+The influence of the behaviour of the hazard rates over time on the treatment effect can be studied by the function `effectsize_tte`.
 
-```{r}
+```{r warning=FALSE}
 ## Hazard rates over time Case 1
 beta_e1 <- 1    # Death --> constant over time
 beta_e2 <- 2    # Disease Progression --> increase over time
@@ -96,7 +137,8 @@ effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2,
                HR_e1   = HR_e1    , HR_e2    = HR_e2, 
                beta_e1 = beta_e1  , beta_e2  = beta_e2,  
                rho     = rho      , rho_type = rho_type, 
-               copula  = copula   , case     = case) 
+               copula  = copula   , case     = case, 
+               plot_res = TRUE) 
 
 ## Hazard rates over time Case 2
 beta_e1 <- 1    # Death --> constant over time
@@ -105,17 +147,15 @@ effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2,
                HR_e1   = HR_e1    , HR_e2    = HR_e2, 
                beta_e1 = beta_e1  , beta_e2  = beta_e2,  
                rho     = rho      , rho_type = rho_type, 
-               copula  = copula   , case     = case) 
+               copula  = copula   , case     = case, 
+               plot_res = TRUE) 
 ```
-
 
 ## References
 
-1. Herbst RS, Sun Y, Eberhardt WEE, Germonpré P, Saijo N, Zhou C et al. Vandetanib plus docetaxel versus docetaxel as second-line treatment for patients with advanced non-small-cell lung cancer (ZODIAC): a double-blind, randomised, phase 3 trial. Lancet Oncol. 2010;11(7):619–26.
+1.  Herbst RS, Sun Y, Eberhardt WEE, Germonpré P, Saijo N, Zhou C et al. Vandetanib plus docetaxel versus docetaxel as second-line treatment for patients with advanced non-small-cell lung cancer (ZODIAC): a double-blind, randomised, phase 3 trial. Lancet Oncol. 2010;11(7):619–26.
 
-2. Kaul U, Bangalore S, Seth A, Priyadarshini A, Rajpal KA, Tejas MP et al. Paclitaxel-Eluting versus EverolimusEluting Coronary Stents in Diabetes. N Engl J Med. 2015;373(18):1709-19.
-
-
+2.  Kaul U, Bangalore S, Seth A, Priyadarshini A, Rajpal KA, Tejas MP et al. Paclitaxel-Eluting versus EverolimusEluting Coronary Stents in Diabetes. N Engl J Med. 2015;373(18):1709-19.
 
 ```{r, echo = FALSE}
 rm(list = ls())

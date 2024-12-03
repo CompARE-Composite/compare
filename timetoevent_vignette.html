@@ -11,7 +11,7 @@
 
 <meta name="author" content="Jordi Cortés Martínez, Marta Bofill Roig and Guadalupe Gómez Melis" />
 
-<meta name="date" content="2024-11-28" />
+<meta name="date" content="2024-12-02" />
 
 <title>CompAREdesign: Time-to-event endpoint</title>
 
@@ -403,7 +403,7 @@ $(document).ready(function () {
 <h1 class="title toc-ignore">CompAREdesign: Time-to-event endpoint</h1>
 <h4 class="author">Jordi Cortés Martínez, Marta Bofill Roig and
 Guadalupe Gómez Melis</h4>
-<h4 class="date">2024-11-28</h4>
+<h4 class="date">2024-12-02</h4>
 
 </div>
 
@@ -444,9 +444,89 @@ endpoint should be defined.</p>
 <span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="do">## Additional parameter</span></span>
 <span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a>case  <span class="ot">&lt;-</span> <span class="dv">3</span>  <span class="co"># 1: No deaths;                  2: Death is the secondary event; </span></span>
 <span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a>            <span class="co"># 3: Death is the primary event; 4: Both events are death by different causes</span></span></code></pre></div>
+<ul>
+<li><p><strong>Endpoint 1:</strong> Death</p></li>
+<li><p><strong>Endpoint 2:</strong> Disease progression</p></li>
+</ul>
+<table>
+<colgroup>
+<col width="16%" />
+<col width="83%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">p0_e1</td>
+<td align="left">Probability of observing event 1 in control arm during
+follow-up</td>
+</tr>
+<tr class="even">
+<td align="left">p0_e2</td>
+<td align="left">Probability of observing event 2 in control arm during
+follow-up</td>
+</tr>
+<tr class="odd">
+<td align="left">HR_e1</td>
+<td align="left">Effect size (Cause specific hazard ratios) for endpoint
+1</td>
+</tr>
+<tr class="even">
+<td align="left">HR_e2</td>
+<td align="left">Effect size (Cause specific hazard ratios) for endpoint
+2</td>
+</tr>
+<tr class="odd">
+<td align="left">beta_e1</td>
+<td align="left">Hazard rate over time for endpoint 1 (&gt;1: Increasing
+risk over time)</td>
+</tr>
+<tr class="even">
+<td align="left">beta_e2</td>
+<td align="left">Hazard rate over time for endpoint 2 (=1: Constant risk
+over time)</td>
+</tr>
+<tr class="odd">
+<td align="left">rho</td>
+<td align="left">Correlation between components</td>
+</tr>
+<tr class="even">
+<td align="left">rho_type</td>
+<td align="left">Type of the correlation measure</td>
+</tr>
+<tr class="odd">
+<td align="left">copula</td>
+<td align="left">Copula used to get the joint distribution</td>
+</tr>
+<tr class="even">
+<td align="left">case</td>
+<td align="left"><p>Additional parameter:</p>
+<ol style="list-style-type: decimal">
+<li><p>No deaths</p></li>
+<li><p>Death is the secondary event</p></li>
+<li><p>Death is the primary event;</p></li>
+<li><p>Both events are death by different</p></li>
+</ol></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="are-asymptotic-relatively-efficiency" class="section level3">
 <h3>ARE: Asymptotic Relatively Efficiency</h3>
+<p>Considering probabilities in control group of 0.59 and 0.74, and a
+treatment effect given by a Hazard Ratio of 0.91 and 0.77 for Endpoints
+1 and 2, respectively, with a correlation of 0.1 between endpoint times,
+the Asymptotic Relative Efficiency (ARE) is 8.79.</p>
+<p>Since the ARE is higher than 1, the use of the composite endpoint
+(CE) consisting of the union of both endpoints is recommended as the
+primary endpoint of the trial. That is, for a significance level of
+0.025 and power of 0.9 the number of required patients you would need to
+attain the same power is 8.79 times if you use Endpoint 1 instead of
+CE.</p>
 <p>As the ARE is greater than 1, the design using the composite endpoint
 as the primary endpoint is more efficient from the statistical point of
 view.</p>
@@ -454,7 +534,9 @@ view.</p>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>        <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>        <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
 <span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>        <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>        <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case) </span></code></pre></div>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>        <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case,</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>        <span class="at">plot_res =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
+<p><img src="timetoevent_vignette_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <pre><code>## [1] 8.791</code></pre>
 </div>
 <div id="effect-size-of-the-composite-endpoint" class="section level3">
@@ -464,7 +546,8 @@ view.</p>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>               <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
 <span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>               <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
 <span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>               <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>               <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case) </span></code></pre></div>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>               <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case,</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>               <span class="at">plot_res =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
 <pre><code>##  Effect measure Effect value | Group measure Reference Treated
 ##  -------------- ------------ | ------------- --------- -------
 ##  gAHR           0.8015       |                                
@@ -474,6 +557,7 @@ view.</p>
 ##                              | Prob. E1      0.5900    0.5557 
 ##                              | Prob. E2      0.7400    0.7125 
 ##                              | Prob. CE      0.9300    0.8847</code></pre>
+<p><img src="timetoevent_vignette_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 <div id="sample-size" class="section level3">
 <h3>Sample size</h3>
@@ -485,12 +569,14 @@ composite endpoint as the primary endpoint is <strong>1118</strong>.</p>
 <span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>               <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
 <span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>               <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case, </span>
 <span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>               <span class="at">alpha   =</span> <span class="fl">0.025</span>    , <span class="at">power    =</span> <span class="fl">0.90</span>,</span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>               <span class="at">ss_formula =</span> <span class="st">&#39;schoenfeld&#39;</span>) </span></code></pre></div>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>               <span class="at">ss_formula =</span> <span class="st">&#39;schoenfeld&#39;</span>, </span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>               <span class="at">plot_res =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
 <pre><code>##  Endpoint           Total sample size
 ##  --------           -----------------
 ##  Endpoint 1         9744             
 ##  Endpoint 2         1002             
 ##  Composite endpoint 1118</code></pre>
+<p><img src="timetoevent_vignette_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 <div id="influence-of-hazards-rates-over-time-on-the-effect-size"
 class="section level3">
@@ -505,7 +591,8 @@ treatment effect can be studied by the function
 <span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>               <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
 <span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>               <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
 <span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>               <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
-<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>               <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case) </span></code></pre></div>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>               <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case, </span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>               <span class="at">plot_res =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
 <pre><code>##  Effect measure Effect value | Group measure Reference Treated
 ##  -------------- ------------ | ------------- --------- -------
 ##  gAHR           0.8046       |                                
@@ -515,6 +602,7 @@ treatment effect can be studied by the function
 ##                              | Prob. E1      0.5900    0.5557 
 ##                              | Prob. E2      0.7400    0.7381 
 ##                              | Prob. CE      0.9986    0.9943</code></pre>
+<p><img src="timetoevent_vignette_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="do">## Hazard rates over time Case 2</span></span>
 <span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>beta_e1 <span class="ot">&lt;-</span> <span class="dv">1</span>    <span class="co"># Death --&gt; constant over time</span></span>
 <span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>beta_e2 <span class="ot">&lt;-</span> <span class="dv">1</span>    <span class="co"># Disease Progression --&gt; constant over time</span></span>
@@ -522,7 +610,8 @@ treatment effect can be studied by the function
 <span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>               <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
 <span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>               <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
 <span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>               <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>               <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case) </span></code></pre></div>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>               <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case, </span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>               <span class="at">plot_res =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
 <pre><code>##  Effect measure Effect value | Group measure Reference Treated
 ##  -------------- ------------ | ------------- --------- -------
 ##  gAHR           0.8039       |                                
@@ -532,6 +621,7 @@ treatment effect can be studied by the function
 ##                              | Prob. E1      0.5900    0.5557 
 ##                              | Prob. E2      0.7400    0.7332 
 ##                              | Prob. CE      0.9676    0.9360</code></pre>
+<p><img src="timetoevent_vignette_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
 </div>
 </div>
 <div id="references" class="section level2">
