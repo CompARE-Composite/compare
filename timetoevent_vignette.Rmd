@@ -135,7 +135,7 @@ A different Sample size CE can be seen according to the correlation values. For 
 The influence of the behaviour of the hazard rates over time on the treatment effect can be studied by the function `effectsize_tte`.
 
 ```{r warning=FALSE}
-## Hazard rates over time Case 1
+## Hazard rates over time Scenario 1
 beta_e1 <- 1    # Death --> constant over time
 beta_e2 <- 2    # Disease Progression --> increase over time
 effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2, 
@@ -145,7 +145,7 @@ effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2,
                copula  = copula   , case     = case, 
                plot_res = TRUE) 
 
-## Hazard rates over time Case 2
+## Hazard rates over time Scenario 2
 beta_e1 <- 1    # Death --> constant over time
 beta_e2 <- 1    # Disease Progression --> constant over time
 effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2, 
@@ -158,7 +158,7 @@ effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2,
 
 
 When the hazard rate of Event1 (Death) is constant over time and the hazard rate of Event 2 (Disease progresion) increases over time, the HR CE slightly decrease over time until it remains constant.
-When hazard rates of both events are constant over time, the HR CE remains constant.
+When hazard rates of both events are constant over time, the HR CE tends to be more constant.
 
 
 ## References

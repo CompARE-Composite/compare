@@ -25,7 +25,7 @@ library(fontawesome)
 <hr>
 
 
-<img src="~/R_projects/new_comp/compare/images/logo.png" align="right" width="250"/>
+<img src="images/logo.png" align="right" width="250"/>
 
 [![License: GPL
 v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)

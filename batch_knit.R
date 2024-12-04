@@ -1,24 +1,20 @@
 
-knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
-
 # Load the rmarkdown package
 
 library(rmarkdown)
 
 # List of R Markdown files
-files <- c("index.Rmd", 
+files <- c("index.Rmd",
            "appfeatures.Rmd", 
            "package.Rmd",
-           "timetoevent_vignette.Rmd", 
+           "timetoevent_vignette.Rmd",
            "binary_vignette.Rmd", 
-           "simulations_vignette.Rmd",
-           "aboutus.Rmd",
-           "publications.Rmd",
-           "talks_1.Rmd",
-           "contact.Rmd"
-           ) 
+           "simulations_vignette.Rmd", 
+           "aboutus.Rmd", 
+           "publications.Rmd", 
+           "talks_1.Rmd")
 
 # Knit each file to HTML
 for (file in files) {
-  render(input = file, output_format = "html_document")
+  render(input = file)
 }

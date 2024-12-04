@@ -20,7 +20,7 @@ h1.title {
 ```
 <hr>
 
-<img src="~/R_projects/new_comp/compare/images/CompAREdesign_logo.png" align="right" width="250"/>
+<img src="images/CompAREdesign_logo.png" align="right" width="250"/>
 
 
 
