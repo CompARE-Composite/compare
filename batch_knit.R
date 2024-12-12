@@ -12,9 +12,12 @@ files <- c("index.Rmd",
            "simulations_vignette.Rmd", 
            "aboutus.Rmd", 
            "publications.Rmd", 
-           "talks_1.Rmd")
+           "talks_1.Rmd", 
+           "contact.Rmd")
 
 # Knit each file to HTML
 for (file in files) {
   render(input = file)
 }
+
+
