@@ -7,6 +7,7 @@ date: "`r Sys.Date()`"
 
 ```{r setup, include=FALSE, echo=FALSE}
 library('CompAREdesign')            # Load library
+library('ggplot2')
 knitr::opts_chunk$set(echo = TRUE)  # Show code
 ```
 
@@ -43,9 +44,14 @@ case  <- 3  # 1: No deaths;                  2: Death is the secondary event;
             # 3: Death is the primary event; 4: Both events are death by different causes
 ```
 
+
+We set `case = 3` because Death is the primary event:
+
 -   **Endpoint 1:** Death
 
 -   **Endpoint 2:** Disease progression
+
+The meaning of all the parameters are described in the following table:
 
 +-------------+-----------------------------------------------------------------------+
 | Parameter   | Description                                                           |
@@ -81,11 +87,12 @@ case  <- 3  # 1: No deaths;                  2: Death is the secondary event;
 
 ### ARE: Asymptotic Relatively Efficiency
 
-Considering probabilities in control group of 0.59 and 0.74, and a treatment effect given by a Hazard Ratio of 0.91 and 0.77 for Endpoints 1 and 2, respectively, with a correlation of 0.1 between endpoint times, the Asymptotic Relative Efficiency (ARE) is 8.79.
+Let's consider probabilities in the control group of **0.59** and **0.74**, with a treatment effect given by Hazard Ratios of **0.91** and **0.77** for Endpoints 1 and 2, respectively. If the correlation between the times of both components is low (e.g., **0.1**), the Asymptotic Relative Efficiency (ARE) is **8.79**.
 
-Since the ARE is higher than 1, the use of the composite endpoint (CE) consisting of the union of both endpoints is recommended as the primary endpoint of the trial. That is, for a significance level of 0.025 and power of 0.9 the number of required patients you would need to attain the same power is 8.79 times if you use Endpoint 1 instead of CE.
+Since the **ARE is greater than 1**, it is recommended to use the composite endpoint (CE), which combines both endpoints, as the primary endpoint of the trial. In other words, for a given significance level and power, the number of required events needed to achieve the same power would be **8.79 times higher** if Endpoint 1 were used instead of CE.
 
-As the ARE is greater than 1, the design using the composite endpoint as the primary endpoint is more efficient from the statistical point of view.
+**Using the CE as the primary endpoint results in a more statistically efficient trial design regardless of the correlation $\rho$ because $ARE(\rho)>1$.**
+
 
 ```{r}
 ARE_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2, 
@@ -93,13 +100,26 @@ ARE_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2,
         beta_e1 = beta_e1  , beta_e2  = beta_e2,  
         rho     = rho      , rho_type = rho_type, 
         copula  = copula   , case     = case,
-        plot_res = TRUE) 
+        plot_print = TRUE) 
 ```
-ARE CE remains constant and above 1 as a function of rho. 
+ 
 
 ### Effect size of the Composite Endpoint
 
-Several summary measures of the treatment effect are provided.
+`effectsize_tte` provides several summary measures of the treatment effect:
+
+- `gAHR` (**Geometric Average Hazard Ratio**)
+- `AHR` (**Geometric Average Hazard Ratio**)
+- `RMST Ratio` (**Restricted Mean Survival Time Ratio**)
+- `Median Ratio` (**Median survival time ratio**)
+
+In addition, several measures of the behavior within each group are provided:
+
+- RMST (**Restricted Mean Survival Time**)
+- Median (**Median survival time**)
+- Prob. E1 (**Probability of observing endpoint 1**)
+- Prob. E2 (**Probability of observing endpoint 2**) 
+- Prob. CE (**Probability of observing composite endpoint**)
 
 ```{r warning=FALSE}
 effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2, 
@@ -107,14 +127,14 @@ effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2,
                beta_e1 = beta_e1  , beta_e2  = beta_e2,  
                rho     = rho      , rho_type = rho_type, 
                copula  = copula   , case     = case,
-               plot_res = TRUE) 
+               plot_print = TRUE) 
 ```
 
-A slightly increase of HR CE can be seen as the time increases. 
+In the figure above, a slight increase in the HR of the CE is observed over time.
 
 ### Sample size
 
-The required number of patients for the design of the trial using the composite endpoint as the primary endpoint is **1118**.
+`samplesize_tte` provides the required number of patients for the trial using the CE as the primary endpoint as well as the sample size for each component. In our case study, the sample size using the CE would be **1118**.
 
 ```{r}
 samplesize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2, 
@@ -124,15 +144,17 @@ samplesize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2,
                copula  = copula   , case     = case, 
                alpha   = 0.025    , power    = 0.90,
                ss_formula = 'schoenfeld', 
-               plot_res = TRUE) 
+               plot_print = TRUE) 
 
 ```
 
-A different Sample size CE can be seen according to the correlation values. For a correlation of **0.1**, the sample size is **1118**. 
+Sample size of the CE depends on the correlation $\rho$. In general, sample size increases as the correlation also increases. The observed decrease in sample size for high correlations is due to the fact that if we keep the proportion of observed events fixed, the events in the second component would need to occur almost entirely before the end of the follow-up period to avoid being prevented from being observed by the competing first event.
 
 ### Influence of hazards rates over time on the effect size
 
-The influence of the behaviour of the hazard rates over time on the treatment effect can be studied by the function `effectsize_tte`.
+The impact of hazard rate behavior over time on the treatment effect can be analyzed using the function `effectsize_tte`. The parameters `beta_1` ($\beta_1$) and `beta_2` ($\beta_2$) represent the shape parameters of the Weibull marginal distributions for each component. A value of $\beta_i > 1$ indicates an increasing risk over time, while $\beta_i < 1$ represents a decreasing risk, and $\beta_i = 1$ corresponds to a constant risk over time. 
+
+To examine how this parameter influences the treatment effect of the composite endpoint (CE), the hazard ratio (HR) of the CE is plotted over time. When both risks are constant, the HR is almost constant, while when there is an increasing risk of disease progression over time, the HR decreases over time.
 
 ```{r warning=FALSE}
 ## Hazard rates over time Scenario 1
@@ -143,7 +165,7 @@ effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2,
                beta_e1 = beta_e1  , beta_e2  = beta_e2,  
                rho     = rho      , rho_type = rho_type, 
                copula  = copula   , case     = case, 
-               plot_res = TRUE) 
+               plot_print = TRUE) 
 
 ## Hazard rates over time Scenario 2
 beta_e1 <- 1    # Death --> constant over time
@@ -153,19 +175,39 @@ effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2,
                beta_e1 = beta_e1  , beta_e2  = beta_e2,  
                rho     = rho      , rho_type = rho_type, 
                copula  = copula   , case     = case, 
-               plot_res = TRUE) 
+               plot_print = TRUE) 
 ```
 
+### Summary plots
 
-When the hazard rate of Event1 (Death) is constant over time and the hazard rate of Event 2 (Disease progresion) increases over time, the HR CE slightly decrease over time until it remains constant.
-When hazard rates of both events are constant over time, the HR CE tends to be more constant.
+`plot_tte` returns all the relevant plots for the trial design if `summary=TRUE`.
+
+```{r warning=FALSE}
+plot_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2, 
+         HR_e1   = HR_e1    , HR_e2    = HR_e2, 
+         beta_e1 = beta_e1  , beta_e2  = beta_e2,  
+         rho     = rho      , rho_type = rho_type, 
+         copula  = copula   , case     = case, 
+         summary = TRUE) 
+```
+
+If `summary=FALSE` it is possible to choose the plot to obtain ('survival', 'effect', 'ARE', 'samplesize') and even more it is possible to modify it.
+
+```{r}
+plot_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2, 
+         HR_e1   = HR_e1    , HR_e2    = HR_e2, 
+         beta_e1 = beta_e1  , beta_e2  = beta_e2,  
+         rho     = rho      , rho_type = rho_type, 
+         copula  = copula   , case     = case, 
+         summary = FALSE    , type     = 'ARE') + 
+  ggtitle('Asymptotic Relative Efficiency') + theme_bw()
+```
+
 
 
 ## References
 
 1.  Herbst RS, Sun Y, Eberhardt WEE, Germonpré P, Saijo N, Zhou C et al. Vandetanib plus docetaxel versus docetaxel as second-line treatment for patients with advanced non-small-cell lung cancer (ZODIAC): a double-blind, randomised, phase 3 trial. Lancet Oncol. 2010;11(7):619–26.
-
-2.  Kaul U, Bangalore S, Seth A, Priyadarshini A, Rajpal KA, Tejas MP et al. Paclitaxel-Eluting versus EverolimusEluting Coronary Stents in Diabetes. N Engl J Med. 2015;373(18):1709-19.
 
 ```{r, echo = FALSE}
 rm(list = ls())
