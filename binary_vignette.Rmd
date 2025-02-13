@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)  # Show code
 
 ## Binary endpoint: TUXEDO TRIAL
 
-This example is based on the data from the [TUXEDO trial](https://doi.org/10.1056/nejmoa1510188) [2].
+This example is based on the data from the [TUXEDO trial](https://doi.org/10.1056/nejmoa1510188) [1].
 
 The Taxus Element versus Xience Prime in a Diabetic Population (TUXEDO)–India study is an investigator-initiated, multicenter, randomized clinical trial. The trial protocol, which is available with the full text of this article at NEJM.org, was designed by the principal investigator (the first author). The trial was funded by Boston Scientific, the manufacturer of the paclitaxeleluting stent (Taxus Element).
 
@@ -69,9 +69,7 @@ samplesize_cbe(p0_e1   = p0_e1  , p0_e2   = p0_e2,
 
 ## References
 
-1. Herbst RS, Sun Y, Eberhardt WEE, Germonpré P, Saijo N, Zhou C et al. Vandetanib plus docetaxel versus docetaxel as second-line treatment for patients with advanced non-small-cell lung cancer (ZODIAC): a double-blind, randomised, phase 3 trial. Lancet Oncol. 2010;11(7):619–26.
-
-2. Kaul U, Bangalore S, Seth A, Priyadarshini A, Rajpal KA, Tejas MP et al. Paclitaxel-Eluting versus EverolimusEluting Coronary Stents in Diabetes. N Engl J Med. 2015;373(18):1709-19.
+1. Kaul U, Bangalore S, Seth A, Priyadarshini A, Rajpal KA, Tejas MP et al. Paclitaxel-Eluting versus EverolimusEluting Coronary Stents in Diabetes. N Engl J Med. 2015;373(18):1709-19.
 
 
 
