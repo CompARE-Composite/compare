@@ -11,7 +11,7 @@
 
 <meta name="author" content="Jordi Cortés Martínez, Marta Bofill Roig and Guadalupe Gómez Melis" />
 
-<meta name="date" content="2025-02-13" />
+<meta name="date" content="2025-02-14" />
 
 <title>CompAREdesign: Time-to-event endpoint</title>
 
@@ -406,27 +406,32 @@ $(document).ready(function () {
 <h1 class="title toc-ignore">CompAREdesign: Time-to-event endpoint</h1>
 <h4 class="author">Jordi Cortés Martínez, Marta Bofill Roig and
 Guadalupe Gómez Melis</h4>
-<h4 class="date">2025-02-13</h4>
+<h4 class="date">2025-02-14</h4>
 
 </div>
 
 
+<p><code>CompAREdesign</code> R package allows the researchers to design
+a randomized clinical trial with a composite endpoint as the primary
+endpoint based solely on the information relative to its components.</p>
 <div id="case-study-zodiac-trial" class="section level2">
 <h2>Case study: ZODIAC Trial</h2>
 <p>This example is based on the data from the <a
 href="https://doi.org/10.1016/S1470-2045(10)70132-7">ZODIAC trial</a>
-[1].</p>
-<p>ZODIAC was a multinational, randomised, double-blind, phase 3 study
+[1]. ZODIAC was a multinational, randomised, double-blind, phase 3 study
 of vandetanib plus docetaxel (Sanofi - Aventis, Paris, France) versus
 placebo plus docetaxel in patients with locally advanced or metastatic
 NCSLC after progression following platinum-based first-line
 chemotherapy. The recent approval and increasing use of pemetrexed as
 first-line therapy in NSCLC suggest a continuing role for docetaxel as
 second-line therapy.</p>
+<p>We can use the information of thsi study to plan a new similar
+trial.</p>
 <div id="input-parameters" class="section level3">
 <h3>Input Parameters</h3>
 <p>First of all, the information for the components of the composite
-endpoint should be defined.</p>
+endpoint should be defined based on the information obtained from the
+ZODIAC trial.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="do">## Probabilities of observing the event in control arm during follow-up</span></span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>p0_e1 <span class="ot">&lt;-</span> <span class="fl">0.59</span>   <span class="co"># Death</span></span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>p0_e2 <span class="ot">&lt;-</span> <span class="fl">0.74</span>   <span class="co"># Disease Progression  </span></span>
@@ -523,8 +528,8 @@ over time)</td>
 </div>
 <div id="are-asymptotic-relatively-efficiency" class="section level3">
 <h3>ARE: Asymptotic Relatively Efficiency</h3>
-<p>Let’s consider probabilities in the control group of
-<strong>0.59</strong> and <strong>0.74</strong>, with a treatment effect
+<p>We are considering probabilities in the control group of
+<strong>0.59</strong> and <strong>0.74</strong>, with treatment effects
 given by Hazard Ratios of <strong>0.91</strong> and
 <strong>0.77</strong> for Endpoints 1 and 2, respectively. If the
 correlation between the times of both components is low (e.g.,
@@ -534,12 +539,13 @@ correlation between the times of both components is low (e.g.,
 to use the composite endpoint (CE), which combines both endpoints, as
 the primary endpoint of the trial. In other words, for a given
 significance level and power, the number of required events needed to
-achieve the same power would be <strong>8.79 times higher</strong> if
+attain the same power would be <strong>8.79 times higher</strong> if
 Endpoint 1 were used instead of CE.</p>
-<p><strong>Using the CE as the primary endpoint results in a more
-statistically efficient trial design regardless of the correlation <span
-class="math inline">\(\rho\)</span> because <span
-class="math inline">\(ARE(\rho)&gt;1\)</span>.</strong></p>
+<p><strong>In this case if we are not sure about the value of the
+correlation between</strong> <strong>components, it is not a problem
+beacuse using the CE as the primary endpoint</strong> <strong>results in
+a more statistically efficient trial design regardless of the</strong>
+<strong>correlation ρ because ARE(ρ) &gt; 1.</strong></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">ARE_tte</span>(<span class="at">p0_e1   =</span> p0_e1    , <span class="at">p0_e2    =</span> p0_e2, </span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>        <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>        <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
@@ -551,8 +557,8 @@ class="math inline">\(ARE(\rho)&gt;1\)</span>.</strong></p>
 </div>
 <div id="effect-size-of-the-composite-endpoint" class="section level3">
 <h3>Effect size of the Composite Endpoint</h3>
-<p><code>effectsize_tte</code> provides several summary measures of the
-treatment effect:</p>
+<p>The function <code>effectsize_tte</code> provides several summary
+measures of the treatment effect:</p>
 <ul>
 <li><code>gAHR</code> (<strong>Geometric Average Hazard
 Ratio</strong>)</li>
@@ -612,13 +618,13 @@ would be <strong>1118</strong>.</p>
 ##  Endpoint 2         1002             
 ##  Composite endpoint 1118</code></pre>
 <p><img src="timetoevent_vignette_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>Sample size of the CE depends on the correlation <span
-class="math inline">\(\rho\)</span>. In general, sample size increases
-as the correlation also increases. The observed decrease in sample size
-for high correlations is due to the fact that if we keep the proportion
-of observed events fixed, the events in the second component would need
-to occur almost entirely before the end of the follow-up period to avoid
-being prevented from being observed by the competing first event.</p>
+<p>The required sample size for a trial with CE as primary endpoint
+depends on the correlation ρ. In general, sample size increases as the
+correlation also increases. The observed decrease in sample size for
+high correlations is due to the fact that if we keep the proportion of
+observed events fixed, the events in the second component would need to
+occur almost entirely before the end of the follow-up period to avoid
+not being observed due to the first competitive event.</p>
 </div>
 <div id="influence-of-hazards-rates-over-time-on-the-effect-size"
 class="section level3">
