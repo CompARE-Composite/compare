@@ -14,11 +14,11 @@ knitr::opts_chunk$set(echo = TRUE)  # Show code
 
 This example is based on the data from the [TUXEDO trial](https://doi.org/10.1056/nejmoa1510188) [1].
 
-The Taxus Element versus Xience Prime in a Diabetic Population (TUXEDO)–India study is an investigator-initiated, multicenter, randomized clinical trial. The trial protocol, which is available with the full text of this article at NEJM.org, was designed by the principal investigator (the first author). The trial was funded by Boston Scientific, the manufacturer of the paclitaxeleluting stent (Taxus Element).
+The Taxus Element versus Xience Prime in a Diabetic Population (TUXEDO)–India study is an investigator-initiated, multicenter, randomized clinical trial. The trial protocol is available with the full text of this article at NEJM.org. The trial was funded by Boston Scientific, the manufacturer of the paclitaxeleluting stent (Taxus Element). 
 
 ### Input Parameters
 
-First of all, the information for the components of the composite endpoint should be defined.
+To use the functions in CompAREdesign, we first of all need to include the information for the components of the composite endpoint.
 
 ```{r}
 ## Probabilities of observing the event in control arm at the end of follow-up
@@ -35,6 +35,7 @@ rho   <- 0.4
 
 ### ARE: Asymptotic Relatively Efficiency
 
+Aiming to compare the gain in power of using the composite endpoint over the most relevant of its components. One can use the function ARE. 
 As the ARE is greater than 1, we can state that the design using the composite endpoint is more efficient.
 
 ```{r}
@@ -46,7 +47,7 @@ ARE_cbe(p0_e1   = p0_e1  , p0_e2   = p0_e2,
 
 ### Effect size of the Composite Endpoint
 
-We can obtain the expected treatment effect based on the odds ratio (*OR*).
+If we can anticipate the baseline information of the composite components and expected effect sizes together with the correlation between the components, we can obtain the expected treatment effect on the composite endpoint (odds ratio, *OR*).
 
 ```{r}
 effectsize_cbe(p0_e1   = p0_e1  , p0_e2   = p0_e2, 
@@ -57,7 +58,7 @@ effectsize_cbe(p0_e1   = p0_e1  , p0_e2   = p0_e2,
 
 ### Sample size
 
-The required sample size for the design usign the composite endpoint is **2644**.
+Lastly, we can compute the required sample size for the design using the composite endpoint, in this case obtaining **2644**.
 
 ```{r}
 samplesize_cbe(p0_e1   = p0_e1  , p0_e2   = p0_e2, 
