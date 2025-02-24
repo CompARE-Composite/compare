@@ -9,13 +9,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content=" Marta Bofill Roig, Jordi Cortés Martínez and Guadalupe Gómez Melis" />
+<meta name="author" content="Marta Bofill Roig, Jordi Cortés Martínez and Guadalupe Gómez Melis" />
 
-<meta name="date" content="2025-02-12" />
+<meta name="date" content="2025-02-24" />
 
 <title>CompAREdesign: Binary endpoint</title>
 
-<script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -406,7 +406,7 @@ $(document).ready(function () {
 <h1 class="title toc-ignore">CompAREdesign: Binary endpoint</h1>
 <h4 class="author">Marta Bofill Roig, Jordi Cortés Martínez and
 Guadalupe Gómez Melis</h4>
-<h4 class="date">2025-02-12</h4>
+<h4 class="date">2025-02-24</h4>
 
 </div>
 
@@ -417,15 +417,15 @@ Guadalupe Gómez Melis</h4>
 href="https://doi.org/10.1056/nejmoa1510188">TUXEDO trial</a> [1].</p>
 <p>The Taxus Element versus Xience Prime in a Diabetic Population
 (TUXEDO)–India study is an investigator-initiated, multicenter,
-randomized clinical trial. The trial protocol, which is available with
-the full text of this article at NEJM.org, was designed by the principal
-investigator (the first author). The trial was funded by Boston
+randomized clinical trial. The trial protocol is available with the full
+text of this article at NEJM.org. The trial was funded by Boston
 Scientific, the manufacturer of the paclitaxeleluting stent (Taxus
 Element).</p>
 <div id="input-parameters" class="section level3">
 <h3>Input Parameters</h3>
-<p>First of all, the information for the components of the composite
-endpoint should be defined.</p>
+<p>To use the functions in CompAREdesign, we first of all need to
+include the information for the components of the composite
+endpoint.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="do">## Probabilities of observing the event in control arm at the end of follow-up</span></span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>p0_e1 <span class="ot">&lt;-</span> <span class="fl">0.059</span>    <span class="co"># Ischemia-driven target-lesion revascularization </span></span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>p0_e2 <span class="ot">&lt;-</span> <span class="fl">0.032</span>    <span class="co"># Cardiac death or target-vessel MI </span></span>
@@ -439,7 +439,9 @@ endpoint should be defined.</p>
 </div>
 <div id="are-asymptotic-relatively-efficiency" class="section level3">
 <h3>ARE: Asymptotic Relatively Efficiency</h3>
-<p>As the ARE is greater than 1, we can state that the design using the
+<p>Aiming to compare the gain in power of using the composite endpoint
+over the most relevant of its components. One can use the function ARE.
+As the ARE is greater than 1, we can state that the design using the
 composite endpoint is more efficient.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">ARE_cbe</span>(<span class="at">p0_e1   =</span> p0_e1  , <span class="at">p0_e2   =</span> p0_e2, </span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>        <span class="at">eff_e1  =</span> AR_e1  , <span class="at">eff_e2  =</span> AR_e2, </span>
@@ -449,8 +451,10 @@ composite endpoint is more efficient.</p>
 </div>
 <div id="effect-size-of-the-composite-endpoint" class="section level3">
 <h3>Effect size of the Composite Endpoint</h3>
-<p>We can obtain the expected treatment effect based on the odds ratio
-(<em>OR</em>).</p>
+<p>If we can anticipate the baseline information of the composite
+components and expected effect sizes together with the correlation
+between the components, we can obtain the expected treatment effect on
+the composite endpoint (odds ratio, <em>OR</em>).</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">effectsize_cbe</span>(<span class="at">p0_e1   =</span> p0_e1  , <span class="at">p0_e2   =</span> p0_e2, </span>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>               <span class="at">eff_e1  =</span> AR_e1  , <span class="at">eff_e2  =</span> AR_e2, </span>
 <span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>               <span class="at">effm_e1 =</span> <span class="st">&quot;diff&quot;</span> , <span class="at">effm_e2 =</span> <span class="st">&quot;diff&quot;</span>, <span class="at">effm_ce =</span> <span class="st">&quot;or&quot;</span>,</span>
@@ -460,8 +464,9 @@ composite endpoint is more efficient.</p>
 </div>
 <div id="sample-size" class="section level3">
 <h3>Sample size</h3>
-<p>The required sample size for the design usign the composite endpoint
-is <strong>2644</strong>.</p>
+<p>Lastly, we can compute the required sample size for the design using
+the composite endpoint, in this case obtaining
+<strong>2644</strong>.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">samplesize_cbe</span>(<span class="at">p0_e1   =</span> p0_e1  , <span class="at">p0_e2   =</span> p0_e2, </span>
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>               <span class="at">eff_e1  =</span> AR_e1  , <span class="at">eff_e2  =</span> AR_e2, </span>
 <span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>               <span class="at">effm_e1 =</span> <span class="st">&quot;diff&quot;</span> , <span class="at">effm_e2 =</span> <span class="st">&quot;diff&quot;</span>, <span class="at">effm_ce =</span> <span class="st">&quot;or&quot;</span>,</span>
