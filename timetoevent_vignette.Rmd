@@ -20,7 +20,7 @@ to its components.
 
 This example is based on the data from the [ZODIAC trial](https://doi.org/10.1016/S1470-2045(10)70132-7) [1]. ZODIAC was a multinational, randomised, double-blind, phase 3 study of vandetanib plus docetaxel (Sanofi - Aventis, Paris, France) versus placebo plus docetaxel in patients with locally advanced or metastatic NCSLC after progression following platinum-based first-line chemotherapy. The recent approval and increasing use of pemetrexed as first-line therapy in NSCLC suggest a continuing role for docetaxel as second-line therapy.
 
-We can use the information of thsi study to plan a new similar trial.
+We can use the information of this study to plan a new similar trial.
 
 ### Input Parameters
 
@@ -88,7 +88,7 @@ The meaning of all the parameters are described in the following table:
 |             |                                                                       |
 |             | 3.  Death is the primary event;                                       |
 |             |                                                                       |
-|             | 4.  Both events are death by different                                |
+|             | 4.  Both events are death by different causes                         |
 +-------------+-----------------------------------------------------------------------+
 
 ### ARE: Asymptotic Relatively Efficiency
@@ -106,7 +106,7 @@ events needed to attain the same power would be **8.79 times higher** if Endpoin
 1 were used instead of CE.
 
 **In this case if we are not sure about the value of the correlation  between** 
-**components, it is not a problem beacuse using the CE as the primary endpoint** 
+**components, it is not a problem because using the CE as the primary endpoint** 
 **results in a more statistically efficient trial design regardless of the** 
 **correlation &#961; because ARE(&#961;) > 1.**
 
@@ -166,12 +166,13 @@ samplesize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2,
                plot_print = TRUE) 
 ```
 
-The required sample size for a trial with CE as primary endpoint depends on the 
-correlation &#961;. In general, sample size increases as the correlation also 
-increases. The observed decrease in sample size for high correlations is due to 
-the fact that if we keep the proportion of observed events fixed, the events in 
-the second component would need to occur almost entirely before the end of the 
-follow-up period to avoid not being observed due to the first competitive event.
+The required sample size for a trial with the composite endpoint (CE) as the primary 
+endpoint depends on the correlation &#961;. In general, as the correlation increases, 
+the sample size also increases. The observed reduction in sample size for high 
+correlations occurs because, if the proportion of observed events is kept constant, 
+events in the second component must almost entirely occur before the end of the 
+follow-up period. This is necessary to prevent them from being unobserved due to 
+the occurrence of the first competitive event.
 
 ### Influence of hazards rates over time on the effect size
 
@@ -188,7 +189,7 @@ constant, while when there is an increasing risk of disease progression over tim
 the HR decreases over time.
 
 ```{r warning=FALSE}
-## Hazard rates over time Scenario 1
+## Hazards' rates over time Scenario 1
 beta_e1 <- 1    # Death               --> CONSTANT over time
 beta_e2 <- 2    # Disease Progression --> INCREASE over time
 effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2, 
@@ -198,7 +199,7 @@ effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2,
                copula  = copula   , case     = case, 
                plot_print = TRUE) 
 
-## Hazard rates over time Scenario 2
+## Hazards' rates over time Scenario 2
 beta_e1 <- 1    # Death               --> CONSTANT over time
 beta_e2 <- 1    # Disease Progression --> CONSTANT over time
 effectsize_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2, 
@@ -222,7 +223,7 @@ plot_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2,
          summary = TRUE) 
 ```
 
-If `summary=FALSE` it is possible to choose the plot to obtain ('survival', 'effect', 'ARE', 'samplesize') and even more it is possible to modify it.
+If `summary=FALSE`, you can select the plot to generate among different options (`survival`, `effect`, `ARE`, or `samplesize`) and further customize it as needed.
 
 ```{r}
 plot_tte(p0_e1   = p0_e1    , p0_e2    = p0_e2, 

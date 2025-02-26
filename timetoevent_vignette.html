@@ -11,11 +11,11 @@
 
 <meta name="author" content="Jordi Cortés Martínez, Marta Bofill Roig and Guadalupe Gómez Melis" />
 
-<meta name="date" content="2025-02-14" />
+<meta name="date" content="2025-02-25" />
 
 <title>CompAREdesign: Time-to-event endpoint</title>
 
-<script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -406,7 +406,7 @@ $(document).ready(function () {
 <h1 class="title toc-ignore">CompAREdesign: Time-to-event endpoint</h1>
 <h4 class="author">Jordi Cortés Martínez, Marta Bofill Roig and
 Guadalupe Gómez Melis</h4>
-<h4 class="date">2025-02-14</h4>
+<h4 class="date">2025-02-25</h4>
 
 </div>
 
@@ -425,7 +425,7 @@ NCSLC after progression following platinum-based first-line
 chemotherapy. The recent approval and increasing use of pemetrexed as
 first-line therapy in NSCLC suggest a continuing role for docetaxel as
 second-line therapy.</p>
-<p>We can use the information of thsi study to plan a new similar
+<p>We can use the information of this study to plan a new similar
 trial.</p>
 <div id="input-parameters" class="section level3">
 <h3>Input Parameters</h3>
@@ -520,7 +520,7 @@ over time)</td>
 <li><p>No deaths</p></li>
 <li><p>Death is the secondary event</p></li>
 <li><p>Death is the primary event;</p></li>
-<li><p>Both events are death by different</p></li>
+<li><p>Both events are death by different causes</p></li>
 </ol></td>
 </tr>
 </tbody>
@@ -543,7 +543,7 @@ attain the same power would be <strong>8.79 times higher</strong> if
 Endpoint 1 were used instead of CE.</p>
 <p><strong>In this case if we are not sure about the value of the
 correlation between</strong> <strong>components, it is not a problem
-beacuse using the CE as the primary endpoint</strong> <strong>results in
+because using the CE as the primary endpoint</strong> <strong>results in
 a more statistically efficient trial design regardless of the</strong>
 <strong>correlation ρ because ARE(ρ) &gt; 1.</strong></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">ARE_tte</span>(<span class="at">p0_e1   =</span> p0_e1    , <span class="at">p0_e2    =</span> p0_e2, </span>
@@ -553,7 +553,6 @@ a more statistically efficient trial design regardless of the</strong>
 <span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>        <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case,</span>
 <span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>        <span class="at">plot_print =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
 <p><img src="timetoevent_vignette_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<pre><code>## [1] 8.791</code></pre>
 </div>
 <div id="effect-size-of-the-composite-endpoint" class="section level3">
 <h3>Effect size of the Composite Endpoint</h3>
@@ -579,21 +578,12 @@ provided:</p>
 <li>Prob. CE (<strong>Probability of observing composite
 endpoint</strong>)</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">effectsize_tte</span>(<span class="at">p0_e1   =</span> p0_e1    , <span class="at">p0_e2    =</span> p0_e2, </span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>               <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>               <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>               <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>               <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case,</span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>               <span class="at">plot_print =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
-<pre><code>##  Effect measure Effect value | Group measure Reference Treated
-##  -------------- ------------ | ------------- --------- -------
-##  gAHR           0.8015       |                                
-##  AHR            0.8016       |                                
-##  RMST ratio     1.1633       | RMST          0.3918    0.4558 
-##  Median ratio   1.2321       | Median        0.3212    0.3958 
-##                              | Prob. E1      0.5900    0.5557 
-##                              | Prob. E2      0.7400    0.7125 
-##                              | Prob. CE      0.9300    0.8847</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">effectsize_tte</span>(<span class="at">p0_e1   =</span> p0_e1    , <span class="at">p0_e2    =</span> p0_e2, </span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>               <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>               <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>               <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>               <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case,</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>               <span class="at">plot_print =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
 <p><img src="timetoevent_vignette_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>In the figure above, a slight increase in the HR of the CE is
 observed over time.</p>
@@ -604,27 +594,23 @@ observed over time.</p>
 for the trial using the CE as the primary endpoint as well as the sample
 size for each component. In our case study, the sample size using the CE
 would be <strong>1118</strong>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">samplesize_tte</span>(<span class="at">p0_e1   =</span> p0_e1    , <span class="at">p0_e2    =</span> p0_e2, </span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>               <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>               <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>               <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>               <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case, </span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>               <span class="at">alpha   =</span> <span class="fl">0.025</span>    , <span class="at">power    =</span> <span class="fl">0.90</span>,</span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>               <span class="at">ss_formula =</span> <span class="st">&#39;schoenfeld&#39;</span>, </span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>               <span class="at">plot_print =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
-<pre><code>##  Endpoint           Total sample size
-##  --------           -----------------
-##  Endpoint 1         9744             
-##  Endpoint 2         1002             
-##  Composite endpoint 1118</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">samplesize_tte</span>(<span class="at">p0_e1   =</span> p0_e1    , <span class="at">p0_e2    =</span> p0_e2, </span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>               <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>               <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>               <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>               <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case, </span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>               <span class="at">alpha   =</span> <span class="fl">0.025</span>    , <span class="at">power    =</span> <span class="fl">0.90</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>               <span class="at">ss_formula =</span> <span class="st">&#39;schoenfeld&#39;</span>, </span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>               <span class="at">plot_print =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
 <p><img src="timetoevent_vignette_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>The required sample size for a trial with CE as primary endpoint
-depends on the correlation ρ. In general, sample size increases as the
-correlation also increases. The observed decrease in sample size for
-high correlations is due to the fact that if we keep the proportion of
-observed events fixed, the events in the second component would need to
-occur almost entirely before the end of the follow-up period to avoid
-not being observed due to the first competitive event.</p>
+<p>The required sample size for a trial with the composite endpoint (CE)
+as the primary endpoint depends on the correlation ρ. In general, as the
+correlation increases, the sample size also increases. The observed
+reduction in sample size for high correlations occurs because, if the
+proportion of observed events is kept constant, events in the second
+component must almost entirely occur before the end of the follow-up
+period. This is necessary to prevent them from being unobserved due to
+the occurrence of the first competitive event.</p>
 </div>
 <div id="influence-of-hazards-rates-over-time-on-the-effect-size"
 class="section level3">
@@ -641,71 +627,53 @@ increasing risk over time, while <span class="math inline">\(\beta_i
 class="math inline">\(\beta_i = 1\)</span> corresponds to a constant
 risk over time.</p>
 <p>To examine how this parameter influences the treatment effect of the
-composite endpoint (CE), the hazard ratio (HR) of the CE is plotted over
-time. When both risks are constant, the HR is almost constant, while
-when there is an increasing risk of disease progression over time, the
-HR decreases over time.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="do">## Hazard rates over time Scenario 1</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>beta_e1 <span class="ot">&lt;-</span> <span class="dv">1</span>    <span class="co"># Death --&gt; constant over time</span></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>beta_e2 <span class="ot">&lt;-</span> <span class="dv">2</span>    <span class="co"># Disease Progression --&gt; increase over time</span></span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="fu">effectsize_tte</span>(<span class="at">p0_e1   =</span> p0_e1    , <span class="at">p0_e2    =</span> p0_e2, </span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>               <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>               <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>               <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
-<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>               <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case, </span>
-<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>               <span class="at">plot_print =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
-<pre><code>##  Effect measure Effect value | Group measure Reference Treated
-##  -------------- ------------ | ------------- --------- -------
-##  gAHR           0.8046       |                                
-##  AHR            0.8046       |                                
-##  RMST ratio     1.1310       | RMST          0.3070    0.3472 
-##  Median ratio   1.1310       | Median        0.2820    0.3190 
-##                              | Prob. E1      0.5900    0.5557 
-##                              | Prob. E2      0.7400    0.7381 
-##                              | Prob. CE      0.9986    0.9943</code></pre>
+CE, the HR of the CE is plotted over time. When both risks are constant,
+the HR is almost constant, while when there is an increasing risk of
+disease progression over time, the HR decreases over time.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="do">## Hazards&#39; rates over time Scenario 1</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>beta_e1 <span class="ot">&lt;-</span> <span class="dv">1</span>    <span class="co"># Death               --&gt; CONSTANT over time</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>beta_e2 <span class="ot">&lt;-</span> <span class="dv">2</span>    <span class="co"># Disease Progression --&gt; INCREASE over time</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="fu">effectsize_tte</span>(<span class="at">p0_e1   =</span> p0_e1    , <span class="at">p0_e2    =</span> p0_e2, </span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>               <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>               <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>               <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>               <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case, </span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>               <span class="at">plot_print =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
 <p><img src="timetoevent_vignette_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="do">## Hazard rates over time Scenario 2</span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>beta_e1 <span class="ot">&lt;-</span> <span class="dv">1</span>    <span class="co"># Death --&gt; constant over time</span></span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>beta_e2 <span class="ot">&lt;-</span> <span class="dv">1</span>    <span class="co"># Disease Progression --&gt; constant over time</span></span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="fu">effectsize_tte</span>(<span class="at">p0_e1   =</span> p0_e1    , <span class="at">p0_e2    =</span> p0_e2, </span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>               <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>               <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>               <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>               <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case, </span>
-<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>               <span class="at">plot_print =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
-<pre><code>##  Effect measure Effect value | Group measure Reference Treated
-##  -------------- ------------ | ------------- --------- -------
-##  gAHR           0.8039       |                                
-##  AHR            0.8039       |                                
-##  RMST ratio     1.2055       | RMST          0.2804    0.3380 
-##  Median ratio   1.2454       | Median        0.1990    0.2478 
-##                              | Prob. E1      0.5900    0.5557 
-##                              | Prob. E2      0.7400    0.7332 
-##                              | Prob. CE      0.9676    0.9360</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="do">## Hazards&#39; rates over time Scenario 2</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>beta_e1 <span class="ot">&lt;-</span> <span class="dv">1</span>    <span class="co"># Death               --&gt; CONSTANT over time</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>beta_e2 <span class="ot">&lt;-</span> <span class="dv">1</span>    <span class="co"># Disease Progression --&gt; CONSTANT over time</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="fu">effectsize_tte</span>(<span class="at">p0_e1   =</span> p0_e1    , <span class="at">p0_e2    =</span> p0_e2, </span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>               <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>               <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>               <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>               <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case, </span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>               <span class="at">plot_print =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
 <p><img src="timetoevent_vignette_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
 </div>
 <div id="summary-plots" class="section level3">
 <h3>Summary plots</h3>
 <p><code>plot_tte</code> returns all the relevant plots for the trial
 design if <code>summary=TRUE</code>.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">plot_tte</span>(<span class="at">p0_e1   =</span> p0_e1    , <span class="at">p0_e2    =</span> p0_e2, </span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>         <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>         <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
-<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>         <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
-<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>         <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case, </span>
-<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>         <span class="at">summary =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">plot_tte</span>(<span class="at">p0_e1   =</span> p0_e1    , <span class="at">p0_e2    =</span> p0_e2, </span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>         <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>         <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>         <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>         <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case, </span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>         <span class="at">summary =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
 <p><img src="timetoevent_vignette_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<p>If <code>summary=FALSE</code> it is possible to choose the plot to
-obtain (‘survival’, ‘effect’, ‘ARE’, ‘samplesize’) and even more it is
-possible to modify it.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">plot_tte</span>(<span class="at">p0_e1   =</span> p0_e1    , <span class="at">p0_e2    =</span> p0_e2, </span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>         <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>         <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
-<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>         <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
-<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>         <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case, </span>
-<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>         <span class="at">summary =</span> <span class="cn">FALSE</span>    , <span class="at">type     =</span> <span class="st">&#39;ARE&#39;</span>) <span class="sc">+</span> </span>
-<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;Asymptotic Relative Efficiency&#39;</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="timetoevent_vignette_files/figure-html/unnamed-chunk-7-1.png" width="672" /><img src="timetoevent_vignette_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+<p>If <code>summary=FALSE</code>, you can select the plot to generate
+among different options (<code>survival</code>, <code>effect</code>,
+<code>ARE</code>, or <code>samplesize</code>) and further customize it
+as needed.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">plot_tte</span>(<span class="at">p0_e1   =</span> p0_e1    , <span class="at">p0_e2    =</span> p0_e2, </span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>         <span class="at">HR_e1   =</span> HR_e1    , <span class="at">HR_e2    =</span> HR_e2, </span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>         <span class="at">beta_e1 =</span> beta_e1  , <span class="at">beta_e2  =</span> beta_e2,  </span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>         <span class="at">rho     =</span> rho      , <span class="at">rho_type =</span> rho_type, </span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>         <span class="at">copula  =</span> copula   , <span class="at">case     =</span> case, </span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>         <span class="at">summary =</span> <span class="cn">FALSE</span>    , <span class="at">type     =</span> <span class="st">&#39;ARE&#39;</span>) <span class="sc">+</span> </span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;Asymptotic Relative Efficiency&#39;</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
+<p><img src="timetoevent_vignette_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 </div>
 <div id="references" class="section level2">
